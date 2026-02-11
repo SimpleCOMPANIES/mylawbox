@@ -122,14 +122,13 @@ export default function Home({ onNavigateContact }) {
               Trusted by top personal injury firms nationwide
             </div>
             <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] text-white">
-              Scale your firm.<br />Not your overhead.
+              Hyperscale your firm.<br />Not your overhead.
             </h1>
-            
-            <p className="text-xl md:text-2xl text-slate-300 mb-10 leading-relaxed max-w-2xl font-light">
-              From Lead to Settlement. Effortlessly.            
+            <p className="text-xl md:text-2xl text-white mb-10 leading-relaxed max-w-3xl font-light">
+            Lawbox is the nations Gold Standard for AI powered pre-litigation            
             </p>
-            <p className="text-lg text-slate-400 mb-10 leading-relaxed max-w-2xl">
-              Expert pre-litigation team powered by world-class AI—handling everything from intake to demand, so you can focus on winning cases.
+            <p className="text-lg text-white mb-10 leading-relaxed max-w-3xl">
+            Effortlessly remove friction from Intake to Settlement, handle more cases less headaches.            
             </p>
             <div className="flex flex-col sm:flex-row gap-5">
               <Button size="lg" className="text-white text-lg px-10 py-7 font-bold shadow-2xl transition-all border-2" style={{ backgroundColor: '#C9A961', borderColor: 'rgba(201, 169, 97, 0.3)', boxShadow: '0 20px 50px rgba(201, 169, 97, 0.3)' }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#B8941F'; e.currentTarget.style.boxShadow = '0 25px 60px rgba(201, 169, 97, 0.4)'; }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#C9A961'; e.currentTarget.style.boxShadow = '0 20px 50px rgba(201, 169, 97, 0.3)'; }} onClick={onNavigateContact}>
