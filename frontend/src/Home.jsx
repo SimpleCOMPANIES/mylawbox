@@ -85,18 +85,18 @@ export default function Home({ onNavigateContact }) {
         }
       `}</style>
       {/* Navigation - Clean, professional header */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white backdrop-blur-md border-b border-gray-200 shadow-lg">
+      <nav className="fixed top-0 left-0 right-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            <div className="text-4xl md:text-4xl font-bold" style={{ fontFamily: "'Aref Ruqaa', serif", letterSpacing: '-0.02em', fontWeight: '700', color: '#0A1628' }}>LawBOX</div>
+          <div className="flex items-center justify-between h-16 md:h-20">
+            <div className="text-2xl sm:text-3xl md:text-4xl font-bold" style={{ fontFamily: "'Aref Ruqaa', serif", letterSpacing: '-0.02em', fontWeight: '700', color: '#FFFFFF' }}>LawBOX</div>
             
             <div className="hidden md:flex items-center gap-8">
-              <a href="#how-it-works" className="text-sm font-semibold transition-colors" style={{ color: '#64748B' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = '#64748B'}>How it Works</a>
-              <a href="#services" className="text-sm font-semibold transition-colors" style={{ color: '#64748B' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = '#64748B'}>Services</a>
-              <a href="#team" className="text-sm font-semibold transition-colors" style={{ color: '#64748B' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = '#64748B'}>About</a>
+              <a href="#how-it-works" className="text-sm font-semibold transition-colors" style={{ color: 'rgba(255, 255, 255, 0.85)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.85)'}>How it Works</a>
+              <a href="#services" className="text-sm font-semibold transition-colors" style={{ color: 'rgba(255, 255, 255, 0.85)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.85)'}>Services</a>
+              <a href="#team" className="text-sm font-semibold transition-colors" style={{ color: 'rgba(255, 255, 255, 0.85)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.85)'}>About</a>
             </div>
             
-            <Button className="text-white font-bold shadow-lg hover:shadow-xl transition-all" style={{ backgroundColor: '#C9A961' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#B8941F'} onMouseLeave={(e) => e.target.style.backgroundColor = '#C9A961'} onClick={onNavigateContact}>
+            <Button className="text-white text-sm md:text-base font-bold shadow-lg hover:shadow-xl transition-all px-4 py-2 md:px-6 md:py-2.5" style={{ backgroundColor: '#C9A961' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#B8941F'} onMouseLeave={(e) => e.target.style.backgroundColor = '#C9A961'} onClick={onNavigateContact}>
               Schedule a Call
             </Button>
           </div>
@@ -104,8 +104,8 @@ export default function Home({ onNavigateContact }) {
       </nav>
 
       {/* Hero Section - Left-aligned, photography-driven */}
-      <section className="relative pt-32 pb-24 md:pt-40 md:pb-36 overflow-hidden texture-overlay">
-        {/* Real photography background */}
+      <section className="relative pt-24 pb-16 sm:pt-28 sm:pb-20 md:pt-40 md:pb-36 overflow-hidden texture-overlay" style={{ marginTop: '-80px', paddingTop: 'calc(80px + 6rem)' }}>
+        {/* Real photography background - extends behind navbar */}
         <div className="absolute inset-0">
           <img 
             src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=2400&q=80" 
@@ -115,23 +115,23 @@ export default function Home({ onNavigateContact }) {
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom right, #0A1628, #1A2740, #0A1628)' }} />
         </div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 backdrop-blur-sm border px-4 py-2 rounded-md text-sm font-bold mb-10" style={{ backgroundColor: 'rgba(201, 169, 97, 0.1)', borderColor: 'rgba(201, 169, 97, 0.3)', color: '#C9A961' }}>
-              <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: '#C9A961' }}></span>
+            <div className="inline-flex items-center gap-2 backdrop-blur-sm border px-3 py-1.5 sm:px-4 sm:py-2 rounded-md text-xs sm:text-sm font-bold mb-6 sm:mb-10" style={{ backgroundColor: 'rgba(201, 169, 97, 0.1)', borderColor: 'rgba(201, 169, 97, 0.3)', color: '#C9A961' }}>
+              <span className="w-2 h-2 rounded-full animate-pulse flex-shrink-0" style={{ backgroundColor: '#C9A961' }}></span>
               Trusted by top personal injury firms nationwide
             </div>
-            <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] text-white">
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-5 sm:mb-8 leading-[1.15] sm:leading-[1.1] text-white">
               Hyperscale your firm.<br />Not your overhead.
             </h1>
-            <p className="text-xl md:text-2xl text-white mb-10 leading-relaxed max-w-3xl font-light">
+            <p className="text-lg sm:text-xl md:text-2xl text-white mb-5 sm:mb-10 leading-relaxed max-w-3xl font-light">
             Lawbox is the nations Gold Standard for AI powered pre-litigation            
             </p>
-            <p className="text-lg text-white mb-10 leading-relaxed max-w-3xl">
+            <p className="text-base sm:text-lg text-white mb-8 sm:mb-10 leading-relaxed max-w-3xl">
             Effortlessly remove friction from Intake to Settlement, handle more cases less headaches.            
             </p>
-            <div className="flex flex-col sm:flex-row gap-5">
-              <Button size="lg" className="text-white text-lg px-10 py-7 font-bold shadow-2xl transition-all border-2" style={{ backgroundColor: '#C9A961', borderColor: 'rgba(201, 169, 97, 0.3)', boxShadow: '0 20px 50px rgba(201, 169, 97, 0.3)' }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#B8941F'; e.currentTarget.style.boxShadow = '0 25px 60px rgba(201, 169, 97, 0.4)'; }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#C9A961'; e.currentTarget.style.boxShadow = '0 20px 50px rgba(201, 169, 97, 0.3)'; }} onClick={onNavigateContact}>
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
+              <Button size="lg" className="text-white text-base sm:text-lg px-8 py-5 sm:px-10 sm:py-7 font-bold shadow-2xl transition-all border-2 w-full sm:w-auto justify-center" style={{ backgroundColor: '#C9A961', borderColor: 'rgba(201, 169, 97, 0.3)', boxShadow: '0 20px 50px rgba(201, 169, 97, 0.3)' }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#B8941F'; e.currentTarget.style.boxShadow = '0 25px 60px rgba(201, 169, 97, 0.4)'; }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#C9A961'; e.currentTarget.style.boxShadow = '0 20px 50px rgba(201, 169, 97, 0.3)'; }} onClick={onNavigateContact}>
                 Schedule a Call
                 <ArrowRight className="ml-3 w-5 h-5" />
               </Button>
