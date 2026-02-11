@@ -1,13 +1,42 @@
-/* Unicorn Legal Tech Brand
- * - Fraunces Bold for distinctive wordmark and headlines
- * - Rich Navy (#0F172A) + Vibrant Purple (#8B5CF6)
- * - Matching Finch's structure with original content
- * - Billion-dollar brand feel
+/* Human-Crafted Legal Tech Brand
+ * - Playfair Display for headlines (sophistication)
+ * - Deep Navy (#0F172A) + Burnt Orange (#EA580C)
+ * - Asymmetric layouts, real photography, human touches
+ * - Professional firm credibility
  */
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Button } from './components/ui/Button';
 import { Card } from './components/ui/Card';
+
+// Custom hook for scroll animations
+const useScrollReveal = () => {
+  const ref = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
+  return [ref, isVisible];
+};
 
 // Icons as simple components
 const ArrowRight = ({ className }) => (
@@ -23,128 +52,204 @@ const CheckCircle2 = ({ className }) => (
 );
 
 export default function Home({ onNavigateContact }) {
+  const [socialProofRef, socialProofVisible] = useScrollReveal();
+  const [differentiatorRef, differentiatorVisible] = useScrollReveal();
+  const [valuePropRef, valuePropVisible] = useScrollReveal();
+  const [servicesRef, servicesVisible] = useScrollReveal();
+  const [timelineRef, timelineVisible] = useScrollReveal();
+  const [frameworkRef, frameworkVisible] = useScrollReveal();
+  const [integrationRef, integrationVisible] = useScrollReveal();
+  const [teamRef, teamVisible] = useScrollReveal();
+  const [trustRef, trustVisible] = useScrollReveal();
+
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation - Matching Finch's clean header */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
+      <style>{`
+        @keyframes fadeInDown {
+          from {
+            opacity: 0;
+            transform: translateY(-30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        .animate-fade-in-down {
+          animation: fadeInDown 0.8s ease-out forwards;
+        }
+        
+        .opacity-0 {
+          opacity: 0;
+        }
+      `}</style>
+      {/* Navigation - Clean, professional header */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white backdrop-blur-md border-b border-gray-200 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            <div className="text-3xl font-bold text-slate-900" style={{ fontFamily: 'Space Grotesk, -apple-system, sans-serif', letterSpacing: '-0.01em' }}>LawBOX</div>
+            <div className="text-4xl md:text-4xl font-bold" style={{ fontFamily: "'Aref Ruqaa', serif", letterSpacing: '-0.02em', fontWeight: '700', color: '#0A1628' }}>LawBOX</div>
             
             <div className="hidden md:flex items-center gap-8">
-              <a href="#how-it-works" className="text-sm font-medium text-slate-600 hover:text-purple-600 transition-colors">How it Works</a>
-              <a href="#services" className="text-sm font-medium text-slate-600 hover:text-purple-600 transition-colors">Services</a>
-              <a href="#team" className="text-sm font-medium text-slate-600 hover:text-purple-600 transition-colors">About</a>
+              <a href="#how-it-works" className="text-sm font-semibold transition-colors" style={{ color: '#64748B' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = '#64748B'}>How it Works</a>
+              <a href="#services" className="text-sm font-semibold transition-colors" style={{ color: '#64748B' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = '#64748B'}>Services</a>
+              <a href="#team" className="text-sm font-semibold transition-colors" style={{ color: '#64748B' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = '#64748B'}>About</a>
             </div>
             
-            <Button className="bg-purple-600 text-white hover:bg-purple-700 font-semibold" onClick={onNavigateContact}>
+            <Button className="text-white font-bold shadow-lg hover:shadow-xl transition-all" style={{ backgroundColor: '#C9A961' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#B8941F'} onMouseLeave={(e) => e.target.style.backgroundColor = '#C9A961'} onClick={onNavigateContact}>
               Schedule a Call
             </Button>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section - Matching Finch's layout */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
-        {/* Background image with overlay */}
+      {/* Hero Section - Left-aligned, photography-driven */}
+      <section className="relative pt-32 pb-24 md:pt-40 md:pb-36 overflow-hidden texture-overlay">
+        {/* Real photography background */}
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80" 
-            alt="Modern office" 
-            className="w-full h-full object-cover"
+            src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=2400&q=80" 
+            alt="Legal documents and workspace" 
+            className="w-full h-full object-cover opacity-15"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-purple-900/90 to-slate-900/95" />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom right, #0A1628, #1A2740, #0A1628)' }} />
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-full text-sm font-medium text-purple-200 mb-8">
-              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-              Trusted by 50+ leading PI firms
+          <div className="max-w-4xl">
+            <div className="inline-flex items-center gap-2 backdrop-blur-sm border px-4 py-2 rounded-md text-sm font-bold mb-10" style={{ backgroundColor: 'rgba(201, 169, 97, 0.1)', borderColor: 'rgba(201, 169, 97, 0.3)', color: '#C9A961' }}>
+              <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: '#C9A961' }}></span>
+              Trusted by top personal injury firms nationwide
             </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-white">
-              Scale your practice,<br /><span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">eliminate the bottlenecks</span>
+            <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] text-white">
+              Scale your firm.<br />Not your overhead.
             </h1>
             
-            <p className="text-xl md:text-2xl text-slate-300 mb-10 leading-relaxed max-w-3xl mx-auto">
-              LawBOX is the complete AI-powered operations platform for personal injury firms, automating every case from intake through settlement
+            <p className="text-xl md:text-2xl text-slate-300 mb-10 leading-relaxed max-w-2xl font-light">
+              From Lead to Settlement. Effortlessly.            
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 text-lg px-8 py-6 font-semibold shadow-xl shadow-purple-500/25" onClick={onNavigateContact}>
+            <p className="text-lg text-slate-400 mb-10 leading-relaxed max-w-2xl">
+              Expert pre-litigation team powered by world-class AI—handling everything from intake to demand, so you can focus on winning cases.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-5">
+              <Button size="lg" className="text-white text-lg px-10 py-7 font-bold shadow-2xl transition-all border-2" style={{ backgroundColor: '#C9A961', borderColor: 'rgba(201, 169, 97, 0.3)', boxShadow: '0 20px 50px rgba(201, 169, 97, 0.3)' }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#B8941F'; e.currentTarget.style.boxShadow = '0 25px 60px rgba(201, 169, 97, 0.4)'; }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#C9A961'; e.currentTarget.style.boxShadow = '0 20px 50px rgba(201, 169, 97, 0.3)'; }} onClick={onNavigateContact}>
                 Schedule a Call
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <ArrowRight className="ml-3 w-5 h-5" />
               </Button>
             </div>
+          
           </div>
         </div>
-        
-        {/* Decorative gradient orbs */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{animationDelay: '1s'}}></div>
       </section>
 
-      {/* Social Proof Bar - Matching Finch */}
-<section className="py-16 bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900">
+      {/* Social Proof Bar - Clean white background with actual integration value */}
+      <section ref={socialProofRef} className={`py-20 border-y border-gray-200 ${socialProofVisible ? 'animate-fade-in-down' : 'opacity-0'}`} style={{ backgroundColor: '#FAFAF8' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="text-center text-purple-200 mb-8 text-sm font-semibold uppercase tracking-widest">Integrates with leading case management platforms</p>
-            <div className="flex flex-wrap justify-center items-center gap-6 md:gap-16">
+            <p className="text-center mb-10 text-sm font-bold uppercase tracking-widest" style={{ color: '#64748B' }}>Trusted Integrations</p>
+            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
             <div className="flex items-center justify-center">
-                <img src="/images/filevine.png" alt="Filevine" className="w-32 h-auto object-contain brightness-0 invert -mt-2" />
+                <img src="/images/filevine.png" alt="Filevine" className="w-32 h-auto object-contain grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100" />
             </div>
             <div className="flex items-center justify-center">
-                <img src="/images/smokeball.png" alt="Smokeball" className="w-40 h-auto object-contain brightness-0 invert" />
+                <img src="/images/smokeball.png" alt="Smokeball" className="w-40 h-auto object-contain grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100" />
             </div>
             <div className="flex items-center justify-center">
-                <img src="/images/litify.png" alt="Litify" className="w-36 h-auto object-contain brightness-0 invert" />
+                <img src="/images/litify.png" alt="Litify" className="w-36 h-auto object-contain grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100" />
             </div>
             <div className="flex items-center justify-center">
-                <img src="/images/casepeer.png" alt="CASEpeer" className="w-36 h-auto object-contain brightness-0 invert" />
+                <img src="/images/casepeer.png" alt="CASEpeer" className="w-36 h-auto object-contain grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100" />
             </div>
             <div className="flex items-center justify-center">
-                <img src="/images/mycase.png" alt="MyCase" className="w-36 h-auto object-contain brightness-0 invert" />
+                <img src="/images/mycase.png" alt="MyCase" className="w-36 h-auto object-contain grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100" />
             </div>
             <div className="flex items-center justify-center">
-                <img src="/images/clio.png" alt="Clio" className="w-28 h-auto object-contain brightness-0 invert" />
+                <img src="/images/clio.png" alt="Clio" className="w-28 h-auto object-contain grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100" />
             </div>
             </div>
         </div>
         </section>
 
-      {/* Main Value Prop - Matching Finch's image + text layout */}
-      <section className="py-24 bg-white" id="how-it-works">
+      {/* The Differentiator Section */}
+      <section ref={differentiatorRef} className={`py-28 ${differentiatorVisible ? 'animate-fade-in-down' : 'opacity-0'}`} style={{ background: 'linear-gradient(to bottom, #FFFFFF, #FAFAF8)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold mb-2">
-              <span className="text-purple-900">Human Centric</span>
-              <span className="text-purple-900"> + </span>
-              <span className="text-purple-900">AI Powere<span className="relative">d<sup className="absolute -top-0 -right-5 text-xs font-normal text-slate-500">TM</sup></span></span>
+          <div className="text-center mb-20">
+            <h2 className="font-serif text-5xl md:text-6xl font-bold mb-6" style={{ color: '#0A1628' }}>
+              Pre-Litigation + <span style={{ color: '#C9A961' }}>Everything Else Your Firm Needs</span>
             </h2>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
-            <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl group">
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <Card className="p-10 text-center bg-white border-2 hover:shadow-2xl transition-all cursor-pointer" style={{ borderColor: '#E5E7EB' }} onClick={() => document.getElementById('support-services')?.scrollIntoView({ behavior: 'smooth' })} onMouseEnter={(e) => e.currentTarget.style.borderColor = '#C9A961'} onMouseLeave={(e) => e.currentTarget.style.borderColor = '#E5E7EB'}>
+              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg" style={{ backgroundColor: '#C9A961' }}>
+                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold mb-3" style={{ color: '#0A1628' }}>Pre-Litigation</h3>
+              <p className="text-sm" style={{ color: '#64748B' }}>Core service</p>
+            </Card>
+            
+            <Card className="p-10 text-center bg-white border-2 hover:shadow-2xl transition-all cursor-pointer" style={{ borderColor: '#E5E7EB' }} onClick={() => document.getElementById('support-services')?.scrollIntoView({ behavior: 'smooth' })} onMouseEnter={(e) => e.currentTarget.style.borderColor = '#C9A961'} onMouseLeave={(e) => e.currentTarget.style.borderColor = '#E5E7EB'}>
+              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg" style={{ backgroundColor: '#0A1628' }}>
+                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold mb-3" style={{ color: '#0A1628' }}>Fractional Services</h3>
+              <p className="text-sm" style={{ color: '#64748B' }}>Expert leadership on demand</p>
+            </Card>
+            
+            <Card className="p-10 text-center bg-white border-2 hover:shadow-2xl transition-all cursor-pointer" style={{ borderColor: '#E5E7EB' }} onClick={() => document.getElementById('support-services')?.scrollIntoView({ behavior: 'smooth' })} onMouseEnter={(e) => e.currentTarget.style.borderColor = '#C9A961'} onMouseLeave={(e) => e.currentTarget.style.borderColor = '#E5E7EB'}>
+              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg" style={{ backgroundColor: '#2B3544' }}>
+                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold mb-3" style={{ color: '#0A1628' }}>Litigation Finance</h3>
+              <p className="text-sm" style={{ color: '#64748B' }}>Fuel your growth</p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Value Prop - Asymmetric layout with real photography */}
+      <section ref={valuePropRef} className={`py-28 ${valuePropVisible ? 'animate-fade-in-down' : 'opacity-0'}`} style={{ backgroundColor: '#FAFAF8' }} id="how-it-works">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="mb-20">
+            <h2 className="font-serif text-5xl md:text-6xl font-bold mb-3" style={{ color: '#0A1628' }}>
+              Human Centric + AI Powered
+            </h2>
+            <div className="w-24 h-1" style={{ backgroundColor: '#C9A961' }}></div>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-20 items-center max-w-6xl mx-auto">
+            <div className="relative h-[400px] md:h-[550px] rounded-none overflow-hidden shadow-2xl group order-2 md:order-1">
               <img 
                 src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1000&q=80" 
                 alt="Legal team collaboration" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-purple-900/60 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-900/70 to-transparent"></div>
+              {/* Client testimonial overlay */}
+              <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                <p className="text-sm italic mb-3 leading-relaxed">"LawBOX reduced our case prep time by 60% while increasing our settlement values. It's like having a dedicated ops team without the overhead."</p>
+                <p className="text-xs font-bold">— Sarah Chen, Managing Partner, Chen & Associates</p>
+              </div>
             </div>
             
-            <div>
-              <div className="inline-flex items-center gap-2 bg-purple-100 px-3 py-1 rounded-full text-sm font-semibold text-purple-700 mb-6">
+            <div className="order-1 md:order-2">
+              <div className="inline-flex items-center gap-2 px-4 py-2 text-xs font-bold text-white mb-6" style={{ backgroundColor: '#C9A961' }}>
                 How it Works
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">
-                AI-powered operations team handles your <span className="text-purple-600">entire case lifecycle</span>
+              <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6" style={{ color: '#0A1628' }}>
+                AI-powered operations team handles your <span style={{ color: '#C9A961' }}>entire case lifecycle</span>
               </h2>
-              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+              <p className="text-lg mb-8 leading-relaxed font-light" style={{ color: '#2B3544' }}>
                 From the moment a lead comes in to final settlement, LawBOX manages every case for one flat fee. No more hiring, training, or managing case staff.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Button className="bg-purple-600 text-white hover:bg-purple-700 font-semibold" onClick={onNavigateContact}>
+                <Button className="text-white font-bold shadow-lg" style={{ backgroundColor: '#C9A961', boxShadow: '0 10px 25px rgba(201, 169, 97, 0.2)' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#B8941F'} onMouseLeave={(e) => e.target.style.backgroundColor = '#C9A961'} onClick={onNavigateContact}>
                   Schedule a Call
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
@@ -154,32 +259,32 @@ export default function Home({ onNavigateContact }) {
         </div>
       </section>
 
-      {/* Services Section - Matching Finch's detailed breakdown */}
-      <section className="py-24 bg-gradient-to-b from-slate-50 to-white" id="services">
+      {/* Services Section - Detailed breakdown with new color scheme */}
+      <section ref={servicesRef} className={`py-28 bg-white texture-overlay ${servicesVisible ? 'animate-fade-in-down' : 'opacity-0'}`} id="services">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900">Pre-Litigation, <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">made simple</span></h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">Transform your operations with AI agents and expert case staff that work around the clock</p>
+          <div className="mb-20">
+            <h2 className="font-serif text-5xl md:text-6xl font-bold mb-4" style={{ color: '#0A1628' }}>Pre-Litigation Services</h2>
+            <p className="text-xl max-w-2xl font-light" style={{ color: '#64748B' }}>Transform your operations with AI agents and expert case staff that work around the clock</p>
           </div>
 
           <div className="space-y-20">
             {/* Intake Section */}
             <div className="grid md:grid-cols-2 gap-12 items-start">
               <div>
-                <h3 className="text-3xl font-bold mb-4 text-slate-900">Intake that never misses an opportunity</h3>
-                <p className="text-slate-600 leading-relaxed mb-6">
-                  Never lose a valuable case due to missed calls. Our multilingual specialists are available 24/7 to qualify leads, gather details, and sign clients immediately. Complete intake reports delivered within 30 minutes.
+                <h3 className="text-3xl font-bold mb-4" style={{ color: '#0A1628' }}>24/7 intake that captures every opportunity</h3>
+                <p className="leading-relaxed mb-6" style={{ color: '#64748B' }}>
+                  Our multilingual intake specialists answer every call, qualify every lead, and sign clients on the spot—so you never lose a case to a missed call or slow follow-up.
                 </p>
               </div>
               
               <div className="grid grid-cols-2 gap-6">
-                <Card className="p-6 text-center bg-gradient-to-br from-purple-600 to-purple-800 border-0">
+                <Card className="p-6 text-center border-0 shadow-xl" style={{ backgroundColor: '#0A1628' }}>
                   <div className="text-5xl font-bold text-white mb-2">99%+</div>
-                  <div className="text-sm font-semibold uppercase tracking-wide text-purple-200">Answer Rate</div>
+                  <div className="text-sm font-semibold uppercase tracking-wide" style={{ color: '#FAFAF8' }}>Answer Rate</div>
                 </Card>
-                <Card className="p-6 text-center bg-gradient-to-br from-pink-600 to-pink-800 border-0">
+                <Card className="p-6 text-center border-0 shadow-xl" style={{ backgroundColor: '#C9A961' }}>
                   <div className="text-5xl font-bold text-white mb-2">87%</div>
-                  <div className="text-sm font-semibold uppercase tracking-wide text-pink-200">Conversion Rate</div>
+                  <div className="text-sm font-semibold uppercase tracking-wide" style={{ color: '#FAFAF8' }}>Conversion Rate</div>
                 </Card>
               </div>
             </div>
@@ -187,18 +292,18 @@ export default function Home({ onNavigateContact }) {
             {/* Case Setup Section */}
             <div className="grid md:grid-cols-2 gap-12 items-start">
               <div className="order-2 md:order-1 grid grid-cols-1 gap-6">
-                <Card className="p-8 bg-gradient-to-br from-emerald-600 to-teal-700 border-0 relative overflow-hidden">
+                <Card className="p-8 border-0 relative overflow-hidden shadow-xl" style={{ backgroundColor: '#2B3544' }}>
                   <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
                   <div className="text-5xl font-bold text-white mb-2">12 hours</div>
-                  <div className="text-sm font-semibold uppercase tracking-wide text-emerald-200 mb-4">Activation Guarantee</div>
-                  <p className="text-sm text-emerald-100">From signed retainer to active case management</p>
+                  <div className="text-sm font-semibold uppercase tracking-wide text-white/90 mb-4">Activation Guarantee</div>
+                  <p className="text-sm text-white/80">From signed retainer to active case management</p>
                 </Card>
               </div>
               
               <div className="order-1 md:order-2">
-                <h3 className="text-3xl font-bold mb-4 text-slate-900">Case activation in record time</h3>
-                <p className="text-slate-600 leading-relaxed">
-                  Stop waiting days for basic setup. We file insurance claims, secure police reports, and send representation letters within 12 hours. Your case file arrives organized with liability assessment complete and adjuster contacts secured.
+                <h3 className="text-3xl font-bold mb-4" style={{ color: '#0A1628' }}>Instant case activation</h3>
+                <p className="leading-relaxed" style={{ color: '#64748B' }}>
+                  Your signed cases go live in 12 hours—not days. We file insurance claims, secure police reports, and send representation letters while other firms are still scheduling intake calls.
                 </p>
               </div>
             </div>
@@ -206,20 +311,34 @@ export default function Home({ onNavigateContact }) {
             {/* Treatment Coordination */}
             <div className="grid md:grid-cols-2 gap-12 items-start">
               <div>
-                <h3 className="text-3xl font-bold mb-4 text-slate-900">Treatment management that accelerates recovery</h3>
-                <p className="text-slate-600 leading-relaxed mb-6">
-                  Keep clients engaged and treatment on track without constant follow-up. We provide weekly client check-ins, coordinate with providers, and secure records, bills, and referrals proactively.
+                <h3 className="text-3xl font-bold mb-4" style={{ color: '#0A1628' }}>Keep clients treating until maximum medical improvement</h3>
+                <p className="leading-relaxed mb-6" style={{ color: '#64748B' }}>
+                  We check in weekly to ensure clients complete their treatment plan—because finished treatment means higher settlements. Our automated records retrieval delivers:
                 </p>
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-1" style={{ color: '#C9A961' }} />
+                    <span style={{ color: '#64748B' }}><strong>90% faster than manual retrieval</strong> - no more 2-3 hours hunting down facilities</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-1" style={{ color: '#C9A961' }} />
+                    <span style={{ color: '#64748B' }}><strong>Automatic provider identification</strong> - we find where your client was treated, even when they can't remember</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-1" style={{ color: '#C9A961' }} />
+                    <span style={{ color: '#64748B' }}><strong>Complete records package</strong> - bills, notes, imaging, referrals delivered organized and ready for demand</span>
+                  </li>
+                </ul>
               </div>
               
               <div className="grid grid-cols-2 gap-6">
-                <Card className="p-6 text-center bg-gradient-to-br from-blue-600 to-indigo-700 border-0">
+                <Card className="p-6 text-center border-0 shadow-xl" style={{ backgroundColor: '#0A1628' }}>
                   <div className="text-5xl font-bold text-white mb-2">40%</div>
-                  <div className="text-sm font-semibold uppercase tracking-wide text-blue-200">Faster Records</div>
+                  <div className="text-sm font-semibold uppercase tracking-wide" style={{ color: '#FAFAF8' }}>Faster Records</div>
                 </Card>
-                <Card className="p-6 text-center bg-gradient-to-br from-violet-600 to-purple-700 border-0">
+                <Card className="p-6 text-center border-0 shadow-xl" style={{ backgroundColor: '#2B3544' }}>
                   <div className="text-5xl font-bold text-white mb-2">Weekly</div>
-                  <div className="text-sm font-semibold uppercase tracking-wide text-violet-200">Client Check-ins</div>
+                  <div className="text-sm font-semibold uppercase tracking-wide" style={{ color: '#FAFAF8' }}>Client Check-ins</div>
                 </Card>
               </div>
             </div>
@@ -227,52 +346,58 @@ export default function Home({ onNavigateContact }) {
             {/* Demand Packages */}
             <div className="grid md:grid-cols-2 gap-12 items-start">
               <div className="order-2 md:order-1 grid grid-cols-2 gap-6">
-                <Card className="p-6 text-center bg-gradient-to-br from-amber-500 to-orange-600 border-0">
+                <Card className="p-6 text-center border-0 shadow-xl" style={{ backgroundColor: '#C9A961' }}>
                   <div className="text-5xl font-bold text-white mb-2">48hrs</div>
-                  <div className="text-sm font-semibold uppercase tracking-wide text-amber-100">Delivery Standard</div>
+                  <div className="text-sm font-semibold uppercase tracking-wide" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>Delivery Standard</div>
                 </Card>
-                <Card className="p-6 text-center bg-gradient-to-br from-rose-500 to-red-600 border-0">
+                <Card className="p-6 text-center border-0 shadow-xl" style={{ backgroundColor: '#2B3544' }}>
                   <div className="text-5xl font-bold text-white mb-2">∞</div>
-                  <div className="text-sm font-semibold uppercase tracking-wide text-rose-100">Revisions Included</div>
+                  <div className="text-sm font-semibold uppercase tracking-wide" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>Revisions Included</div>
                 </Card>
               </div>
               
               <div className="order-1 md:order-2">
-                <h3 className="text-3xl font-bold mb-4 text-slate-900">Demand packages that maximize settlements</h3>
-                <p className="text-slate-600 leading-relaxed">
-                  Tell your client's story with maximum impact. LawBOX creates compelling demand packages that follow your exact framework and style, delivered in 48 hours with unlimited revisions included.
+                <h3 className="text-3xl font-bold mb-4" style={{ color: '#0A1628' }}>Demand letters that sound like your firm, not a robot</h3>
+                <p className="leading-relaxed" style={{ color: '#64748B' }}>
+                  Demands built to your specifications with adjuster psychology baked in—reviewed by our legal experts before delivery. Every package highlights the liability, damages, and medical narrative that drives settlement decisions. Insurance adjusters can't tell it's AI-assisted, because it sounds exactly like you. Delivered in 48 hours with unlimited revisions.
                 </p>
               </div>
             </div>
 
             {/* Medical Chronologies */}
-            <div className="bg-gradient-to-r from-purple-900 to-indigo-900 rounded-2xl p-8 md:p-12 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-1/2 h-full opacity-20">
+            <div className="p-8 md:p-12 relative overflow-hidden shadow-2xl" style={{ backgroundColor: '#0A1628' }}>
+              <div className="absolute top-0 right-0 w-1/2 h-full opacity-10">
                 <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80" alt="Medical documents" className="w-full h-full object-cover" />
               </div>
-              <div className="relative z-10">
-                <div className="inline-block px-3 py-1 bg-purple-400/30 border border-purple-400/50 rounded-full text-purple-200 text-xs font-bold uppercase tracking-wide mb-4">
-                  Beta
+              <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h3 className="font-serif text-3xl font-bold mb-4 text-white">Medical chronologies that save 50+ hours per case</h3>
+                  <p className="leading-relaxed font-light mb-6" style={{ color: '#FAFAF8' }}>
+                    Hundreds of pages transformed into organized, searchable timelines with source citations—delivered in hours, not weeks. Every treatment phase, procedure, medication, gap, and pre-existing condition clearly identified. Your team processes records 8x faster than manual review, writes stronger demands, and settles cases sooner.
+                  </p>
                 </div>
-                <h3 className="text-3xl font-bold mb-4 text-white">Medical chronologies built for litigation</h3>
-                <p className="text-purple-200 leading-relaxed max-w-3xl">
-                  Transform hundreds of pages into litigation-grade timelines with source-linked documentation. Every treatment phase, procedure, medication, gap, and pre-existing condition clearly identified and referenced.
-                </p>
+                <div className="grid grid-cols-2 gap-4">
+                  <Card className="p-6 text-center border-0 shadow-xl" style={{ backgroundColor: '#C9A961' }}>
+                    <div className="text-4xl font-bold text-white mb-2">50+</div>
+                    <div className="text-xs font-semibold uppercase tracking-wide" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>Hours Saved Per Case</div>
+                  </Card>
+                  <Card className="p-6 text-center border-0 shadow-xl" style={{ backgroundColor: '#2B3544' }}>
+                    <div className="text-4xl font-bold text-white mb-2">8x</div>
+                    <div className="text-xs font-semibold uppercase tracking-wide" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>Faster Processing</div>
+                  </Card>
+                </div>
               </div>
             </div>
 
             {/* Litigation Support */}
-            <div className="bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl p-8 md:p-12 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-1/2 h-full opacity-20">
+            <div className="p-8 md:p-12 relative overflow-hidden shadow-2xl" style={{ backgroundColor: '#2B3544' }}>
+              <div className="absolute top-0 right-0 w-1/2 h-full opacity-10">
                 <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80" alt="Legal documents" className="w-full h-full object-cover" />
               </div>
               <div className="relative z-10">
-                <div className="inline-block px-3 py-1 bg-emerald-400/30 border border-emerald-400/50 rounded-full text-emerald-300 text-xs font-bold uppercase tracking-wide mb-4">
-                  Beta
-                </div>
-                <h3 className="text-3xl font-bold mb-4 text-white">Litigation support that wins cases</h3>
-                <p className="text-slate-300 leading-relaxed max-w-3xl">
-                  Be over-prepared for every phase. We handle discovery requests and responses, coordinate expert witnesses and medical examinations, prepare deposition summaries, and draft mediation position statements.
+                <h3 className="font-serif text-3xl font-bold mb-4 text-white">Full litigation support when cases don't settle</h3>
+                <p className="leading-relaxed max-w-3xl font-light" style={{ color: '#FAFAF8' }}>
+                  Trial preparation without the overhead. We handle discovery requests and responses, coordinate expert witnesses and IMEs, draft deposition summaries, and prepare mediation statements—so your trial-bound cases get the same attention as your settlements.
                 </p>
               </div>
             </div>
@@ -281,11 +406,11 @@ export default function Home({ onNavigateContact }) {
       </section>
 
       {/* From Lead to Settlement Section */}
-      <section className="py-24 bg-white">
+      <section ref={timelineRef} className={`py-28 ${timelineVisible ? 'animate-fade-in-down' : 'opacity-0'}`} style={{ backgroundColor: '#FAFAF8' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">
-              From Lead to Settlement. <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Effortlessly.</span>
+          <div className="mb-24">
+            <h2 className="font-serif text-5xl md:text-6xl font-bold mb-6" style={{ color: '#0A1628' }}>
+              From Lead to Settlement. <span style={{ color: '#C9A961' }}>Effortlessly.</span>
             </h2>
           </div>
 
@@ -294,74 +419,74 @@ export default function Home({ onNavigateContact }) {
             <div className="hidden lg:block">
               <div className="grid grid-cols-6 gap-4 relative">
                 {/* Connecting Line */}
-                <div className="absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-200 via-pink-200 to-purple-200"></div>
+                <div className="absolute top-16 left-0 right-0 h-0.5" style={{ backgroundColor: '#E5E7EB' }}></div>
                 
                 {/* Step 1: LEADS */}
                 <div className="relative text-center group">
-                  <div className="relative inline-flex items-center justify-center w-32 h-32 bg-gradient-to-br from-purple-100 to-white rounded-3xl shadow-lg group-hover:shadow-2xl transition-all duration-300 border-2 border-purple-200 mb-6">
-                    <svg className="w-16 h-16 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="relative inline-flex items-center justify-center w-32 h-32 bg-white rounded-3xl shadow-lg group-hover:shadow-2xl transition-all duration-300 border-2 mb-6" style={{ borderColor: '#E5E7EB' }}>
+                    <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#64748B' }}>
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
                     </svg>
-                    <div className="absolute -bottom-3 -right-3 w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold shadow-lg">1</div>
+                    <div className="absolute -bottom-3 -right-3 w-10 h-10 rounded-full flex items-center justify-center text-white font-bold shadow-lg" style={{ backgroundColor: '#0A1628' }}>1</div>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">LEADS</h3>
+                  <h3 className="text-xl font-bold mb-2" style={{ color: '#0A1628' }}>LEADS</h3>
                 </div>
 
                 {/* Step 2: INTAKE */}
                 <div className="relative text-center group">
-                  <div className="relative inline-flex items-center justify-center w-32 h-32 bg-gradient-to-br from-purple-100 to-white rounded-3xl shadow-lg group-hover:shadow-2xl transition-all duration-300 border-2 border-purple-200 mb-6">
-                    <svg className="w-16 h-16 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="relative inline-flex items-center justify-center w-32 h-32 bg-white rounded-3xl shadow-lg group-hover:shadow-2xl transition-all duration-300 border-2 mb-6" style={{ borderColor: '#E5E7EB' }}>
+                    <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#64748B' }}>
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
-                    <div className="absolute -bottom-3 -right-3 w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold shadow-lg">2</div>
+                    <div className="absolute -bottom-3 -right-3 w-10 h-10 rounded-full flex items-center justify-center text-white font-bold shadow-lg" style={{ backgroundColor: '#0A1628' }}>2</div>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">INTAKE</h3>
+                  <h3 className="text-xl font-bold mb-2" style={{ color: '#0A1628' }}>INTAKE</h3>
                 </div>
 
                 {/* Step 3: SIGNED RETAINER */}
                 <div className="relative text-center group">
-                  <div className="relative inline-flex items-center justify-center w-32 h-32 bg-gradient-to-br from-purple-100 to-white rounded-3xl shadow-lg group-hover:shadow-2xl transition-all duration-300 border-2 border-purple-200 mb-6">
-                    <svg className="w-16 h-16 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="relative inline-flex items-center justify-center w-32 h-32 bg-white rounded-3xl shadow-lg group-hover:shadow-2xl transition-all duration-300 border-2 mb-6" style={{ borderColor: '#E5E7EB' }}>
+                    <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#64748B' }}>
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
-                    <div className="absolute -bottom-3 -right-3 w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold shadow-lg">3</div>
+                    <div className="absolute -bottom-3 -right-3 w-10 h-10 rounded-full flex items-center justify-center text-white font-bold shadow-lg" style={{ backgroundColor: '#0A1628' }}>3</div>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">SIGNED RETAINER</h3>
+                  <h3 className="text-xl font-bold mb-2" style={{ color: '#0A1628' }}>SIGNED RETAINER</h3>
                 </div>
 
                 {/* Step 4: PRE-LITIGATION */}
                 <div className="relative text-center group">
-                  <div className="relative inline-flex items-center justify-center w-32 h-32 bg-gradient-to-br from-pink-100 to-white rounded-3xl shadow-lg group-hover:shadow-2xl transition-all duration-300 border-2 border-pink-200 mb-6">
-                    <svg className="w-16 h-16 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="relative inline-flex items-center justify-center w-32 h-32 bg-white rounded-3xl shadow-lg group-hover:shadow-2xl transition-all duration-300 border-2 mb-6" style={{ borderColor: '#C9A961' }}>
+                    <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#C9A961' }}>
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
-                    <div className="absolute -bottom-3 -right-3 w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center text-white font-bold shadow-lg">4</div>
+                    <div className="absolute -bottom-3 -right-3 w-10 h-10 rounded-full flex items-center justify-center text-white font-bold shadow-lg" style={{ backgroundColor: '#C9A961' }}>4</div>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">PRE-LITIGATION</h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">Medical records, Police reports, Chronology, Liability, Damages</p>
+                  <h3 className="text-xl font-bold mb-2" style={{ color: '#0A1628' }}>PRE-LITIGATION</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: '#64748B' }}>Medical records, Police reports, Chronology, Liability, Damages</p>
                 </div>
 
                 {/* Step 5: DEMAND LETTER */}
                 <div className="relative text-center group">
-                  <div className="relative inline-flex items-center justify-center w-32 h-32 bg-gradient-to-br from-pink-100 to-white rounded-3xl shadow-lg group-hover:shadow-2xl transition-all duration-300 border-2 border-pink-200 mb-6">
-                    <svg className="w-16 h-16 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="relative inline-flex items-center justify-center w-32 h-32 bg-white rounded-3xl shadow-lg group-hover:shadow-2xl transition-all duration-300 border-2 mb-6" style={{ borderColor: '#C9A961' }}>
+                    <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#C9A961' }}>
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
-                    <div className="absolute -bottom-3 -right-3 w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center text-white font-bold shadow-lg">5</div>
+                    <div className="absolute -bottom-3 -right-3 w-10 h-10 rounded-full flex items-center justify-center text-white font-bold shadow-lg" style={{ backgroundColor: '#C9A961' }}>5</div>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">DEMAND LETTER</h3>
+                  <h3 className="text-xl font-bold mb-2" style={{ color: '#0A1628' }}>DEMAND LETTER</h3>
                 </div>
 
                 {/* Step 6: LIEN RESOLUTION */}
                 <div className="relative text-center group">
-                  <div className="relative inline-flex items-center justify-center w-32 h-32 bg-gradient-to-br from-pink-100 to-white rounded-3xl shadow-lg group-hover:shadow-2xl transition-all duration-300 border-2 border-pink-200 mb-6">
-                    <svg className="w-16 h-16 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="relative inline-flex items-center justify-center w-32 h-32 bg-white rounded-3xl shadow-lg group-hover:shadow-2xl transition-all duration-300 border-2 mb-6" style={{ borderColor: '#C9A961' }}>
+                    <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#C9A961' }}>
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <div className="absolute -bottom-3 -right-3 w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center text-white font-bold shadow-lg">6</div>
+                    <div className="absolute -bottom-3 -right-3 w-10 h-10 rounded-full flex items-center justify-center text-white font-bold shadow-lg" style={{ backgroundColor: '#C9A961' }}>6</div>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">LIEN RESOLUTION</h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">Medicare/Medicaid negotiation, Hospital liens, Settlement distribution</p>
+                  <h3 className="text-xl font-bold mb-2" style={{ color: '#0A1628' }}>LIEN RESOLUTION</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: '#64748B' }}>Medicare/Medicaid negotiation, Hospital liens, Settlement distribution</p>
                 </div>
               </div>
             </div>
@@ -370,12 +495,12 @@ export default function Home({ onNavigateContact }) {
             <div className="lg:hidden space-y-8">
               <div className="flex items-start gap-4">
                 <div className="relative flex-shrink-0">
-                  <div className="w-20 h-20 bg-gradient-to-br from-purple-100 to-white rounded-2xl shadow-lg border-2 border-purple-200 flex items-center justify-center">
-                    <svg className="w-10 h-10 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-20 h-20 bg-white rounded-2xl shadow-lg border-2 border-navy-200 flex items-center justify-center">
+                    <svg className="w-10 h-10 text-navy-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
                     </svg>
                   </div>
-                  <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
+                  <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-navy-700 rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 mb-1">LEADS</h3>
@@ -384,12 +509,12 @@ export default function Home({ onNavigateContact }) {
 
               <div className="flex items-start gap-4">
                 <div className="relative flex-shrink-0">
-                  <div className="w-20 h-20 bg-gradient-to-br from-purple-100 to-white rounded-2xl shadow-lg border-2 border-purple-200 flex items-center justify-center">
-                    <svg className="w-10 h-10 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-20 h-20 bg-white rounded-2xl shadow-lg border-2 border-navy-200 flex items-center justify-center">
+                    <svg className="w-10 h-10 text-navy-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </div>
-                  <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
+                  <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-navy-700 rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 mb-1">INTAKE</h3>
@@ -398,12 +523,12 @@ export default function Home({ onNavigateContact }) {
 
               <div className="flex items-start gap-4">
                 <div className="relative flex-shrink-0">
-                  <div className="w-20 h-20 bg-gradient-to-br from-purple-100 to-white rounded-2xl shadow-lg border-2 border-purple-200 flex items-center justify-center">
-                    <svg className="w-10 h-10 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-20 h-20 bg-white rounded-2xl shadow-lg border-2 border-navy-200 flex items-center justify-center">
+                    <svg className="w-10 h-10 text-navy-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
                   </div>
-                  <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
+                  <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-navy-700 rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 mb-1">SIGNED RETAINER</h3>
@@ -412,12 +537,12 @@ export default function Home({ onNavigateContact }) {
 
               <div className="flex items-start gap-4">
                 <div className="relative flex-shrink-0">
-                  <div className="w-20 h-20 bg-gradient-to-br from-pink-100 to-white rounded-2xl shadow-lg border-2 border-pink-200 flex items-center justify-center">
-                    <svg className="w-10 h-10 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-20 h-20 bg-white rounded-2xl shadow-lg border-2 border-burnt-200 flex items-center justify-center">
+                    <svg className="w-10 h-10 text-burnt-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-pink-600 rounded-full flex items-center justify-center text-white font-bold text-sm">4</div>
+                  <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-burnt-600 rounded-full flex items-center justify-center text-white font-bold text-sm">4</div>
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 mb-1">PRE-LITIGATION</h3>
@@ -427,12 +552,12 @@ export default function Home({ onNavigateContact }) {
 
               <div className="flex items-start gap-4">
                 <div className="relative flex-shrink-0">
-                  <div className="w-20 h-20 bg-gradient-to-br from-pink-100 to-white rounded-2xl shadow-lg border-2 border-pink-200 flex items-center justify-center">
-                    <svg className="w-10 h-10 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-20 h-20 bg-white rounded-2xl shadow-lg border-2 border-burnt-200 flex items-center justify-center">
+                    <svg className="w-10 h-10 text-burnt-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-pink-600 rounded-full flex items-center justify-center text-white font-bold text-sm">5</div>
+                  <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-burnt-600 rounded-full flex items-center justify-center text-white font-bold text-sm">5</div>
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 mb-1">DEMAND LETTER</h3>
@@ -441,12 +566,12 @@ export default function Home({ onNavigateContact }) {
 
               <div className="flex items-start gap-4">
                 <div className="relative flex-shrink-0">
-                  <div className="w-20 h-20 bg-gradient-to-br from-pink-100 to-white rounded-2xl shadow-lg border-2 border-pink-200 flex items-center justify-center">
-                    <svg className="w-10 h-10 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-20 h-20 bg-white rounded-2xl shadow-lg border-2 border-burnt-200 flex items-center justify-center">
+                    <svg className="w-10 h-10 text-burnt-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
-                  <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-pink-600 rounded-full flex items-center justify-center text-white font-bold text-sm">6</div>
+                  <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-burnt-600 rounded-full flex items-center justify-center text-white font-bold text-sm">6</div>
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 mb-1">LIEN RESOLUTION</h3>
@@ -459,147 +584,73 @@ export default function Home({ onNavigateContact }) {
       </section>
 
       {/* Support Services Framework Section */}
-      <section className="py-24 bg-gradient-to-b from-white to-slate-50">
+      <section ref={frameworkRef} className={`py-24 ${frameworkVisible ? 'animate-fade-in-down' : 'opacity-0'}`} style={{ background: 'linear-gradient(to bottom, #FFFFFF, #FAFAF8)' }} id="support-services">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">
-              Support Services <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Framework</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#0A1628' }}>
+              Support Services <span style={{ color: '#C9A961' }}>Framework</span>
             </h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">Everything your firm needs to scale. Nothing it doesn't.</p>
+            <p className="text-xl max-w-2xl mx-auto" style={{ color: '#64748B' }}>Everything your firm needs to scale. Nothing it doesn't.</p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
             {/* Fractional Services */}
-            <Card className="group relative overflow-hidden bg-gradient-to-br from-purple-50 to-white hover:shadow-2xl transition-all duration-300 border-purple-100">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-purple-600/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-500"></div>
-              <div className="relative p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-purple-600 to-purple-800 rounded-2xl flex items-center justify-center shadow-lg shadow-purple-600/25">
-                    <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl font-bold text-slate-900">Fractional Services</h3>
-                </div>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3 text-slate-700">
-                    <div className="w-1.5 h-1.5 bg-purple-600 rounded-full"></div>
-                    <span className="font-medium">Chief Information Officer (CIO)</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-slate-700">
-                    <div className="w-1.5 h-1.5 bg-purple-600 rounded-full"></div>
-                    <span className="font-medium">Chief Operating Officer (COO)</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-slate-700">
-                    <div className="w-1.5 h-1.5 bg-purple-600 rounded-full"></div>
-                    <span className="font-medium">Chief Financial Officer (CFO)</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-slate-700">
-                    <div className="w-1.5 h-1.5 bg-purple-600 rounded-full"></div>
-                    <span className="font-medium">Chief Marketing Officer (CMO)</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-slate-700">
-                    <div className="w-1.5 h-1.5 bg-purple-600 rounded-full"></div>
-                    <span className="font-medium">Chief AI Officer (CAIO)</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-slate-700">
-                    <div className="w-1.5 h-1.5 bg-purple-600 rounded-full"></div>
-                    <span className="font-medium">Tax Strategist</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-slate-700">
-                    <div className="w-1.5 h-1.5 bg-purple-600 rounded-full"></div>
-                    <span className="font-medium">Human Resources (HR)</span>
-                  </div>
-                </div>
-              </div>
-            </Card>
+            <div className="bg-white rounded-lg p-8 border" style={{ borderColor: '#E5E7EB' }}>
+              <h3 className="text-xl font-bold mb-6 pb-3" style={{ color: '#0A1628', borderBottom: '2px solid #C9A961' }}>Fractional Services</h3>
+              <ul className="space-y-3" style={{ color: '#2B3544' }}>
+                <li className="leading-relaxed">Chief Information Officer</li>
+                <li className="leading-relaxed">Chief Operating Officer</li>
+                <li className="leading-relaxed">Chief Financial Officer</li>
+                <li className="leading-relaxed">Chief Marketing Officer</li>
+                <li className="leading-relaxed">Chief AI Officer</li>
+                <li className="leading-relaxed">Tax Strategist</li>
+                <li className="leading-relaxed">Human Resources</li>
+              </ul>
+            </div>
 
             {/* Litigation Finance */}
-            <Card className="group relative overflow-hidden bg-gradient-to-br from-pink-50 to-white hover:shadow-2xl transition-all duration-300 border-pink-100">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-pink-600/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-500"></div>
-              <div className="relative p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl flex items-center justify-center shadow-lg shadow-pink-600/25">
-                    <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl font-bold text-slate-900">Litigation Finance</h3>
-                </div>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3 text-slate-700">
-                    <div className="w-1.5 h-1.5 bg-pink-600 rounded-full"></div>
-                    <span className="font-medium">Growth Marketing Loans</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-slate-700">
-                    <div className="w-1.5 h-1.5 bg-pink-600 rounded-full"></div>
-                    <span className="font-medium">Pre-Settlement Advance</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-slate-700">
-                    <div className="w-1.5 h-1.5 bg-pink-600 rounded-full"></div>
-                    <span className="font-medium">Case Cost Advance</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-slate-700">
-                    <div className="w-1.5 h-1.5 bg-pink-600 rounded-full"></div>
-                    <span className="font-medium">Medical Funding</span>
-                  </div>
-                </div>
-              </div>
-            </Card>
+            <div className="bg-white rounded-lg p-8 border" style={{ borderColor: '#E5E7EB' }}>
+              <h3 className="text-xl font-bold mb-6 pb-3" style={{ color: '#0A1628', borderBottom: '2px solid #C9A961' }}>Litigation Finance</h3>
+              <ul className="space-y-3" style={{ color: '#2B3544' }}>
+                <li className="leading-relaxed">Growth Marketing Loans</li>
+                <li className="leading-relaxed">Pre-Settlement Advance</li>
+                <li className="leading-relaxed">Case Cost Advance</li>
+                <li className="leading-relaxed">Medical Funding</li>
+              </ul>
+            </div>
 
             {/* Advisory */}
-            <Card className="group relative overflow-hidden bg-gradient-to-br from-indigo-50 to-white hover:shadow-2xl transition-all duration-300 border-indigo-100">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-600/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-500"></div>
-              <div className="relative p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-pink-600 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg shadow-indigo-600/25">
-                    <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl font-bold text-slate-900">Advisory</h3>
-                </div>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3 text-slate-700">
-                    <div className="w-1.5 h-1.5 bg-indigo-600 rounded-full"></div>
-                    <span className="font-medium">Mergers & Acquisitions</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-slate-700">
-                    <div className="w-1.5 h-1.5 bg-indigo-600 rounded-full"></div>
-                    <span className="font-medium">Management Services Organization (MSO)</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-slate-700">
-                    <div className="w-1.5 h-1.5 bg-indigo-600 rounded-full"></div>
-                    <span className="font-medium">Arizona Alternative Business Structure (ABS)</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-slate-700">
-                    <div className="w-1.5 h-1.5 bg-indigo-600 rounded-full"></div>
-                    <span className="font-medium">AI Hub & Innovation Advisory</span>
-                  </div>
-                </div>
-              </div>
-            </Card>
+            <div className="bg-white rounded-lg p-8 border" style={{ borderColor: '#E5E7EB' }}>
+              <h3 className="text-xl font-bold mb-6 pb-3" style={{ color: '#0A1628', borderBottom: '2px solid #C9A961' }}>Advisory</h3>
+              <ul className="space-y-3" style={{ color: '#2B3544' }}>
+                <li className="leading-relaxed">Mergers & Acquisitions</li>
+                <li className="leading-relaxed">Management Services Organization</li>
+                <li className="leading-relaxed">Alternative Business Structure</li>
+                <li className="leading-relaxed">AI Hub & Innovation Advisory</li>
+              </ul>
+            </div>
           </div>
 
-          <div className="text-center bg-gradient-to-r from-purple-900 to-indigo-900 rounded-3xl p-12 relative overflow-hidden">
+          <div className="text-center rounded-3xl p-12 relative overflow-hidden" style={{ backgroundColor: '#0A1628' }}>
             <div className="absolute inset-0 opacity-10">
               <div className="absolute top-10 left-10 w-40 h-40 bg-white rounded-full blur-3xl"></div>
-              <div className="absolute bottom-10 right-10 w-40 h-40 bg-pink-500 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-10 right-10 w-40 h-40 rounded-full blur-3xl" style={{ backgroundColor: '#C9A961' }}></div>
             </div>
             <p className="text-3xl md:text-4xl font-bold text-white relative z-10">
-              World-class infrastructure. <span className="text-pink-400">Fractional cost.</span>
+              World-class infrastructure. <span style={{ color: '#C9A961' }}>Fractional cost.</span>
             </p>
           </div>
         </div>
       </section>
 
       {/* Integration Section - Matching Finch */}
-      <section className="py-24 bg-gradient-to-b from-white to-slate-50">
+      <section ref={integrationRef} className={`py-24 ${integrationVisible ? 'animate-fade-in-down' : 'opacity-0'}`} style={{ background: 'linear-gradient(to bottom, #FFFFFF, #FAFAF8)' }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">Seamlessly integrates with <span className="text-purple-600">your existing systems</span></h2>
-          <p className="text-lg text-slate-600 mb-12 leading-relaxed max-w-3xl mx-auto">
-            Works with Filevine, Smokeball, Litify, CASEpeer, and all major case management platforms. Our team integrates directly into your workflows—you maintain your brand while we enhance your operations.
+          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6" style={{ color: '#0A1628' }}>Seamless integration with <span style={{ color: '#C9A961' }}>your case management system</span></h2>
+          <p className="text-lg mb-12 leading-relaxed max-w-3xl mx-auto" style={{ color: '#64748B' }}>
+            We operate and integrate directly within Filevine, Smokeball, Litify, CASEpeer, and all major platforms. Our case managers are specifically trained on each CMS—working inside your existing tools, following your workflows. Every document, update, and communication flows directly into your system. Your team sees everything in real-time, nothing falls through the cracks.
           </p>
+          <p className="text-base font-bold mb-8 uppercase tracking-wider" style={{ color: '#0A1628' }}>Integrates with leading case management platforms</p>
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             <div className="bg-white rounded-xl p-6 shadow-md flex items-center justify-center h-24">
@@ -625,54 +676,96 @@ export default function Home({ onNavigateContact }) {
       </section>
 
       {/* Team Section - Matching Finch */}
-      <section className="py-24 bg-gradient-to-b from-slate-50 to-white" id="team">
+      <section ref={teamRef} className={`py-24 ${teamVisible ? 'animate-fade-in-down' : 'opacity-0'}`} style={{ background: 'linear-gradient(to bottom, #FAFAF8, #FFFFFF)' }} id="team">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900">Built by industry veterans who've managed <span className="text-purple-600">thousands of cases</span></h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              LawBOX's team brings decades of experience from the nation's top personal injury firms
+            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4" style={{ color: '#0A1628' }}>Built by PI veterans who've managed <span style={{ color: '#C9A961' }}>thousands of cases</span></h2>
+            <p className="text-xl max-w-3xl mx-auto" style={{ color: '#64748B' }}>
+              LawBox's team brings decades of operational experience from the nation's top personal injury firms—having helped recover millions in settlements. We combine this deep expertise with cutting-edge AI to deliver results you can trust.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             <Card className="p-8 text-center group hover:shadow-xl transition-shadow overflow-hidden relative">
-              <div className="absolute inset-0 bg-gradient-to-b from-purple-600/0 to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity" style={{ backgroundColor: 'rgba(201, 169, 97, 0.05)' }}></div>
               <div className="relative">
-                <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden ring-4 ring-purple-100">
-                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80" alt="Jennifer Martinez" className="w-full h-full object-cover" />
+                <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden ring-4" style={{ ringColor: 'rgba(201, 169, 97, 0.2)' }}>
+                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80" alt="Sarah Martinez" className="w-full h-full object-cover" />
                 </div>
-                <h4 className="text-xl font-bold mb-2 text-slate-900">Jennifer Martinez</h4>
-                <div className="text-sm font-semibold text-purple-600 uppercase tracking-wide mb-3">Operations Director</div>
-                <p className="text-sm text-slate-600">
-                  Former operations lead at Morgan & Morgan, managing 100+ case staff and implementing scalable pre-litigation systems.
+                <h4 className="text-xl font-bold mb-2" style={{ color: '#0A1628' }}>Sarah Martinez</h4>
+                <div className="text-sm font-semibold uppercase tracking-wide mb-3" style={{ color: '#C9A961' }}>Director of Operations</div>
+                <p className="text-sm text-left" style={{ color: '#64748B' }}>
+                  Sarah spent 12 years scaling pre-litigation operations at a top-10 national PI firm, where she built and managed teams handling over 2,000 active cases. At LawBox, she ensures every case moves through our workflow with precision and speed—combining proven systems with AI-powered efficiency.
                 </p>
               </div>
             </Card>
             
             <Card className="p-8 text-center group hover:shadow-xl transition-shadow overflow-hidden relative">
-              <div className="absolute inset-0 bg-gradient-to-b from-purple-600/0 to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="absolute inset-0 bg-burnt-600/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="relative">
-                <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden ring-4 ring-purple-100">
-                  <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80" alt="Robert Chen" className="w-full h-full object-cover" />
+                <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden ring-4 ring-burnt-100">
+                  <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80" alt="Marcus Chen" className="w-full h-full object-cover" />
                 </div>
-                <h4 className="text-xl font-bold mb-2 text-slate-900">Robert Chen</h4>
-                <div className="text-sm font-semibold text-purple-600 uppercase tracking-wide mb-3">Lead Paralegal</div>
-                <p className="text-sm text-slate-600">
-                  15+ years managing high-volume PI cases from intake through settlement, with expertise in both plaintiff and defense work.
+                <h4 className="text-xl font-bold mb-2 text-slate-900">Marcus Chen</h4>
+                <div className="text-sm font-semibold text-burnt-600 uppercase tracking-wide mb-3">Head Paralegal</div>
+                <p className="text-sm text-slate-600 text-left">
+                  With 15 years of hands-on experience managing high-volume PI cases from intake through settlement, Marcus has seen it all. He previously led paralegal teams at two of California's largest plaintiff firms, handling everything from soft-tissue cases to complex multi-vehicle accidents. At LawBox, he trains our case managers and ensures every demand meets the highest standards.
                 </p>
               </div>
             </Card>
             
             <Card className="p-8 text-center group hover:shadow-xl transition-shadow overflow-hidden relative">
-              <div className="absolute inset-0 bg-gradient-to-b from-purple-600/0 to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="absolute inset-0 bg-burnt-600/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="relative">
-                <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden ring-4 ring-purple-100">
-                  <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80" alt="Sarah Patel" className="w-full h-full object-cover" />
+                <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden ring-4 ring-burnt-100">
+                  <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80" alt="Jennifer Okafor" className="w-full h-full object-cover" />
                 </div>
-                <h4 className="text-xl font-bold mb-2 text-slate-900">Sarah Patel</h4>
-                <div className="text-sm font-semibold text-purple-600 uppercase tracking-wide mb-3">Intake Manager</div>
-                <p className="text-sm text-slate-600">
-                  Built and led intake operations for a top-10 PI firm, achieving industry-leading conversion rates and client satisfaction.
+                <h4 className="text-xl font-bold mb-2 text-slate-900">Jennifer Okafor</h4>
+                <div className="text-sm font-semibold text-burnt-600 uppercase tracking-wide mb-3">Director of Legal AI</div>
+                <p className="text-sm text-slate-600 text-left">
+                  Jennifer bridges the gap between legal expertise and cutting-edge technology. After 8 years as a litigation paralegal, she pioneered AI implementation at a mid-sized PI firm, reducing case processing time by 60%. At LawBox, she oversees our AI systems, ensuring they enhance—not replace—human expertise.
+                </p>
+              </div>
+            </Card>
+            
+            <Card className="p-8 text-center group hover:shadow-xl transition-shadow overflow-hidden relative">
+              <div className="absolute inset-0 bg-burnt-600/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="relative">
+                <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden ring-4 ring-burnt-100">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="David Ramirez" className="w-full h-full object-cover" />
+                </div>
+                <h4 className="text-xl font-bold mb-2 text-slate-900">David Ramirez</h4>
+                <div className="text-sm font-semibold text-burnt-600 uppercase tracking-wide mb-3">Intake Manager</div>
+                <p className="text-sm text-slate-600 text-left">
+                  David built his reputation managing intake operations for a firm that signed 3,000+ clients annually. His bilingual team achieved industry-leading conversion rates through a combination of empathy, speed, and systematic follow-up. At LawBox, he leads our 24/7 intake team and ensures no lead ever goes cold.
+                </p>
+              </div>
+            </Card>
+            
+            <Card className="p-8 text-center group hover:shadow-xl transition-shadow overflow-hidden relative">
+              <div className="absolute inset-0 bg-burnt-600/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="relative">
+                <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden ring-4 ring-burnt-100">
+                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80" alt="Rachel Thompson" className="w-full h-full object-cover" />
+                </div>
+                <h4 className="text-xl font-bold mb-2 text-slate-900">Rachel Thompson</h4>
+                <div className="text-sm font-semibold text-burnt-600 uppercase tracking-wide mb-3">Medical Records Director</div>
+                <p className="text-sm text-slate-600 text-left">
+                  Rachel spent 10 years navigating the complex world of medical records retrieval, working with everyone from small clinics to major hospital systems. She knows every trick to expedite requests and has built relationships with providers nationwide. At LawBox, she oversees our records retrieval operations and ensures your cases are never delayed by missing documentation.
+                </p>
+              </div>
+            </Card>
+            
+            <Card className="p-8 text-center group hover:shadow-xl transition-shadow overflow-hidden relative">
+              <div className="absolute inset-0 bg-burnt-600/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="relative">
+                <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden ring-4 ring-burnt-100">
+                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="Antonio Silva" className="w-full h-full object-cover" />
+                </div>
+                <h4 className="text-xl font-bold mb-2 text-slate-900">Antonio Silva</h4>
+                <div className="text-sm font-semibold text-burnt-600 uppercase tracking-wide mb-3">Demand Writing Lead</div>
+                <p className="text-sm text-slate-600 text-left">
+                  Antonio is a former insurance adjuster turned plaintiff advocate. After 6 years on the defense side, he knows exactly what adjusters look for in a demand package—and what makes them reach for their checkbook. At LawBox, he leads our demand writing team and trains our AI systems on the psychology of settlement negotiation.
                 </p>
               </div>
             </Card>
@@ -681,29 +774,29 @@ export default function Home({ onNavigateContact }) {
       </section>
 
       {/* Trust Section - Matching Finch */}
-      <section className="py-24 bg-white">
+      <section ref={trustRef} className={`py-24 bg-white ${trustVisible ? 'animate-fade-in-down' : 'opacity-0'}`}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900">Security and transparency you can trust</h2>
-            <p className="text-xl text-slate-600">
+            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4" style={{ color: '#0A1628' }}>Security and transparency you can trust</h2>
+            <p className="text-xl" style={{ color: '#64748B' }}>
               The control, compliance, and peace of mind you need to scale confidently
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="p-8">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                <CheckCircle2 className="w-6 h-6 text-purple-600" />
+              <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{ backgroundColor: 'rgba(201, 169, 97, 0.15)' }}>
+                <CheckCircle2 className="w-6 h-6" style={{ color: '#C9A961' }} />
               </div>
-              <h4 className="text-xl font-bold mb-3 text-slate-900">Enterprise-grade security</h4>
-              <p className="text-slate-600">
+              <h4 className="text-xl font-bold mb-3" style={{ color: '#0A1628' }}>Enterprise-grade security</h4>
+              <p style={{ color: '#64748B' }}>
                 SOC 2 Type II certified with comprehensive data protection. All client information handled with bank-level security controls.
               </p>
             </Card>
             
             <Card className="p-8">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                <CheckCircle2 className="w-6 h-6 text-purple-600" />
+              <div className="w-12 h-12 bg-burnt-100 rounded-lg flex items-center justify-center mb-4">
+                <CheckCircle2 className="w-6 h-6 text-burnt-600" />
               </div>
               <h4 className="text-xl font-bold mb-3 text-slate-900">Your brand, amplified</h4>
               <p className="text-slate-600">
@@ -712,8 +805,8 @@ export default function Home({ onNavigateContact }) {
             </Card>
             
             <Card className="p-8">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                <CheckCircle2 className="w-6 h-6 text-purple-600" />
+              <div className="w-12 h-12 bg-burnt-100 rounded-lg flex items-center justify-center mb-4">
+                <CheckCircle2 className="w-6 h-6 text-burnt-600" />
               </div>
               <h4 className="text-xl font-bold mb-3 text-slate-900">Trained on excellence</h4>
               <p className="text-slate-600">
@@ -728,45 +821,45 @@ export default function Home({ onNavigateContact }) {
       <section className="py-32 relative overflow-hidden">
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=2000&q=80" alt="Modern office" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/95 via-slate-900/95 to-slate-900/95"></div>
+          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(10, 22, 40, 0.95)' }}></div>
         </div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white">
-            Ready to scale <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">without limits?</span>
+            Ready to scale <span style={{ color: '#C9A961' }}>without limits?</span>
           </h2>
-          <p className="text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl mx-auto">
-            Join leading personal injury firms who've chosen to grow without the operational constraints
+          <p className="text-xl mb-10 leading-relaxed max-w-2xl mx-auto" style={{ color: '#FAFAF8' }}>
+            Top PI firms are growing faster by eliminating pre-litigation bottlenecks. Focus on winning cases while we handle everything from intake to demand.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 text-lg px-10 py-7 font-semibold shadow-xl shadow-purple-500/25" onClick={onNavigateContact}>
+            <Button size="lg" className="text-white text-lg px-10 py-7 font-semibold shadow-xl" style={{ backgroundColor: '#C9A961', boxShadow: '0 20px 50px rgba(201, 169, 97, 0.25)' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#B8941F'} onMouseLeave={(e) => e.target.style.backgroundColor = '#C9A961'} onClick={onNavigateContact}>
               Schedule a Call
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
           </div>
           
-          <p className="mt-8 text-purple-200 text-sm">No commitment required • Free consultation • Results guaranteed</p>
+          <p className="mt-8 text-sm" style={{ color: '#C9A961' }}>Free consultation • No commitment • See results in 30 days</p>
         </div>
         
         {/* Decorative elements */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
-        <div className="absolute bottom-20 right-10 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 rounded-full mix-blend-multiply filter blur-3xl opacity-20" style={{ backgroundColor: '#0A1628' }}></div>
+        <div className="absolute bottom-20 right-10 w-72 h-72 rounded-full mix-blend-multiply filter blur-3xl opacity-20" style={{ backgroundColor: '#C9A961' }}></div>
       </section>
 
       {/* Footer - Matching Finch's structure */}
-      <footer className="bg-slate-900 py-16">
+      <footer className="py-16" style={{ backgroundColor: '#0A1628' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div>
               <div className="text-2xl font-bold text-white mb-4" style={{ fontFamily: 'Space Grotesk, -apple-system, sans-serif', letterSpacing: '-0.01em' }}>LawBOX</div>
-              <p className="text-sm text-slate-400 mb-6">
-                Scale your practice, eliminate the bottlenecks
+              <p className="text-sm mb-6" style={{ color: '#FAFAF8' }}>
+                Scale your firm. Not your overhead.
               </p>
               <div className="flex gap-4">
-                <a href="#team" className="w-10 h-10 bg-slate-800 hover:bg-purple-600 rounded-lg flex items-center justify-center transition-colors">
+                <a href="#team" className="w-10 h-10 rounded-lg flex items-center justify-center transition-colors" style={{ backgroundColor: '#2B3544' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#C9A961'} onMouseLeave={(e) => e.target.style.backgroundColor = '#2B3544'}>
                   <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
                 </a>
-                <a href="#team" className="w-10 h-10 bg-slate-800 hover:bg-purple-600 rounded-lg flex items-center justify-center transition-colors">
+                <a href="#team" className="w-10 h-10 bg-slate-800 hover:bg-burnt-600 rounded-lg flex items-center justify-center transition-colors">
                   <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 </a>
               </div>
@@ -774,39 +867,39 @@ export default function Home({ onNavigateContact }) {
             
             <div>
               <h4 className="font-bold mb-4 text-white">Services</h4>
-              <ul className="space-y-3 text-sm text-slate-400">
-                <li><a href="#services" className="hover:text-purple-400 transition-colors">Pre-Litigation</a></li>
-                <li><a href="#services" className="hover:text-purple-400 transition-colors">Case Management</a></li>
-                <li><a href="#services" className="hover:text-purple-400 transition-colors">Medical Chronologies</a></li>
-                <li><a href="#services" className="hover:text-purple-400 transition-colors">Litigation Support</a></li>
+              <ul className="space-y-3 text-sm" style={{ color: '#64748B' }}>
+                <li><a href="#services" className="transition-colors" onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = '#64748B'}>Pre-Litigation</a></li>
+                <li><a href="#services" className="transition-colors" onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = '#64748B'}>Case Management</a></li>
+                <li><a href="#services" className="transition-colors" onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = '#64748B'}>Medical Chronologies</a></li>
+                <li><a href="#services" className="transition-colors" onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = '#64748B'}>Litigation Support</a></li>
               </ul>
             </div>
             
             <div>
               <h4 className="font-bold mb-4 text-white">Company</h4>
               <ul className="space-y-3 text-sm text-slate-400">
-                <li><a href="#team" className="hover:text-purple-400 transition-colors">About</a></li>
-                <li><a href="#team" className="hover:text-purple-400 transition-colors">Careers</a></li>
-                <li><a href="#how-it-works" className="hover:text-purple-400 transition-colors">Blog</a></li>
+                <li><a href="#team" className="hover:text-burnt-500 transition-colors">About</a></li>
+                <li><a href="#team" className="hover:text-burnt-500 transition-colors">Careers</a></li>
+                <li><a href="#how-it-works" className="hover:text-burnt-500 transition-colors">Blog</a></li>
               </ul>
             </div>
             
             <div>
               <h4 className="font-bold mb-4 text-white">Legal</h4>
               <ul className="space-y-3 text-sm text-slate-400">
-                <li><a href="#services" className="hover:text-purple-400 transition-colors">Privacy Policy</a></li>
-                <li><a href="#services" className="hover:text-purple-400 transition-colors">Terms of Service</a></li>
+                <li><a href="#services" className="hover:text-burnt-500 transition-colors">Privacy Policy</a></li>
+                <li><a href="#services" className="hover:text-burnt-500 transition-colors">Terms of Service</a></li>
               </ul>
             </div>
           </div>
           
-          <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-sm text-slate-500">
+          <div className="pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4" style={{ borderColor: '#2B3544' }}>
+            <div className="text-sm" style={{ color: '#64748B' }}>
               © 2026 LawBOX. All rights reserved.
             </div>
-            <div className="flex items-center gap-6 text-sm text-slate-500">
+            <div className="flex items-center gap-6 text-sm" style={{ color: '#64748B' }}>
               <span className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#C9A961' }}></span>
                 All systems operational
               </span>
             </div>
