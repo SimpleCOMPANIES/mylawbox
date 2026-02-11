@@ -84,28 +84,9 @@ export default function Home({ onNavigateContact }) {
           opacity: 0;
         }
       `}</style>
-      {/* Navigation - Clean, professional header */}
-      <nav className="fixed top-0 left-0 right-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 md:h-20">
-            <div className="text-2xl sm:text-3xl md:text-4xl font-bold" style={{ fontFamily: "'Aref Ruqaa', serif", letterSpacing: '-0.02em', fontWeight: '700', color: '#FFFFFF' }}>LawBOX</div>
-            
-            <div className="hidden md:flex items-center gap-8">
-              <a href="#how-it-works" className="text-sm font-semibold transition-colors" style={{ color: 'rgba(255, 255, 255, 0.85)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.85)'}>How it Works</a>
-              <a href="#services" className="text-sm font-semibold transition-colors" style={{ color: 'rgba(255, 255, 255, 0.85)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.85)'}>Services</a>
-              <a href="#team" className="text-sm font-semibold transition-colors" style={{ color: 'rgba(255, 255, 255, 0.85)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.85)'}>About</a>
-            </div>
-            
-            <Button className="text-white text-sm md:text-base font-bold shadow-lg hover:shadow-xl transition-all px-4 py-2 md:px-6 md:py-2.5" style={{ backgroundColor: '#C9A961' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#B8941F'} onMouseLeave={(e) => e.target.style.backgroundColor = '#C9A961'} onClick={onNavigateContact}>
-              Schedule a Call
-            </Button>
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero Section - Left-aligned, photography-driven */}
-      <section className="relative pt-24 pb-16 sm:pt-28 sm:pb-20 md:pt-40 md:pb-36 overflow-hidden texture-overlay" style={{ marginTop: '-80px', paddingTop: 'calc(80px + 6rem)' }}>
-        {/* Real photography background - extends behind navbar */}
+      {/* Hero Section - Nav + Hero share one background container */}
+      <section className="relative pb-16 sm:pb-20 md:pb-36 overflow-hidden texture-overlay">
+        {/* Real photography background - covers nav + hero */}
         <div className="absolute inset-0">
           <img 
             src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=2400&q=80" 
@@ -114,8 +95,27 @@ export default function Home({ onNavigateContact }) {
           />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom right, #0A1628, #1A2740, #0A1628)' }} />
         </div>
+
+        {/* Navigation - inside hero for seamless background */}
+        <nav className="relative z-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between h-16 md:h-20">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold" style={{ fontFamily: "'Aref Ruqaa', serif", letterSpacing: '-0.02em', fontWeight: '700', color: '#FFFFFF' }}>LawBOX</div>
+              
+              <div className="hidden md:flex items-center gap-8">
+                <a href="#how-it-works" className="text-sm font-semibold transition-colors" style={{ color: 'rgba(255, 255, 255, 0.85)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.85)'}>How it Works</a>
+                <a href="#services" className="text-sm font-semibold transition-colors" style={{ color: 'rgba(255, 255, 255, 0.85)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.85)'}>Services</a>
+                <a href="#team" className="text-sm font-semibold transition-colors" style={{ color: 'rgba(255, 255, 255, 0.85)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.85)'}>About</a>
+              </div>
+              
+              <Button className="text-white text-sm md:text-base font-bold shadow-lg hover:shadow-xl transition-all px-4 py-2 md:px-6 md:py-2.5" style={{ backgroundColor: '#C9A961' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#B8941F'} onMouseLeave={(e) => e.target.style.backgroundColor = '#C9A961'} onClick={onNavigateContact}>
+                Schedule a Call
+              </Button>
+            </div>
+          </div>
+        </nav>
         
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10 pt-10 sm:pt-14 md:pt-20">
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-2 backdrop-blur-sm border px-3 py-1.5 sm:px-4 sm:py-2 rounded-md text-xs sm:text-sm font-bold mb-6 sm:mb-10" style={{ backgroundColor: 'rgba(201, 169, 97, 0.1)', borderColor: 'rgba(201, 169, 97, 0.3)', color: '#C9A961' }}>
               <span className="w-2 h-2 rounded-full animate-pulse flex-shrink-0" style={{ backgroundColor: '#C9A961' }}></span>
