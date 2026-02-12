@@ -123,6 +123,7 @@ export default function Home({ onNavigateContact }) {
               
               <div className="hidden md:flex items-center gap-8">
                 <a href="#how-it-works" className="text-sm font-semibold transition-colors" style={{ color: 'rgba(255, 255, 255, 0.85)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.85)'}>How it Works</a>
+                <a href="#lawfirm-in-a-box" className="text-sm font-semibold transition-colors" style={{ color: 'rgba(255, 255, 255, 0.85)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.85)'}>LawFirm In A Box</a>
                 
                 <div className="relative" onMouseEnter={() => setServicesDropdownOpen(true)} onMouseLeave={() => setServicesDropdownOpen(false)}>
                   <button className="text-sm font-semibold transition-colors flex items-center gap-1" style={{ color: servicesDropdownOpen ? '#C9A961' : 'rgba(255, 255, 255, 0.85)' }}>
@@ -202,6 +203,7 @@ export default function Home({ onNavigateContact }) {
             <div className="md:hidden max-h-[70vh] overflow-y-auto animate-slide-down" style={{ backgroundColor: '#0A1628' }}>
               <div className="px-4 pt-2 pb-4 space-y-4">
                 <a href="#how-it-works" className="block py-2 text-sm font-semibold" style={{ color: 'rgba(255, 255, 255, 0.85)' }} onClick={() => setMobileMenuOpen(false)}>How it Works</a>
+                <a href="#lawfirm-in-a-box" className="block py-2 text-sm font-semibold" style={{ color: 'rgba(255, 255, 255, 0.85)' }} onClick={() => setMobileMenuOpen(false)}>LawFirm In A Box</a>
                 
                 {/* Services Section */}
                 <div>
@@ -311,6 +313,120 @@ export default function Home({ onNavigateContact }) {
               <p className="text-2xl md:text-3xl italic mb-6 leading-relaxed font-light max-w-3xl mx-auto" style={{ color: '#0A1628' }}>LawBOX reduced our case prep time by 60% while increasing our settlement values. It's like having a dedicated ops team without the overhead.</p>
               <p className="text-sm font-bold" style={{ color: '#C9A961' }}>— Sarah Chen, Managing Partner, Chen & Associates</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* LawFirm In A Box Section */}
+      <section className="py-16" style={{ backgroundColor: '#1A2740' }} id="lawfirm-in-a-box">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white">Hyperscale Your Firm</h2>
+            <p className="text-lg sm:text-xl md:text-2xl text-white">LawBOX - Law Firm In A Box™</p>
+          </div>
+
+          {/* Flow Diagram */}
+          <div className="pb-4">
+            <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-6">
+              {/* Marketing Growth Capital */}
+              <div className="flex-shrink w-20 sm:w-28 md:w-32 lg:w-36">
+                <div className="border-2 rounded-lg p-2 sm:p-3 md:p-4 lg:p-5 h-full flex flex-col items-center justify-center text-center" style={{ borderColor: '#C9A961', backgroundColor: 'transparent' }}>
+                  <svg className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 mb-2 sm:mb-3" fill="none" stroke="#C9A961" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <h3 className="font-bold text-white text-[0.5rem] sm:text-xs md:text-sm mb-1">Marketing Growth Capital</h3>
+                  <p className="text-[0.45rem] sm:text-[0.55rem] md:text-xs" style={{ color: '#C9A961' }}>Litigation Finance</p>
+                </div>
+              </div>
+
+              {/* Arrow */}
+              <svg className="flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8" fill="#C9A961" viewBox="0 0 24 24">
+                <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+              </svg>
+
+              {/* Lead Gen */}
+              <div className="flex-shrink w-20 sm:w-28 md:w-32 lg:w-36">
+                <div className="border-2 rounded-lg p-2 sm:p-3 md:p-4 lg:p-5 h-full flex flex-col items-center justify-center text-center" style={{ borderColor: '#C9A961', backgroundColor: 'transparent' }}>
+                  <svg className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 mb-2 sm:mb-3" fill="none" stroke="#C9A961" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                  </svg>
+                  <h3 className="font-bold text-white text-[0.5rem] sm:text-xs md:text-sm mb-1">Lead Gen</h3>
+                  <p className="text-[0.45rem] sm:text-[0.55rem] md:text-xs" style={{ color: '#C9A961' }}>Marketing Partners</p>
+                  <p className="text-[0.45rem] sm:text-[0.55rem] md:text-xs" style={{ color: '#C9A961' }}>Plaintiff Acquisition</p>
+                </div>
+              </div>
+
+              {/* Arrow */}
+              <svg className="flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8" fill="#C9A961" viewBox="0 0 24 24">
+                <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+              </svg>
+
+              {/* Signed Retainer */}
+              <div className="flex-shrink w-20 sm:w-28 md:w-32 lg:w-36">
+                <div className="border-2 rounded-lg p-2 sm:p-3 md:p-4 lg:p-5 h-full flex flex-col items-center justify-center text-center" style={{ borderColor: '#C9A961', backgroundColor: 'transparent' }}>
+                  <svg className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 mb-2 sm:mb-3" fill="none" stroke="#C9A961" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  <h3 className="font-bold text-white text-[0.5rem] sm:text-xs md:text-sm mb-1">Signed Retainer</h3>
+                  <p className="text-[0.45rem] sm:text-[0.55rem] md:text-xs" style={{ color: '#C9A961' }}>Client Onboarding</p>
+                  <p className="text-[0.45rem] sm:text-[0.55rem] md:text-xs" style={{ color: '#C9A961' }}>Intake Complete</p>
+                </div>
+              </div>
+
+              {/* Arrow */}
+              <svg className="flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8" fill="#C9A961" viewBox="0 0 24 24">
+                <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+              </svg>
+
+              {/* LawBOX - Center Large Box */}
+              <div className="flex-shrink w-32 sm:w-40 md:w-48 lg:w-56">
+                <div className="border-2 rounded-lg p-2 sm:p-3 md:p-5 lg:p-6 h-full" style={{ borderColor: '#C9A961', backgroundColor: 'rgba(201, 169, 97, 0.1)' }}>
+                  <div className="flex items-center justify-center mb-2 sm:mb-3">
+                    <svg className="w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12 mr-1 sm:mr-2" fill="none" stroke="#C9A961" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                    <h3 className="font-bold text-white text-xs sm:text-sm md:text-lg lg:text-xl">LawBOX™</h3>
+                  </div>
+                  <p className="text-center font-bold mb-2 text-[0.5rem] sm:text-xs md:text-sm" style={{ color: '#C9A961' }}>Full Service Operations</p>
+                  <div className="space-y-0.5 text-[0.4rem] sm:text-[0.5rem] md:text-xs text-white text-left">
+                    <p>• Document Collection</p>
+                    <p>• Medical Records</p>
+                    <p>• Journey of Care</p>
+                    <p>• Treatment</p>
+                    <p>• Chronologies</p>
+                    <p>• Demand Writing</p>
+                    <p>• Case Management</p>
+                    <p>• AI + Expert Team</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Arrow */}
+              <svg className="flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8" fill="#C9A961" viewBox="0 0 24 24">
+                <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+              </svg>
+
+              {/* Demand Ready */}
+              <div className="flex-shrink w-20 sm:w-28 md:w-32 lg:w-36">
+                <div className="border-2 rounded-lg p-2 sm:p-3 md:p-4 lg:p-5 h-full flex flex-col items-center justify-center text-center" style={{ borderColor: '#C9A961', backgroundColor: 'transparent' }}>
+                  <svg className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 mb-2 sm:mb-3" fill="none" stroke="#C9A961" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <h3 className="font-bold text-white text-[0.5rem] sm:text-xs md:text-sm mb-1">Demand Ready</h3>
+                  <p className="text-[0.45rem] sm:text-[0.55rem] md:text-xs" style={{ color: '#C9A961' }}>Settlement Ready</p>
+                  <p className="text-[0.45rem] sm:text-[0.55rem] md:text-xs" style={{ color: '#C9A961' }}>Cases Delivered</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Summary */}
+          <div className="mt-12 text-center">
+            <p className="text-lg sm:text-xl md:text-2xl text-white mb-4">
+              <span className="font-bold">Capital</span> <span style={{ color: '#C9A961' }}>→</span> <span className="font-bold">Lead Gen</span> <span style={{ color: '#C9A961' }}>→</span> <span className="font-bold">Signed Retainer</span> <span style={{ color: '#C9A961' }}>→</span> <span className="font-bold">Demand Ready</span>
+            </p>
+            <p className="text-base sm:text-lg md:text-xl text-white font-semibold">Eliminate Friction, Maximize Output.</p>
           </div>
         </div>
       </section>
