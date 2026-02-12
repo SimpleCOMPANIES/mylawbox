@@ -197,10 +197,10 @@ export default function Home({ onNavigateContact }) {
       </section>
 
       {/* Main Value Prop - Asymmetric layout with real photography */}
-      <section ref={valuePropRef} className={`py-28 ${valuePropVisible ? 'animate-fade-in-down' : 'opacity-0'}`} style={{ backgroundColor: '#FAFAF8' }} id="how-it-works">
+      <section ref={valuePropRef} className={`py-16 ${valuePropVisible ? 'animate-fade-in-down' : 'opacity-0'}`} style={{ backgroundColor: '#FAFAF8' }} id="how-it-works">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
-          <div className="text-center mb-20">
+          <div className="text-center mb-12">
             <h2 className="font-serif text-5xl md:text-6xl font-bold mb-3" style={{ color: '#0A1628' }}>
               <span className="hidden sm:inline">Human Centric + AI Powered</span>
               <span className="sm:hidden">Human Centric<br />+<br />AI Powered</span>
@@ -247,14 +247,14 @@ export default function Home({ onNavigateContact }) {
       </section>
 
       {/* Services Section - Detailed breakdown with new color scheme */}
-      <section ref={servicesRef} className={`py-28 bg-white texture-overlay ${servicesVisible ? 'animate-fade-in-down' : 'opacity-0'}`} id="services">
+      <section ref={servicesRef} className={`py-16 bg-white texture-overlay ${servicesVisible ? 'animate-fade-in-down' : 'opacity-0'}`} id="services">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
+          <div className="text-center mb-12">
             <h2 className="font-serif text-5xl md:text-6xl font-bold mb-4" style={{ color: '#0A1628' }}>Pre Litigation Services</h2>
             <p className="text-xl max-w-2xl mx-auto font-light" style={{ color: '#64748B' }}>Transform your operations with AI agents and expert case staff that work around the clock</p>
           </div>
 
-          <div className="space-y-20">
+          <div className="space-y-12">
             {/* Intake Section */}
             <div className="max-w-2xl mx-auto text-center">
               <h3 className="text-3xl font-bold mb-4" style={{ color: '#0A1628' }}><span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Intake</span> That Captures Every Opportunity & Rescues Lost Leads</h3>
@@ -315,9 +315,9 @@ export default function Home({ onNavigateContact }) {
       </section>
 
       {/* From Lead to Settlement Section */}
-      <section ref={timelineRef} className={`py-28 ${timelineVisible ? 'animate-fade-in-down' : 'opacity-0'}`} style={{ backgroundColor: '#FAFAF8' }}>
+      <section ref={timelineRef} className={`py-16 ${timelineVisible ? 'animate-fade-in-down' : 'opacity-0'}`} style={{ backgroundColor: '#FAFAF8' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-24">
+          <div className="mb-12">
             <h2 className="font-serif text-5xl md:text-6xl font-bold mb-6" style={{ color: '#0A1628' }}>
               From Lead to Settlement. <span style={{ color: '#C9A961' }}>Effortlessly.</span>
             </h2>
