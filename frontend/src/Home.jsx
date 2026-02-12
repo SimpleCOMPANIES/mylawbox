@@ -52,6 +52,7 @@ const CheckCircle2 = ({ className }) => (
 );
 
 export default function Home({ onNavigateContact }) {
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [socialProofRef, socialProofVisible] = useScrollReveal();
   const [differentiatorRef, differentiatorVisible] = useScrollReveal();
   const [valuePropRef, valuePropVisible] = useScrollReveal();
@@ -85,7 +86,7 @@ export default function Home({ onNavigateContact }) {
         }
       `}</style>
       {/* Hero Section - Nav + Hero share one background container */}
-      <section className="relative pb-16 sm:pb-20 md:pb-36 overflow-hidden texture-overlay">
+      <section className="relative pb-8 sm:pb-12 md:pb-16 overflow-hidden texture-overlay">
         {/* Real photography background - covers nav + hero */}
         <div className="absolute inset-0">
           <img 
@@ -104,7 +105,60 @@ export default function Home({ onNavigateContact }) {
               
               <div className="hidden md:flex items-center gap-8">
                 <a href="#how-it-works" className="text-sm font-semibold transition-colors" style={{ color: 'rgba(255, 255, 255, 0.85)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.85)'}>How it Works</a>
-                <a href="#services" className="text-sm font-semibold transition-colors" style={{ color: 'rgba(255, 255, 255, 0.85)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.85)'}>Services</a>
+                
+                <div className="relative" onMouseEnter={() => setServicesDropdownOpen(true)} onMouseLeave={() => setServicesDropdownOpen(false)}>
+                  <button className="text-sm font-semibold transition-colors flex items-center gap-1" style={{ color: servicesDropdownOpen ? '#C9A961' : 'rgba(255, 255, 255, 0.85)' }}>
+                    Services
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  
+                  {servicesDropdownOpen && (
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 pt-2 w-[720px]">
+                      <div className="rounded-lg shadow-2xl" style={{ backgroundColor: '#0A1628', border: '1px solid rgba(201, 169, 97, 0.2)' }}>
+                        <div className="grid grid-cols-3 gap-6 p-8">
+                        {/* Fractional Services */}
+                        <div>
+                          <h3 className="text-sm font-bold mb-4 pb-2 border-b" style={{ color: '#C9A961', borderColor: 'rgba(201, 169, 97, 0.3)' }}>Fractional Services</h3>
+                          <ul className="space-y-2">
+                            <li><a href="#services" className="text-xs block py-1 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.7)'}>Chief Information Officer</a></li>
+                            <li><a href="#services" className="text-xs block py-1 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.7)'}>Chief Operating Officer</a></li>
+                            <li><a href="#services" className="text-xs block py-1 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.7)'}>Chief Financial Officer</a></li>
+                            <li><a href="#services" className="text-xs block py-1 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.7)'}>Chief Marketing Officer</a></li>
+                            <li><a href="#services" className="text-xs block py-1 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.7)'}>Chief AI Officer</a></li>
+                            <li><a href="#services" className="text-xs block py-1 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.7)'}>Tax Strategist</a></li>
+                            <li><a href="#services" className="text-xs block py-1 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.7)'}>Human Resources</a></li>
+                          </ul>
+                        </div>
+                        
+                        {/* Litigation Finance */}
+                        <div>
+                          <h3 className="text-sm font-bold mb-4 pb-2 border-b" style={{ color: '#C9A961', borderColor: 'rgba(201, 169, 97, 0.3)' }}>Litigation Finance</h3>
+                          <ul className="space-y-2">
+                            <li><a href="#services" className="text-xs block py-1 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.7)'}>Growth Marketing Loans</a></li>
+                            <li><a href="#services" className="text-xs block py-1 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.7)'}>Pre-Settlement Advance</a></li>
+                            <li><a href="#services" className="text-xs block py-1 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.7)'}>Case Cost Advance</a></li>
+                            <li><a href="#services" className="text-xs block py-1 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.7)'}>Medical Funding</a></li>
+                          </ul>
+                        </div>
+                        
+                        {/* Advisory */}
+                        <div>
+                          <h3 className="text-sm font-bold mb-4 pb-2 border-b" style={{ color: '#C9A961', borderColor: 'rgba(201, 169, 97, 0.3)' }}>Advisory</h3>
+                          <ul className="space-y-2">
+                            <li><a href="#services" className="text-xs block py-1 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.7)'}>Mergers & Acquisitions</a></li>
+                            <li><a href="#services" className="text-xs block py-1 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.7)'}>Management Services Organization</a></li>
+                            <li><a href="#services" className="text-xs block py-1 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.7)'}>Alternative Business Structure</a></li>
+                            <li><a href="#services" className="text-xs block py-1 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.7)'}>AI Hub & Innovation Advisory</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+                
                 <a href="#team" className="text-sm font-semibold transition-colors" style={{ color: 'rgba(255, 255, 255, 0.85)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.85)'}>About</a>
               </div>
               
@@ -115,20 +169,20 @@ export default function Home({ onNavigateContact }) {
           </div>
         </nav>
         
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10 pt-10 sm:pt-14 md:pt-20">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10 pt-6 sm:pt-8 md:pt-10">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 backdrop-blur-sm border px-3 py-1.5 sm:px-4 sm:py-2 rounded-md text-xs sm:text-sm font-bold mb-8 sm:mb-12" style={{ backgroundColor: 'rgba(201, 169, 97, 0.1)', borderColor: 'rgba(201, 169, 97, 0.3)', color: '#C9A961' }}>
+            <div className="inline-flex items-center gap-2 backdrop-blur-sm border px-3 py-1.5 sm:px-4 sm:py-2 rounded-md text-xs sm:text-sm font-bold mb-4 sm:mb-6" style={{ backgroundColor: 'rgba(201, 169, 97, 0.1)', borderColor: 'rgba(201, 169, 97, 0.3)', color: '#C9A961' }}>
               <span className="w-2 h-2 rounded-full animate-pulse flex-shrink-0" style={{ backgroundColor: '#C9A961' }}></span>
               Trusted by top personal injury firms nationwide
             </div>
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-12 sm:mb-16 md:mb-20 tracking-wide text-white">
-              <span className="block mb-4 sm:mb-6 md:mb-8">Hyperscale your firm</span>
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 md:mb-10 tracking-wide text-white">
+              <span className="block mb-2 sm:mb-3 md:mb-4">Hyperscale your firm</span>
               <span className="block">Not your overhead</span>
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-white mb-8 sm:mb-12 leading-relaxed max-w-3xl mx-auto font-light">
+            <p className="text-lg sm:text-xl md:text-2xl text-white mb-4 sm:mb-6 leading-relaxed max-w-3xl mx-auto font-light">
             LawBOX is the nations Gold Standard for AI powered pre litigation            
             </p>
-            <p className="text-base sm:text-lg text-white mb-10 sm:mb-14 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-white mb-6 sm:mb-8 leading-relaxed max-w-3xl mx-auto">
             Effortlessly remove friction from Intake to Settlement, handle more cases less headaches.            
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center">
