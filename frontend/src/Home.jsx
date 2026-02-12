@@ -121,11 +121,12 @@ export default function Home({ onNavigateContact }) {
               <span className="w-2 h-2 rounded-full animate-pulse flex-shrink-0" style={{ backgroundColor: '#C9A961' }}></span>
               Trusted by top personal injury firms nationwide
             </div>
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-8 sm:mb-12 leading-[1.15] sm:leading-[1.1] text-white">
-              Hyperscale your firm.<br />Not your overhead.
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-12 sm:mb-16 md:mb-20 tracking-wide text-white">
+              <span className="block mb-4 sm:mb-6 md:mb-8">Hyperscale your firm</span>
+              <span className="block">Not your overhead</span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-white mb-8 sm:mb-12 leading-relaxed max-w-3xl mx-auto font-light">
-            Lawbox is the nations Gold Standard for AI powered pre litigation            
+            LawBOX is the nations Gold Standard for AI powered pre litigation            
             </p>
             <p className="text-base sm:text-lg text-white mb-10 sm:mb-14 leading-relaxed max-w-3xl mx-auto">
             Effortlessly remove friction from Intake to Settlement, handle more cases less headaches.            
@@ -199,110 +200,58 @@ export default function Home({ onNavigateContact }) {
 
           <div className="space-y-20">
             {/* Intake Section */}
-            <div className="grid md:grid-cols-2 gap-12 items-start">
-              <div>
-                <h3 className="text-3xl font-bold mb-4" style={{ color: '#0A1628' }}>24/7 intake that captures every opportunity</h3>
-                <p className="leading-relaxed mb-6" style={{ color: '#64748B' }}>
-                  AI monitors every intake call 24/7, identifies lost leads in real time, and alerts you to rescure them before they sign with another firm.
-                  Multilingual intake specialists qualify all leads.
-                </p>
-              </div>
-              
-              <div className="flex items-center justify-center">
-                <div className="rounded-2xl px-10 py-8 text-center" style={{ background: 'linear-gradient(145deg, #0A1628, #1A2740)' }}>
-                  <div className="text-xl md:text-2xl font-bold text-white leading-snug">Superior Answer<br />&amp; Conversion Rates</div>
-                </div>
-              </div>
+            <div className="max-w-2xl mx-auto text-center">
+              <h3 className="text-3xl font-bold mb-4" style={{ color: '#0A1628' }}><span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Intake</span> That Captures Every Opportunity & Rescues Lost Leads</h3>
+              <p className="leading-relaxed" style={{ color: '#64748B' }}>
+                AI monitors every intake call 24/7, identifies lost leads in real time, and alerts you to rescure them before they sign with another firm.
+                Multilingual intake specialists qualify all leads.
+              </p>
             </div>
 
             {/* Document Collection and Claims Setup */}
-            <div className="grid md:grid-cols-2 gap-12 items-start">
-              <div className="md:order-2">
-                <h3 className="text-3xl font-bold mb-4" style={{ color: '#0A1628' }}>Document collection and claims setup</h3>
-                <p className="leading-relaxed" style={{ color: '#64748B' }}>
-                  Police reports, medical retrievals, set up insurance claims, and facts of loss.
-                </p>
-              </div>
-              
-              <div className="md:order-1 space-y-4">
-                <div className="rounded-2xl px-8 py-6 text-center" style={{ background: 'linear-gradient(145deg, #0A1628, #1A2740)' }}>
-                  <div className="text-lg font-bold text-white">Medical Retrievals</div>
-                </div>
-                <div className="rounded-2xl px-8 py-6 text-center" style={{ backgroundColor: '#C9A961' }}>
-                  <div className="text-lg font-bold text-white">Insurance Claims</div>
-                </div>
-              </div>
+            <div className="max-w-2xl mx-auto text-center">
+              <h3 className="text-3xl font-bold mb-4" style={{ color: '#0A1628' }}>Document Collection & <span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Claims Setup</span></h3>
+              <p className="leading-relaxed" style={{ color: '#64748B' }}>
+                Police reports, medical retrievals, set up insurance claims, facts of loss, etc.
+              </p>
             </div>
 
             {/* Journey of Care */}
-            <div className="grid md:grid-cols-2 gap-12 items-start">
-              <div>
-                <h3 className="text-3xl font-bold mb-4" style={{ color: '#0A1628' }}>Keep clients treating until maximum medical improvement</h3>
-                <p className="leading-relaxed mb-6" style={{ color: '#64748B' }}>
-                  We check in weekly to ensure clients complete their treatment plan, because finished treatment means higher settlements. Our automated records retrieval delivers:
-                </p>
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-1" style={{ color: '#C9A961' }} />
-                    <span style={{ color: '#64748B' }}><strong>90% faster than manual retrieval.</strong> No more spending 2 to 3 hours hunting down facilities</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-1" style={{ color: '#C9A961' }} />
-                    <span style={{ color: '#64748B' }}><strong>Automatic provider identification.</strong> We find where your client was treated, even when they can't remember</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-1" style={{ color: '#C9A961' }} />
-                    <span style={{ color: '#64748B' }}><strong>Complete records package.</strong> Bills, notes, imaging, and referrals delivered organized and ready for demand</span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div className="space-y-4">
-                <div className="rounded-2xl px-8 py-6 text-center" style={{ background: 'linear-gradient(145deg, #0A1628, #1A2740)' }}>
-                  <div className="text-lg font-bold text-white">Faster Records</div>
-                </div>
-                <div className="rounded-2xl px-8 py-6 text-center" style={{ background: 'linear-gradient(145deg, #2B3544, #3A4A5C)' }}>
-                  <div className="text-lg font-bold text-white">Weekly Client Check ins</div>
-                </div>
-              </div>
+            <div className="max-w-2xl mx-auto text-center">
+              <h3 className="text-3xl font-bold mb-4" style={{ color: '#0A1628' }}>Journey Of <span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Care</span></h3>
+              <p className="leading-relaxed mb-6" style={{ color: '#64748B' }}>
+                Keep clients treating until maximum medical improvement. We check in weekly to ensure clients complete their treatment plan, because finished treatment means higher settlements. Our automated records retrieval delivers:
+              </p>
+              <ul className="space-y-3 text-left">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-1" style={{ color: '#C9A961' }} />
+                  <span style={{ color: '#64748B' }}><strong>90% faster than manual retrieval.</strong> No more spending 2 to 3 hours hunting down facilities</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-1" style={{ color: '#C9A961' }} />
+                  <span style={{ color: '#64748B' }}><strong>Automatic provider identification.</strong> We find where your client was treated, even when they can't remember</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-1" style={{ color: '#C9A961' }} />
+                  <span style={{ color: '#64748B' }}><strong>Complete records package.</strong> Bills, notes, imaging, and referrals delivered organized and ready for demand</span>
+                </li>
+              </ul>
             </div>
 
             {/* Medical Chronologies */}
-            <div className="grid md:grid-cols-2 gap-12 items-start">
-              <div className="order-2 md:order-1 space-y-4">
-                <div className="rounded-2xl px-8 py-6 text-center" style={{ backgroundColor: '#C9A961' }}>
-                  <div className="text-lg font-bold text-white">Hours Saved Per Case</div>
-                </div>
-                <div className="rounded-2xl px-8 py-6 text-center" style={{ background: 'linear-gradient(145deg, #2B3544, #3A4A5C)' }}>
-                  <div className="text-lg font-bold text-white">Faster Processing</div>
-                </div>
-              </div>
-              
-              <div className="order-1 md:order-2">
-                <h3 className="text-3xl font-bold mb-4" style={{ color: '#0A1628' }}>Medical chronologies that save 50+ hours per case</h3>
-                <p className="leading-relaxed mb-6" style={{ color: '#64748B' }}>
-                  Hundreds of pages transformed into organized, searchable timelines with source citations, delivered in hours, not weeks. Every treatment phase, procedure, medication, gap, and pre existing condition clearly identified. Your team processes records 8x faster than manual review, writes stronger demands, and settles cases sooner.
-                </p>
-              </div>
+            <div className="max-w-2xl mx-auto text-center">
+              <h3 className="text-3xl font-bold mb-4" style={{ color: '#0A1628' }}><span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Medical Chronologies</span> That Save 50+ Hours Per Case</h3>
+              <p className="leading-relaxed" style={{ color: '#64748B' }}>
+                Hundreds of pages transformed into organized, searchable timelines with source citations, delivered in hours, not weeks. Every treatment phase, procedure, medication, gap, and pre existing condition clearly identified. Your team processes records 8x faster than manual review, writes stronger demands, and settles cases sooner.
+              </p>
             </div>
 
             {/* Demand Letters */}
-            <div className="grid md:grid-cols-2 gap-12 items-start">
-              <div>
-                <h3 className="text-3xl font-bold mb-4" style={{ color: '#0A1628' }}>Demand letters that sound like your firm, not a robot</h3>
-                <p className="leading-relaxed" style={{ color: '#64748B' }}>
-                  Demands built to your specifications with adjuster psychology baked in, reviewed by our legal experts before delivery. Every package highlights the liability, damages, and medical narrative that drives settlement decisions. Insurance adjusters can't tell it's AI assisted, because it sounds exactly like you. Delivered in 48 hours with unlimited revisions.
-                </p>
-              </div>
-              
-              <div className="space-y-4">
-                <div className="rounded-2xl px-8 py-6 text-center" style={{ backgroundColor: '#C9A961' }}>
-                  <div className="text-lg font-bold text-white">Delivery Standard</div>
-                </div>
-                <div className="rounded-2xl px-8 py-6 text-center" style={{ background: 'linear-gradient(145deg, #2B3544, #3A4A5C)' }}>
-                  <div className="text-lg font-bold text-white">Revisions Included</div>
-                </div>
-              </div>
+            <div className="max-w-2xl mx-auto text-center">
+              <h3 className="text-3xl font-bold mb-4" style={{ color: '#0A1628' }}><span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Demand Letters</span> That Sound Like Your Firm, Not a Robot</h3>
+              <p className="leading-relaxed" style={{ color: '#64748B' }}>
+                Demands built to your specifications with adjuster psychology baked in, reviewed by our legal experts before delivery. Every package highlights the liability, damages, and medical narrative that drives settlement decisions. Insurance adjusters can't tell it's AI assisted, because it sounds exactly like you. Delivered in 48 hours with unlimited revisions.
+              </p>
             </div>
 
           </div>
@@ -612,7 +561,7 @@ export default function Home({ onNavigateContact }) {
           <div className="text-center mb-16">
             <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4" style={{ color: '#0A1628' }}>Built by PI veterans who've managed <span style={{ color: '#C9A961' }}>thousands of cases</span></h2>
             <p className="text-xl max-w-3xl mx-auto" style={{ color: '#64748B' }}>
-              LawBox's team brings decades of operational experience from the nation's top personal injury firms, having helped recover millions in settlements. We combine this deep expertise with advanced AI to deliver results you can trust.
+              LawBOX's team brings decades of operational experience from the nation's top personal injury firms, having helped recover millions in settlements. We combine this deep expertise with advanced AI to deliver results you can trust.
             </p>
           </div>
           
