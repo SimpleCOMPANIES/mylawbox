@@ -517,7 +517,7 @@ export default function Home({ onNavigateContact }) {
               <div className="absolute bottom-10 right-10 w-40 h-40 rounded-full blur-3xl" style={{ backgroundColor: '#C9A961' }}></div>
             </div>
             <p className="text-3xl md:text-4xl font-bold text-white relative z-10">
-              World-class infrastructure. <span style={{ color: '#C9A961' }}>Fractional cost.</span>
+              World-class infrastructure <span style={{ color: '#C9A961' }}>Fractional cost</span>
             </p>
           </div>
         </div>
