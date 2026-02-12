@@ -53,6 +53,7 @@ const CheckCircle2 = ({ className }) => (
 
 export default function Home({ onNavigateContact }) {
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [socialProofRef, socialProofVisible] = useScrollReveal();
   const [differentiatorRef, differentiatorVisible] = useScrollReveal();
   const [valuePropRef, valuePropVisible] = useScrollReveal();
@@ -77,8 +78,25 @@ export default function Home({ onNavigateContact }) {
           }
         }
         
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            max-height: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            max-height: 500px;
+            transform: translateY(0);
+          }
+        }
+        
         .animate-fade-in-down {
           animation: fadeInDown 0.8s ease-out forwards;
+        }
+        
+        .animate-slide-down {
+          animation: slideDown 0.3s ease-out forwards;
         }
         
         .opacity-0 {
@@ -162,11 +180,69 @@ export default function Home({ onNavigateContact }) {
                 <a href="#team" className="text-sm font-semibold transition-colors" style={{ color: 'rgba(255, 255, 255, 0.85)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.85)'}>About</a>
               </div>
               
-              <Button className="text-white text-sm md:text-base font-bold shadow-lg hover:shadow-xl transition-all px-4 py-2 md:px-6 md:py-2.5" style={{ backgroundColor: '#C9A961' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#B8941F'} onMouseLeave={(e) => e.target.style.backgroundColor = '#C9A961'} onClick={onNavigateContact}>
+              {/* Mobile menu button */}
+              <button className="md:hidden text-white" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {mobileMenuOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  )}
+                </svg>
+              </button>
+              
+              <Button className="hidden md:block text-white text-sm md:text-base font-bold shadow-lg hover:shadow-xl transition-all px-4 py-2 md:px-6 md:py-2.5" style={{ backgroundColor: '#C9A961' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#B8941F'} onMouseLeave={(e) => e.target.style.backgroundColor = '#C9A961'} onClick={onNavigateContact}>
                 Schedule a Call
               </Button>
             </div>
           </div>
+          
+          {/* Mobile Menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden max-h-[70vh] overflow-y-auto animate-slide-down" style={{ backgroundColor: '#0A1628' }}>
+              <div className="px-4 pt-2 pb-4 space-y-4">
+                <a href="#how-it-works" className="block py-2 text-sm font-semibold" style={{ color: 'rgba(255, 255, 255, 0.85)' }} onClick={() => setMobileMenuOpen(false)}>How it Works</a>
+                
+                {/* Services Section */}
+                <div>
+                  <div className="py-2 text-sm font-semibold" style={{ color: '#C9A961' }}>Services</div>
+                  
+                  <div className="ml-4 mt-2 space-y-3">
+                    {/* Fractional Services */}
+                    <div>
+                      <h4 className="text-xs font-bold mb-1" style={{ color: '#C9A961' }}>Fractional Services</h4>
+                      <ul className="space-y-1">
+                        <li><a href="#services" className="block py-0.5 text-xs" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onClick={() => setMobileMenuOpen(false)}>CIO • COO • CFO</a></li>
+                        <li><a href="#services" className="block py-0.5 text-xs" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onClick={() => setMobileMenuOpen(false)}>CMO • CAI Officer</a></li>
+                        <li><a href="#services" className="block py-0.5 text-xs" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onClick={() => setMobileMenuOpen(false)}>Tax Strategist • HR</a></li>
+                      </ul>
+                    </div>
+                    
+                    {/* Litigation Finance */}
+                    <div>
+                      <h4 className="text-xs font-bold mb-1" style={{ color: '#C9A961' }}>Litigation Finance</h4>
+                      <ul className="space-y-1">
+                        <li><a href="#services" className="block py-0.5 text-xs" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onClick={() => setMobileMenuOpen(false)}>Growth Marketing Loans</a></li>
+                        <li><a href="#services" className="block py-0.5 text-xs" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onClick={() => setMobileMenuOpen(false)}>Pre-Settlement • Case Cost</a></li>
+                        <li><a href="#services" className="block py-0.5 text-xs" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onClick={() => setMobileMenuOpen(false)}>Medical Funding</a></li>
+                      </ul>
+                    </div>
+                    
+                    {/* Advisory */}
+                    <div>
+                      <h4 className="text-xs font-bold mb-1" style={{ color: '#C9A961' }}>Advisory</h4>
+                      <ul className="space-y-1">
+                        <li><a href="#services" className="block py-0.5 text-xs" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onClick={() => setMobileMenuOpen(false)}>M&A • MSO • ABS</a></li>
+                        <li><a href="#services" className="block py-0.5 text-xs" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onClick={() => setMobileMenuOpen(false)}>AI Hub & Innovation</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                
+                <a href="#team" className="block py-2 text-sm font-semibold" style={{ color: 'rgba(255, 255, 255, 0.85)' }} onClick={() => setMobileMenuOpen(false)}>About</a>
+              </div>
+            </div>
+          )}
         </nav>
         
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10 pt-6 sm:pt-8 md:pt-10">
@@ -197,8 +273,8 @@ export default function Home({ onNavigateContact }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 border px-3 py-1.5 sm:px-4 sm:py-2 rounded-md text-xs sm:text-sm font-bold mb-6" style={{ backgroundColor: 'rgba(201, 169, 97, 0.1)', borderColor: 'rgba(201, 169, 97, 0.3)', color: '#C9A961' }}>
-              <span className="w-2 h-2 rounded-full animate-pulse flex-shrink-0" style={{ backgroundColor: '#C9A961' }}></span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-md text-xs sm:text-sm font-bold mb-6" style={{ backgroundColor: '#C9A961', color: 'white' }}>
+              <span className="w-2 h-2 rounded-full animate-pulse flex-shrink-0" style={{ backgroundColor: 'white' }}></span>
               Trusted by top personal injury firms nationwide
             </div>
             <h2 className="font-serif text-5xl md:text-6xl font-bold" style={{ color: '#0A1628' }}>
@@ -207,34 +283,33 @@ export default function Home({ onNavigateContact }) {
             </h2>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-20 items-center max-w-6xl mx-auto">
-            <div className="order-2 md:order-1">
-              {/* Client testimonial */}
-              <div className="p-8">
-                <svg className="w-12 h-12 mb-6 opacity-20" fill="currentColor" viewBox="0 0 24 24" style={{ color: '#C9A961' }}>
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
-                <p className="text-2xl md:text-3xl italic mb-6 leading-relaxed font-light" style={{ color: '#0A1628' }}>LawBOX reduced our case prep time by 60% while increasing our settlement values. It's like having a dedicated ops team without the overhead.</p>
-                <p className="text-sm font-bold" style={{ color: '#C9A961' }}>— Sarah Chen, Managing Partner, Chen & Associates</p>
-              </div>
-            </div>
-            
-            <div className="order-1 md:order-2">
+          <div className="max-w-4xl mx-auto space-y-12">
+            {/* How it Works Content */}
+            <div className="text-center">
               <div className="inline-flex items-center gap-2 px-4 py-2 text-xs font-bold text-white mb-6" style={{ backgroundColor: '#C9A961' }}>
                 How it Works
               </div>
               <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6" style={{ color: '#0A1628' }}>
                 AI powered humans in the loop operations team handles your <span style={{ color: '#C9A961' }}>cases from intake to demand</span>
               </h2>
-              <p className="text-lg mb-8 leading-relaxed font-light" style={{ color: '#2B3544' }}>
+              <p className="text-lg mb-8 leading-relaxed font-light max-w-3xl mx-auto" style={{ color: '#2B3544' }}>
                 From the moment a lead comes in to final settlement, LawBOX manages every case for one flat fee. No more hiring, training, or managing case staff.
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex justify-center">
                 <Button className="text-white font-bold shadow-lg" style={{ backgroundColor: '#C9A961', boxShadow: '0 10px 25px rgba(201, 169, 97, 0.2)' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#B8941F'} onMouseLeave={(e) => e.target.style.backgroundColor = '#C9A961'} onClick={onNavigateContact}>
                   Schedule a Call
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </div>
+            </div>
+            
+            {/* Client testimonial */}
+            <div className="text-center p-8">
+              <svg className="w-12 h-12 mb-6 opacity-20 mx-auto" fill="currentColor" viewBox="0 0 24 24" style={{ color: '#C9A961' }}>
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+              </svg>
+              <p className="text-2xl md:text-3xl italic mb-6 leading-relaxed font-light max-w-3xl mx-auto" style={{ color: '#0A1628' }}>LawBOX reduced our case prep time by 60% while increasing our settlement values. It's like having a dedicated ops team without the overhead.</p>
+              <p className="text-sm font-bold" style={{ color: '#C9A961' }}>— Sarah Chen, Managing Partner, Chen & Associates</p>
             </div>
           </div>
         </div>
