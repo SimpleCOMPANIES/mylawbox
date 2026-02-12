@@ -102,6 +102,15 @@ export default function Home({ onNavigateContact }) {
         .opacity-0 {
           opacity: 0;
         }
+        
+        /* Hide scrollbar but keep functionality */
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
       `}</style>
       {/* Hero Section - Nav + Hero share one background container */}
       <section className="relative pb-8 sm:pb-12 md:pb-16 overflow-hidden texture-overlay">
@@ -318,7 +327,7 @@ export default function Home({ onNavigateContact }) {
       </section>
 
       {/* LawFirm In A Box Section */}
-      <section className="py-16" style={{ backgroundColor: '#1A2740' }} id="lawfirm-in-a-box">
+      <section className="py-16 overflow-hidden" style={{ backgroundColor: '#1A2740' }} id="lawfirm-in-a-box">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-12">
@@ -328,49 +337,49 @@ export default function Home({ onNavigateContact }) {
 
           {/* Flow Diagram */}
           <div className="pb-4">
-            <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-6">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-3 sm:gap-4 md:gap-3 lg:gap-6">
               {/* Marketing Growth Capital */}
-              <div className="flex-shrink w-20 sm:w-28 md:w-32 lg:w-36">
-                <div className="border-2 rounded-lg p-2 sm:p-3 md:p-4 lg:p-5 h-full flex flex-col items-center justify-center text-center" style={{ borderColor: '#C9A961', backgroundColor: 'transparent' }}>
-                  <svg className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 mb-2 sm:mb-3" fill="none" stroke="#C9A961" strokeWidth="2" viewBox="0 0 24 24">
+              <div className="w-full max-w-xs md:w-28 lg:w-36">
+                <div className="border-2 rounded-lg p-4 md:p-3 lg:p-5 h-full flex flex-col items-center justify-center text-center" style={{ borderColor: '#C9A961', backgroundColor: 'transparent' }}>
+                  <svg className="w-10 h-10 md:w-8 md:h-8 lg:w-10 lg:h-10 mb-3 md:mb-2 lg:mb-3" fill="none" stroke="#C9A961" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <h3 className="font-bold text-white text-[0.5rem] sm:text-xs md:text-sm mb-1">Marketing Growth Capital</h3>
-                  <p className="text-[0.45rem] sm:text-[0.55rem] md:text-xs" style={{ color: '#C9A961' }}>Litigation Finance</p>
+                  <h3 className="font-bold text-white text-sm md:text-xs lg:text-sm mb-2">Marketing Growth Capital</h3>
+                  <p className="text-xs md:text-[0.65rem] lg:text-xs" style={{ color: '#C9A961' }}>Litigation Finance</p>
                 </div>
               </div>
 
               {/* Arrow */}
-              <svg className="flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8" fill="#C9A961" viewBox="0 0 24 24">
+              <svg className="w-8 h-8 rotate-90 md:rotate-0 md:w-6 md:h-6 lg:w-8 lg:h-8 flex-shrink-0" fill="#C9A961" viewBox="0 0 24 24">
                 <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
               </svg>
 
               {/* Lead Gen */}
-              <div className="flex-shrink w-20 sm:w-28 md:w-32 lg:w-36">
-                <div className="border-2 rounded-lg p-2 sm:p-3 md:p-4 lg:p-5 h-full flex flex-col items-center justify-center text-center" style={{ borderColor: '#C9A961', backgroundColor: 'transparent' }}>
-                  <svg className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 mb-2 sm:mb-3" fill="none" stroke="#C9A961" strokeWidth="2" viewBox="0 0 24 24">
+              <div className="w-full max-w-xs md:w-28 lg:w-36">
+                <div className="border-2 rounded-lg p-4 md:p-3 lg:p-5 h-full flex flex-col items-center justify-center text-center" style={{ borderColor: '#C9A961', backgroundColor: 'transparent' }}>
+                  <svg className="w-10 h-10 md:w-8 md:h-8 lg:w-10 lg:h-10 mb-3 md:mb-2 lg:mb-3" fill="none" stroke="#C9A961" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
                   </svg>
-                  <h3 className="font-bold text-white text-[0.5rem] sm:text-xs md:text-sm mb-1">Lead Gen</h3>
-                  <p className="text-[0.45rem] sm:text-[0.55rem] md:text-xs" style={{ color: '#C9A961' }}>Marketing Partners</p>
-                  <p className="text-[0.45rem] sm:text-[0.55rem] md:text-xs" style={{ color: '#C9A961' }}>Plaintiff Acquisition</p>
+                  <h3 className="font-bold text-white text-sm md:text-xs lg:text-sm mb-2">Lead Gen</h3>
+                  <p className="text-xs md:text-[0.65rem] lg:text-xs" style={{ color: '#C9A961' }}>Marketing Partners</p>
+                  <p className="text-xs md:text-[0.65rem] lg:text-xs" style={{ color: '#C9A961' }}>Plaintiff Acquisition</p>
                 </div>
               </div>
 
               {/* Arrow */}
-              <svg className="flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8" fill="#C9A961" viewBox="0 0 24 24">
+              <svg className="w-8 h-8 rotate-90 md:rotate-0 md:w-6 md:h-6 lg:w-8 lg:h-8 flex-shrink-0" fill="#C9A961" viewBox="0 0 24 24">
                 <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
               </svg>
 
               {/* Signed Retainer */}
-              <div className="flex-shrink w-20 sm:w-28 md:w-32 lg:w-36">
-                <div className="border-2 rounded-lg p-2 sm:p-3 md:p-4 lg:p-5 h-full flex flex-col items-center justify-center text-center" style={{ borderColor: '#C9A961', backgroundColor: 'transparent' }}>
-                  <svg className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 mb-2 sm:mb-3" fill="none" stroke="#C9A961" strokeWidth="2" viewBox="0 0 24 24">
+              <div className="w-full max-w-xs md:w-32 lg:w-36">
+                <div className="border-2 rounded-lg p-4 md:p-4 lg:p-5 h-full flex flex-col items-center justify-center text-center" style={{ borderColor: '#C9A961', backgroundColor: 'transparent' }}>
+                  <svg className="w-10 h-10 md:w-10 md:h-10 mb-3 md:mb-3" fill="none" stroke="#C9A961" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
-                  <h3 className="font-bold text-white text-[0.5rem] sm:text-xs md:text-sm mb-1">Signed Retainer</h3>
-                  <p className="text-[0.45rem] sm:text-[0.55rem] md:text-xs" style={{ color: '#C9A961' }}>Client Onboarding</p>
-                  <p className="text-[0.45rem] sm:text-[0.55rem] md:text-xs" style={{ color: '#C9A961' }}>Intake Complete</p>
+                  <h3 className="font-bold text-white text-sm md:text-sm mb-2 md:mb-1">Signed Retainer</h3>
+                  <p className="text-xs md:text-xs" style={{ color: '#C9A961' }}>Client Onboarding</p>
+                  <p className="text-xs md:text-xs" style={{ color: '#C9A961' }}>Intake Complete</p>
                 </div>
               </div>
 
@@ -380,16 +389,16 @@ export default function Home({ onNavigateContact }) {
               </svg>
 
               {/* LawBOX - Center Large Box */}
-              <div className="flex-shrink w-32 sm:w-40 md:w-48 lg:w-56">
-                <div className="border-2 rounded-lg p-2 sm:p-3 md:p-5 lg:p-6 h-full" style={{ borderColor: '#C9A961', backgroundColor: 'rgba(201, 169, 97, 0.1)' }}>
-                  <div className="flex items-center justify-center mb-2 sm:mb-3">
-                    <svg className="w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12 mr-1 sm:mr-2" fill="none" stroke="#C9A961" strokeWidth="2" viewBox="0 0 24 24">
+              <div className="w-full max-w-xs md:w-48 lg:w-56">
+                <div className="border-2 rounded-lg p-4 md:p-5 lg:p-6 h-full" style={{ borderColor: '#C9A961', backgroundColor: 'rgba(201, 169, 97, 0.1)' }}>
+                  <div className="flex items-center justify-center mb-3 md:mb-4">
+                    <svg className="w-8 h-8 md:w-10 md:h-10 mr-2" fill="none" stroke="#C9A961" strokeWidth="2" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
-                    <h3 className="font-bold text-white text-xs sm:text-sm md:text-lg lg:text-xl">LawBOX™</h3>
+                    <h3 className="font-bold text-white text-base md:text-lg lg:text-xl">LawBOX™</h3>
                   </div>
-                  <p className="text-center font-bold mb-2 text-[0.5rem] sm:text-xs md:text-sm" style={{ color: '#C9A961' }}>Full Service Operations</p>
-                  <div className="space-y-0.5 text-[0.4rem] sm:text-[0.5rem] md:text-xs text-white text-left">
+                  <p className="text-center font-bold mb-3 md:mb-4 text-xs md:text-sm" style={{ color: '#C9A961' }}>Full Service Operations</p>
+                  <div className="space-y-1 text-xs md:text-sm text-white pl-2">
                     <p>• Document Collection</p>
                     <p>• Medical Records</p>
                     <p>• Journey of Care</p>
@@ -408,14 +417,14 @@ export default function Home({ onNavigateContact }) {
               </svg>
 
               {/* Demand Ready */}
-              <div className="flex-shrink w-20 sm:w-28 md:w-32 lg:w-36">
-                <div className="border-2 rounded-lg p-2 sm:p-3 md:p-4 lg:p-5 h-full flex flex-col items-center justify-center text-center" style={{ borderColor: '#C9A961', backgroundColor: 'transparent' }}>
-                  <svg className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 mb-2 sm:mb-3" fill="none" stroke="#C9A961" strokeWidth="2" viewBox="0 0 24 24">
+              <div className="w-full max-w-xs md:w-32 lg:w-36">
+                <div className="border-2 rounded-lg p-4 md:p-4 lg:p-5 h-full flex flex-col items-center justify-center text-center" style={{ borderColor: '#C9A961', backgroundColor: 'transparent' }}>
+                  <svg className="w-10 h-10 md:w-10 md:h-10 mb-3 md:mb-3" fill="none" stroke="#C9A961" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <h3 className="font-bold text-white text-[0.5rem] sm:text-xs md:text-sm mb-1">Demand Ready</h3>
-                  <p className="text-[0.45rem] sm:text-[0.55rem] md:text-xs" style={{ color: '#C9A961' }}>Settlement Ready</p>
-                  <p className="text-[0.45rem] sm:text-[0.55rem] md:text-xs" style={{ color: '#C9A961' }}>Cases Delivered</p>
+                  <h3 className="font-bold text-white text-sm md:text-sm mb-2 md:mb-1">Demand Ready</h3>
+                  <p className="text-xs md:text-xs" style={{ color: '#C9A961' }}>Settlement Ready</p>
+                  <p className="text-xs md:text-xs" style={{ color: '#C9A961' }}>Cases Delivered</p>
                 </div>
               </div>
             </div>
