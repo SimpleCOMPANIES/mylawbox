@@ -171,10 +171,6 @@ export default function Home({ onNavigateContact }) {
         
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10 pt-6 sm:pt-8 md:pt-10">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 backdrop-blur-sm border px-3 py-1.5 sm:px-4 sm:py-2 rounded-md text-xs sm:text-sm font-bold mb-4 sm:mb-6" style={{ backgroundColor: 'rgba(201, 169, 97, 0.1)', borderColor: 'rgba(201, 169, 97, 0.3)', color: '#C9A961' }}>
-              <span className="w-2 h-2 rounded-full animate-pulse flex-shrink-0" style={{ backgroundColor: '#C9A961' }}></span>
-              Trusted by top personal injury firms nationwide
-            </div>
             <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 md:mb-10 tracking-wide text-white">
               <span className="block mb-2 sm:mb-3 md:mb-4">Hyperscale your firm</span>
               <span className="block">Not your overhead</span>
@@ -201,27 +197,25 @@ export default function Home({ onNavigateContact }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-12">
-            <h2 className="font-serif text-5xl md:text-6xl font-bold mb-3" style={{ color: '#0A1628' }}>
+            <div className="inline-flex items-center gap-2 border px-3 py-1.5 sm:px-4 sm:py-2 rounded-md text-xs sm:text-sm font-bold mb-6" style={{ backgroundColor: 'rgba(201, 169, 97, 0.1)', borderColor: 'rgba(201, 169, 97, 0.3)', color: '#C9A961' }}>
+              <span className="w-2 h-2 rounded-full animate-pulse flex-shrink-0" style={{ backgroundColor: '#C9A961' }}></span>
+              Trusted by top personal injury firms nationwide
+            </div>
+            <h2 className="font-serif text-5xl md:text-6xl font-bold" style={{ color: '#0A1628' }}>
               <span className="hidden sm:inline">Human Centric + AI Powered</span>
               <span className="sm:hidden">Human Centric<br />+<br />AI Powered</span>
             </h2>
-            <div className="w-24 h-1 mx-auto" style={{ backgroundColor: '#C9A961' }}></div>
           </div>
           
           <div className="grid md:grid-cols-2 gap-20 items-center max-w-6xl mx-auto">
-            <div className="relative h-[400px] md:h-[550px] rounded-none overflow-hidden shadow-2xl group order-2 md:order-1">
-              {/* Architectural/Document imagery - less stock-y */}
-              <img 
-                src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?auto=format&fit=crop&w=1000&q=80" 
-                alt="Legal documentation" 
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(10, 22, 40, 0.85) 0%, rgba(26, 39, 64, 0.75) 100%)' }}></div>
-              
-              {/* Client testimonial overlay */}
-              <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                <p className="text-sm italic mb-3 leading-relaxed">"LawBOX reduced our case prep time by 60% while increasing our settlement values. It's like having a dedicated ops team without the overhead."</p>
-                <p className="text-xs font-bold" style={{ color: '#C9A961' }}>— Sarah Chen, Managing Partner, Chen & Associates</p>
+            <div className="order-2 md:order-1">
+              {/* Client testimonial */}
+              <div className="p-8">
+                <svg className="w-12 h-12 mb-6 opacity-20" fill="currentColor" viewBox="0 0 24 24" style={{ color: '#C9A961' }}>
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+                <p className="text-2xl md:text-3xl italic mb-6 leading-relaxed font-light" style={{ color: '#0A1628' }}>LawBOX reduced our case prep time by 60% while increasing our settlement values. It's like having a dedicated ops team without the overhead.</p>
+                <p className="text-sm font-bold" style={{ color: '#C9A961' }}>— Sarah Chen, Managing Partner, Chen & Associates</p>
               </div>
             </div>
             
@@ -257,7 +251,7 @@ export default function Home({ onNavigateContact }) {
           <div className="space-y-12">
             {/* Intake Section */}
             <div className="max-w-2xl mx-auto text-center">
-              <h3 className="text-3xl font-bold mb-4" style={{ color: '#0A1628' }}><span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Intake</span> That Captures Every Opportunity & Rescues Lost Leads</h3>
+              <h3 className="text-3xl font-bold mb-4" style={{ color: '#0A1628' }}><span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Intake</span> That Captures Every Opportunity & <span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Rescues Lost Leads</span></h3>
               <p className="leading-relaxed" style={{ color: '#64748B' }}>
                 AI monitors every intake call 24/7, identifies lost leads in real time, and alerts you to rescure them before they sign with another firm.
                 Multilingual intake specialists qualify all leads.
@@ -266,7 +260,7 @@ export default function Home({ onNavigateContact }) {
 
             {/* Document Collection and Claims Setup */}
             <div className="max-w-2xl mx-auto text-center">
-              <h3 className="text-3xl font-bold mb-4" style={{ color: '#0A1628' }}>Document Collection & <span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Claims Setup</span></h3>
+              <h3 className="text-3xl font-bold mb-4" style={{ color: '#0A1628' }}><span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Document Collection</span> & <span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Claims Setup</span></h3>
               <p className="leading-relaxed" style={{ color: '#64748B' }}>
                 Police reports, medical retrievals, set up insurance claims, facts of loss, etc.
               </p>
@@ -274,7 +268,7 @@ export default function Home({ onNavigateContact }) {
 
             {/* Journey of Care */}
             <div className="max-w-2xl mx-auto text-center">
-              <h3 className="text-3xl font-bold mb-4" style={{ color: '#0A1628' }}>Journey Of <span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Care</span></h3>
+              <h3 className="text-3xl font-bold mb-4" style={{ color: '#0A1628' }}><span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Journey Of Care</span></h3>
               <p className="leading-relaxed mb-6" style={{ color: '#64748B' }}>
                 Keep clients treating until maximum medical improvement. We check in weekly to ensure clients complete their treatment plan, because finished treatment means higher settlements. Our automated records retrieval delivers:
               </p>
