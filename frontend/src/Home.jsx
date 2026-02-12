@@ -210,16 +210,18 @@ export default function Home({ onNavigateContact }) {
           
           <div className="grid md:grid-cols-2 gap-20 items-center max-w-6xl mx-auto">
             <div className="relative h-[400px] md:h-[550px] rounded-none overflow-hidden shadow-2xl group order-2 md:order-1">
+              {/* Architectural/Document imagery - less stock-y */}
               <img 
-                src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1000&q=80" 
-                alt="Legal team collaboration" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?auto=format&fit=crop&w=1000&q=80" 
+                alt="Legal documentation" 
+                className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-900/70 to-transparent"></div>
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(10, 22, 40, 0.85) 0%, rgba(26, 39, 64, 0.75) 100%)' }}></div>
+              
               {/* Client testimonial overlay */}
               <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
                 <p className="text-sm italic mb-3 leading-relaxed">"LawBOX reduced our case prep time by 60% while increasing our settlement values. It's like having a dedicated ops team without the overhead."</p>
-                <p className="text-xs font-bold">— Sarah Chen, Managing Partner, Chen & Associates</p>
+                <p className="text-xs font-bold" style={{ color: '#C9A961' }}>— Sarah Chen, Managing Partner, Chen & Associates</p>
               </div>
             </div>
             
