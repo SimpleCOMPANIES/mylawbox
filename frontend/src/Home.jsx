@@ -8,6 +8,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Button } from './components/ui/Button';
 import { Card } from './components/ui/Card';
+import Logo from './components/Logo';
 
 // Custom hook for scroll animations
 const useScrollReveal = () => {
@@ -128,7 +129,7 @@ export default function Home({ onNavigateContact }) {
         <nav className="relative z-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16 md:h-20">
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold" style={{ fontFamily: "'Aref Ruqaa', serif", letterSpacing: '-0.02em', fontWeight: '700', color: '#FFFFFF' }}>LawBOX</div>
+              <Logo variant="inverse" size="medium" className="h-10 md:h-12 w-auto" />
               
               <div className="hidden md:flex items-center gap-8">
                 <a href="#how-it-works" className="text-sm font-semibold transition-colors" style={{ color: 'rgba(255, 255, 255, 0.85)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.85)'}>How it Works</a>
@@ -389,7 +390,7 @@ export default function Home({ onNavigateContact }) {
               </svg>
 
               {/* LawBOX - Center Large Box */}
-              <div className="w-full max-w-xs md:w-48 lg:w-56">
+              <div className="w-full max-w-xl md:w-96 lg:w-[28rem]">
                 <div className="border-2 rounded-lg p-4 md:p-5 lg:p-6 h-full" style={{ borderColor: '#C9A961', backgroundColor: 'rgba(201, 169, 97, 0.1)' }}>
                   <div className="flex items-center justify-center mb-3 md:mb-4">
                     <svg className="w-8 h-8 md:w-10 md:h-10 mr-2" fill="none" stroke="#C9A961" strokeWidth="2" viewBox="0 0 24 24">
@@ -398,7 +399,7 @@ export default function Home({ onNavigateContact }) {
                     <h3 className="font-bold text-white text-base md:text-lg lg:text-xl">LawBOX™</h3>
                   </div>
                   <p className="text-center font-bold mb-3 md:mb-4 text-xs md:text-sm" style={{ color: '#C9A961' }}>Full Service Operations</p>
-                  <div className="space-y-1 text-xs md:text-sm text-white pl-2">
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs md:text-sm text-white">
                     <p>• Document Collection</p>
                     <p>• Medical Records</p>
                     <p>• Journey of Care</p>
@@ -441,69 +442,89 @@ export default function Home({ onNavigateContact }) {
       </section>
 
       {/* Services Section - Detailed breakdown with new color scheme */}
-      <section ref={servicesRef} className={`py-16 bg-white texture-overlay ${servicesVisible ? 'animate-fade-in-down' : 'opacity-0'}`} id="services">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="font-serif text-5xl md:text-6xl font-bold mb-4" style={{ color: '#0A1628' }}>Pre Litigation Services</h2>
-            <p className="text-xl max-w-2xl mx-auto font-light" style={{ color: '#64748B' }}>Transform your operations with AI agents and expert case staff that work around the clock</p>
+      <section ref={servicesRef} className={`py-20 bg-white texture-overlay ${servicesVisible ? 'animate-fade-in-down' : 'opacity-0'}`} id="services">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-5xl md:text-6xl font-bold mb-6" style={{ color: '#0A1628' }}>Pre Litigation Services</h2>
+            <p className="text-xl max-w-3xl mx-auto font-light leading-relaxed" style={{ color: '#64748B' }}>Transform your operations with AI-powered teams & case managers that work around the clock</p>
           </div>
 
-          <div className="space-y-12">
-            {/* Intake Section */}
-            <div className="max-w-2xl mx-auto text-center">
-              <h3 className="text-3xl font-bold mb-4" style={{ color: '#0A1628' }}><span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Intake</span> That Captures Every Opportunity & <span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Rescues Lost Leads</span></h3>
-              <p className="leading-relaxed" style={{ color: '#64748B' }}>
-                AI monitors every intake call 24/7, identifies lost leads in real time, and alerts you to rescure them before they sign with another firm.
-                Multilingual intake specialists qualify all leads.
-              </p>
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+            {/* Intake Card */}
+            <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+              <div className="p-8 lg:p-10">
+                <h3 className="text-2xl lg:text-3xl font-bold mb-2" style={{ color: '#0A1628' }}><span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Intake</span></h3>
+                <p className="text-sm mb-4 font-medium" style={{ color: '#888888' }}>That Captures Every Opportunity</p>
+                <p className="leading-relaxed" style={{ color: '#64748B' }}>
+                  AI monitors every intake call 24/7, identifies lost leads in real time, and alerts you to rescue them before they sign with another firm. Multilingual specialists qualify all leads.
+                </p>
+              </div>
             </div>
 
-            {/* Document Collection and Claims Setup */}
-            <div className="max-w-2xl mx-auto text-center">
-              <h3 className="text-3xl font-bold mb-4" style={{ color: '#0A1628' }}><span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Document Collection</span> & <span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Claims Setup</span></h3>
-              <p className="leading-relaxed" style={{ color: '#64748B' }}>
-                Police reports, medical retrievals, set up insurance claims, facts of loss, etc.
-              </p>
+            {/* Document Collection Card */}
+            <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+              <div className="p-8 lg:p-10">
+                <h3 className="text-2xl lg:text-3xl font-bold mb-4" style={{ color: '#0A1628' }}><span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Document Collection</span> & <span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Claims Setup</span></h3>
+                <p className="leading-relaxed" style={{ color: '#64748B' }}>
+                  Police reports, medical retrievals, insurance claims setup, and facts of loss—all handled seamlessly.
+                </p>
+              </div>
             </div>
 
-            {/* Journey of Care */}
-            <div className="max-w-2xl mx-auto text-center">
-              <h3 className="text-3xl font-bold mb-4" style={{ color: '#0A1628' }}><span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Journey Of Care</span></h3>
-              <p className="leading-relaxed mb-6" style={{ color: '#64748B' }}>
-                Keep clients treating until maximum medical improvement. We check in weekly to ensure clients complete their treatment plan, because finished treatment means higher settlements. Our automated records retrieval delivers:
-              </p>
-              <ul className="space-y-3 text-left">
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-1" style={{ color: '#C9A961' }} />
-                  <span style={{ color: '#64748B' }}><strong>90% faster than manual retrieval.</strong> No more spending 2 to 3 hours hunting down facilities</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-1" style={{ color: '#C9A961' }} />
-                  <span style={{ color: '#64748B' }}><strong>Automatic provider identification.</strong> We find where your client was treated, even when they can't remember</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-1" style={{ color: '#C9A961' }} />
-                  <span style={{ color: '#64748B' }}><strong>Complete records package.</strong> Bills, notes, imaging, and referrals delivered organized and ready for demand</span>
-                </li>
-              </ul>
+            {/* Journey of Care Card - Full Width */}
+            <div className="md:col-span-2 bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+              <div className="p-8 lg:p-10">
+                <h3 className="text-2xl lg:text-3xl font-bold mb-4" style={{ color: '#0A1628' }}><span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Journey Of Care</span></h3>
+                <p className="leading-relaxed mb-6 text-lg" style={{ color: '#64748B' }}>
+                  Keep clients treating until maximum medical improvement. We check in weekly to ensure clients complete their treatment plan, because finished treatment means higher settlements.
+                </p>
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="flex gap-3">
+                    <CheckCircle2 className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: '#C9A961' }} />
+                    <div>
+                      <div className="font-semibold mb-1" style={{ color: '#0A1628' }}>90% Faster Retrieval</div>
+                      <div className="text-sm leading-relaxed" style={{ color: '#64748B' }}>No more spending hours hunting facilities</div>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <CheckCircle2 className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: '#C9A961' }} />
+                    <div>
+                      <div className="font-semibold mb-1" style={{ color: '#0A1628' }}>Auto Provider ID</div>
+                      <div className="text-sm leading-relaxed" style={{ color: '#64748B' }}>We find where they were treated automatically</div>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <CheckCircle2 className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: '#C9A961' }} />
+                    <div>
+                      <div className="font-semibold mb-1" style={{ color: '#0A1628' }}>Complete Package</div>
+                      <div className="text-sm leading-relaxed" style={{ color: '#64748B' }}>Bills, notes, imaging—organized & ready</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Medical Chronologies */}
-            <div className="max-w-2xl mx-auto text-center">
-              <h3 className="text-3xl font-bold mb-4" style={{ color: '#0A1628' }}><span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Medical Chronologies</span> That Save 50+ Hours Per Case</h3>
-              <p className="leading-relaxed" style={{ color: '#64748B' }}>
-                Hundreds of pages transformed into organized, searchable timelines with source citations, delivered in hours, not weeks. Every treatment phase, procedure, medication, gap, and pre existing condition clearly identified. Your team processes records 8x faster than manual review, writes stronger demands, and settles cases sooner.
-              </p>
+            {/* Medical Chronologies Card */}
+            <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+              <div className="p-8 lg:p-10">
+                <h3 className="text-2xl lg:text-3xl font-bold mb-2" style={{ color: '#0A1628' }}><span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Medical Chronologies</span></h3>
+                <p className="text-sm mb-4 font-medium" style={{ color: '#888888' }}>That Save 50+ Hours Per Case</p>
+                <p className="leading-relaxed" style={{ color: '#64748B' }}>
+                  Hundreds of pages transformed into organized, searchable timelines with source citations, delivered in hours. Process records 8x faster than manual review.
+                </p>
+              </div>
             </div>
 
-            {/* Demand Letters */}
-            <div className="max-w-2xl mx-auto text-center">
-              <h3 className="text-3xl font-bold mb-4" style={{ color: '#0A1628' }}><span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Demand Letters</span> That Sound Like Your Firm, Not a Robot</h3>
-              <p className="leading-relaxed" style={{ color: '#64748B' }}>
-                Demands built to your specifications with adjuster psychology baked in, reviewed by our legal experts before delivery. Every package highlights the liability, damages, and medical narrative that drives settlement decisions. Insurance adjusters can't tell it's AI assisted, because it sounds exactly like you. Delivered in 48 hours with unlimited revisions.
-              </p>
+            {/* Demand Letters Card */}
+            <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+              <div className="p-8 lg:p-10">
+                <h3 className="text-2xl lg:text-3xl font-bold mb-2" style={{ color: '#0A1628' }}><span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Demand Letters</span></h3>
+                <p className="text-sm mb-4 font-medium" style={{ color: '#888888' }}>That Sound Like Your Firm, Not a Robot</p>
+                <p className="leading-relaxed" style={{ color: '#64748B' }}>
+                  Demands built to your specifications with adjuster psychology baked in. Sounds exactly like your firm, not a robot. Delivered in 48 hours with unlimited revisions.
+                </p>
+              </div>
             </div>
-
           </div>
         </div>
       </section>

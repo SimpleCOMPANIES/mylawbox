@@ -1,0 +1,11 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- LawBOX Icon - Inverse -->
+  <!-- Simplified version - Just BOX in square -->
+  <!-- White (#FFFFFF) for dark backgrounds -->
+  
+  <!-- Square border -->
+  <rect x="5" y="5" width="90" height="90" fill="none" stroke="#FFFFFF" stroke-width="3" rx="3"/>
+  
+  <!-- "BOX" text -->
+  <text x="50" y="65" font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-size="28" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="-0.5">BOX</text>
+</svg>
