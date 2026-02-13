@@ -114,7 +114,7 @@ export default function Home({ onNavigateContact }) {
         }
       `}</style>
       {/* Hero Section - Nav + Hero share one background container */}
-      <section className="relative pb-8 sm:pb-12 md:pb-16 overflow-hidden texture-overlay">
+      <section className="relative pb-16 sm:pb-20 md:pb-28 overflow-hidden texture-overlay">
         {/* Real photography background - covers nav + hero */}
         <div className="absolute inset-0">
           <img 
@@ -129,7 +129,7 @@ export default function Home({ onNavigateContact }) {
         <nav className="relative z-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16 md:h-20">
-              <Logo variant="inverse" size="medium" className="h-10 md:h-12 w-auto" />
+              <Logo variant="inverse" size="large" className="h-12 md:h-16 w-auto" />
               
               <div className="hidden md:flex items-center gap-8">
                 <a href="#how-it-works" className="text-sm font-semibold transition-colors" style={{ color: 'rgba(255, 255, 255, 0.85)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.85)'}>How it Works</a>
@@ -202,7 +202,7 @@ export default function Home({ onNavigateContact }) {
                 </svg>
               </button>
               
-              <Button className="hidden md:block text-white text-sm md:text-base font-bold shadow-lg hover:shadow-xl transition-all px-4 py-2 md:px-6 md:py-2.5" style={{ backgroundColor: '#C9A961' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#B8941F'} onMouseLeave={(e) => e.target.style.backgroundColor = '#C9A961'} onClick={onNavigateContact}>
+              <Button className="hidden md:block text-white text-sm md:text-base font-bold shadow-lg hover:shadow-xl transition-all px-5 py-2.5" style={{ backgroundColor: '#C9A961' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#B8941F'} onMouseLeave={(e) => e.target.style.backgroundColor = '#C9A961'} onClick={onNavigateContact}>
                 Schedule a Call
               </Button>
             </div>
@@ -257,22 +257,19 @@ export default function Home({ onNavigateContact }) {
           )}
         </nav>
         
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10 pt-6 sm:pt-8 md:pt-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 md:mb-10 tracking-wide text-white">
-              <span className="block mb-2 sm:mb-3 md:mb-4">Hyperscale your firm</span>
-              <span className="block">Not your overhead</span>
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10 pt-12 sm:pt-16 md:pt-24">
+          <div className="max-w-5xl mx-auto text-center">
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-normal mb-8 sm:mb-10 md:mb-12 mt-8 sm:mt-10 leading-tight" style={{ color: '#FFFFFF', letterSpacing: '-0.02em' }}>
+              Hyperscale your firm,<br />not your overhead
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-white mb-4 sm:mb-6 leading-relaxed max-w-3xl mx-auto font-light">
-            LawBOX is the nations Gold Standard for AI powered pre litigation            
+            
+            <p className="text-lg sm:text-xl md:text-2xl mb-10 sm:mb-12 leading-relaxed max-w-3xl mx-auto font-light" style={{ color: 'rgba(255, 255, 255, 0.95)' }}>
+              LawBOX is the nation's Gold Standard for AI powered pre-litigation. Effortlessly remove friction from Intake to Settlement, handle more cases less headaches.
             </p>
-            <p className="text-base sm:text-lg text-white mb-6 sm:mb-8 leading-relaxed max-w-3xl mx-auto">
-            Effortlessly remove friction from Intake to Settlement, handle more cases less headaches.            
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center">
-              <Button size="lg" className="text-white text-base sm:text-lg px-8 py-5 sm:px-10 sm:py-7 font-bold shadow-2xl transition-all border-2 w-full sm:w-auto justify-center" style={{ backgroundColor: '#C9A961', borderColor: 'rgba(201, 169, 97, 0.3)', boxShadow: '0 20px 50px rgba(201, 169, 97, 0.3)' }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#B8941F'; e.currentTarget.style.boxShadow = '0 25px 60px rgba(201, 169, 97, 0.4)'; }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#C9A961'; e.currentTarget.style.boxShadow = '0 20px 50px rgba(201, 169, 97, 0.3)'; }} onClick={onNavigateContact}>
+            
+            <div className="flex justify-center">
+              <Button className="text-base sm:text-lg px-8 py-3.5 font-semibold rounded-lg transition-all hover:scale-105" style={{ backgroundColor: '#FFFFFF', color: '#0A1628' }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#F5F5F5'; }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#FFFFFF'; }} onClick={onNavigateContact}>
                 Schedule a Call
-                <ArrowRight className="ml-3 w-5 h-5" />
               </Button>
             </div>
           
@@ -308,7 +305,7 @@ export default function Home({ onNavigateContact }) {
                 From the moment a lead comes in to final settlement, LawBOX manages every case for one flat fee. No more hiring, training, or managing case staff.
               </p>
               <div className="flex justify-center">
-                <Button className="text-white font-bold shadow-lg" style={{ backgroundColor: '#C9A961', boxShadow: '0 10px 25px rgba(201, 169, 97, 0.2)' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#B8941F'} onMouseLeave={(e) => e.target.style.backgroundColor = '#C9A961'} onClick={onNavigateContact}>
+                <Button className="text-white font-bold shadow-lg px-6 py-3" style={{ backgroundColor: '#C9A961', boxShadow: '0 10px 25px rgba(201, 169, 97, 0.2)' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#B8941F'} onMouseLeave={(e) => e.target.style.backgroundColor = '#C9A961'} onClick={onNavigateContact}>
                   Schedule a Call
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
@@ -464,7 +461,7 @@ export default function Home({ onNavigateContact }) {
             {/* Document Collection Card */}
             <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
               <div className="p-8 lg:p-10">
-                <h3 className="text-2xl lg:text-3xl font-bold mb-4" style={{ color: '#0A1628' }}><span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Document Collection</span> & <span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Claims Setup</span></h3>
+                <h3 className="text-2xl lg:text-3xl font-bold mb-4" style={{ color: '#0A1628' }}><span style={{ color: '#C9A961', WebkitTextStroke: '1px #C9A961' }}>Document Collection & Claims Setup</span></h3>
                 <p className="leading-relaxed" style={{ color: '#64748B' }}>
                   Police reports, medical retrievals, insurance claims setup, and facts of loss—all handled seamlessly.
                 </p>
@@ -983,7 +980,7 @@ export default function Home({ onNavigateContact }) {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="text-white text-lg px-10 py-7 font-semibold shadow-xl" style={{ backgroundColor: '#C9A961', boxShadow: '0 20px 50px rgba(201, 169, 97, 0.25)' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#B8941F'} onMouseLeave={(e) => e.target.style.backgroundColor = '#C9A961'} onClick={onNavigateContact}>
+            <Button className="text-white text-lg px-8 py-4 font-semibold shadow-xl" style={{ backgroundColor: '#C9A961', boxShadow: '0 20px 50px rgba(201, 169, 97, 0.25)' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#B8941F'} onMouseLeave={(e) => e.target.style.backgroundColor = '#C9A961'} onClick={onNavigateContact}>
               Schedule a Call
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
