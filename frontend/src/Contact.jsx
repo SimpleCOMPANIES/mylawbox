@@ -90,31 +90,8 @@ export default function Contact({ onNavigateHome }) {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden" style={{ background: 'linear-gradient(135deg, #0A1628 0%, #2B3544 100%)' }}>
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-20 w-96 h-96 rounded-full" style={{ background: 'radial-gradient(circle, #C9A961 0%, transparent 70%)' }}></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 rounded-full" style={{ background: 'radial-gradient(circle, #C9A961 0%, transparent 70%)' }}></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium mb-8" style={{ backgroundColor: 'rgba(201, 169, 97, 0.2)', border: '1px solid rgba(201, 169, 97, 0.3)', color: '#C9A961' }}>
-              <Calendar className="w-4 h-4" />
-              Schedule Your Consultation
-            </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-white">
-              Let's Scale Your <span style={{ color: '#C9A961' }}>Practice Together</span>
-            </h1>
-            <p className="text-xl md:text-2xl mb-10 leading-relaxed" style={{ color: '#FAFAF8' }}>
-              Talk to our team about how LawBox can transform your firm's operations
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Contact Form Section */}
-      <section className="py-24" style={{ background: 'linear-gradient(to bottom, #FFFFFF, #FAFAF8)' }}>
+      <section className="pt-32 pb-24 md:pt-40" style={{ background: 'linear-gradient(to bottom, #FFFFFF, #FAFAF8)' }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12">
             {/* Left Column - Contact Info */}
@@ -314,6 +291,29 @@ export default function Contact({ onNavigateHome }) {
                 </Card>
               )}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hero Section */}
+      <section className="relative py-20 md:pb-32 overflow-hidden" style={{ background: 'linear-gradient(135deg, #0A1628 0%, #2B3544 100%)' }}>
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 left-20 w-96 h-96 rounded-full" style={{ background: 'radial-gradient(circle, #C9A961 0%, transparent 70%)' }}></div>
+          <div className="absolute bottom-20 right-20 w-96 h-96 rounded-full" style={{ background: 'radial-gradient(circle, #C9A961 0%, transparent 70%)' }}></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium mb-8" style={{ backgroundColor: 'rgba(201, 169, 97, 0.2)', border: '1px solid rgba(201, 169, 97, 0.3)', color: '#C9A961' }}>
+              <Calendar className="w-4 h-4" />
+              Schedule Your Consultation
+            </div>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-white">
+              Let's Scale Your <span style={{ color: '#C9A961' }}>Practice Together</span>
+            </h1>
+            <p className="text-xl md:text-2xl mb-10 leading-relaxed" style={{ color: '#FAFAF8' }}>
+              Talk to our team about how LawBox can transform your firm's operations
+            </p>
           </div>
         </div>
       </section>
