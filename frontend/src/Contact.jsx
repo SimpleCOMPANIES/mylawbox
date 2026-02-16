@@ -80,7 +80,7 @@ export default function Contact({ onNavigateHome }) {
               onClick={onNavigateHome}
               className="focus:outline-none"
             >
-              <Logo variant="inverse" size="large" className="h-12 md:h-16 w-auto" />
+              <Logo variant="inverse" size="medium" className="h-10 md:h-12 w-auto" />
             </button>
             
             <Button onClick={onNavigateHome} variant="outline" className="font-semibold" style={{ borderColor: '#C9A961', color: '#C9A961' }}>
