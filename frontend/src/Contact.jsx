@@ -73,17 +73,17 @@ export default function Contact({ onNavigateHome }) {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b" style={{ borderColor: '#E5E7EB' }}>
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b" style={{ backgroundColor: 'rgb(10, 22, 40)', borderColor: 'rgba(201, 169, 97, 0.3)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <button 
               onClick={onNavigateHome}
               className="focus:outline-none"
             >
-              <Logo variant="default" size="large" className="h-12 md:h-16 w-auto" />
+              <Logo variant="inverse" size="large" className="h-12 md:h-16 w-auto" />
             </button>
             
-            <Button onClick={onNavigateHome} variant="outline" className="font-semibold" style={{ borderColor: '#0A1628', color: '#0A1628' }}>
+            <Button onClick={onNavigateHome} variant="outline" className="font-semibold" style={{ borderColor: '#C9A961', color: '#C9A961' }}>
               Back to Home
             </Button>
           </div>
@@ -127,7 +127,7 @@ export default function Contact({ onNavigateHome }) {
                     </div>
                     <div>
                       <h3 className="font-bold mb-1" style={{ color: '#0A1628' }}>Email</h3>
-                      <p style={{ color: '#2B3544' }}>rzade@simpleciti.com</p>
+                      <p style={{ color: '#2B3544' }}>jake@simpleciti.com</p>
                       <p className="text-sm mt-1" style={{ color: '#64748B' }}>We'll respond within 24 hours</p>
                     </div>
                   </div>
