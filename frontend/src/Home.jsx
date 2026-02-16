@@ -838,9 +838,9 @@ export default function Home({ onNavigateContact }) {
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity" style={{ backgroundColor: 'rgba(201, 169, 97, 0.05)' }}></div>
               <div className="relative">
                 <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden ring-4" style={{ ringColor: 'rgba(201, 169, 97, 0.2)' }}>
-                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80" alt="Sarah Martinez" className="w-full h-full object-cover" />
+                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80" alt="Sarah" className="w-full h-full object-cover" />
                 </div>
-                <h4 className="text-xl font-bold mb-2" style={{ color: '#0A1628' }}>Sarah Martinez</h4>
+                <h4 className="text-xl font-bold mb-2" style={{ color: '#0A1628' }}>Sarah</h4>
                 <div className="text-sm font-semibold uppercase tracking-wide mb-3" style={{ color: '#C9A961' }}>Director of Operations</div>
                 <p className="text-sm text-left" style={{ color: '#64748B' }}>
                   Sarah spent 12 years scaling pre litigation operations at a top 10 national PI firm, where she built and managed teams handling over 2,000 active cases. At LawBox, she ensures every case moves through our workflow with precision and speed, combining proven systems with AI powered efficiency.
@@ -852,9 +852,9 @@ export default function Home({ onNavigateContact }) {
               <div className="absolute inset-0 bg-burnt-600/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="relative">
                 <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden ring-4 ring-burnt-100">
-                  <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80" alt="Marcus Chen" className="w-full h-full object-cover" />
+                  <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80" alt="Marcus" className="w-full h-full object-cover" />
                 </div>
-                <h4 className="text-xl font-bold mb-2 text-slate-900">Marcus Chen</h4>
+                <h4 className="text-xl font-bold mb-2 text-slate-900">Marcus</h4>
                 <div className="text-sm font-semibold text-burnt-600 uppercase tracking-wide mb-3">Head Paralegal</div>
                 <p className="text-sm text-slate-600 text-left">
                   With 15 years of experience managing high volume PI cases from intake through settlement, Marcus has seen it all. He previously led paralegal teams at two of California's largest plaintiff firms, handling everything from soft tissue cases to complex multi vehicle accidents. At LawBox, he trains our case managers and ensures every demand meets the highest standards.
@@ -866,9 +866,9 @@ export default function Home({ onNavigateContact }) {
               <div className="absolute inset-0 bg-burnt-600/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="relative">
                 <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden ring-4 ring-burnt-100">
-                  <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80" alt="Jennifer Okafor" className="w-full h-full object-cover" />
+                  <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80" alt="Jennifer" className="w-full h-full object-cover" />
                 </div>
-                <h4 className="text-xl font-bold mb-2 text-slate-900">Jennifer Okafor</h4>
+                <h4 className="text-xl font-bold mb-2 text-slate-900">Jennifer</h4>
                 <div className="text-sm font-semibold text-burnt-600 uppercase tracking-wide mb-3">Director of Legal AI</div>
                 <p className="text-sm text-slate-600 text-left">
                   Jennifer bridges the gap between legal expertise and advanced technology. After 8 years as a litigation paralegal, she pioneered AI implementation at a growing PI firm, reducing case processing time by 60%. At LawBox, she oversees our AI systems, ensuring they enhance, not replace, human expertise.
@@ -880,9 +880,9 @@ export default function Home({ onNavigateContact }) {
               <div className="absolute inset-0 bg-burnt-600/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="relative">
                 <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden ring-4 ring-burnt-100">
-                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="David Ramirez" className="w-full h-full object-cover" />
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="David" className="w-full h-full object-cover" />
                 </div>
-                <h4 className="text-xl font-bold mb-2 text-slate-900">David Ramirez</h4>
+                <h4 className="text-xl font-bold mb-2 text-slate-900">David</h4>
                 <div className="text-sm font-semibold text-burnt-600 uppercase tracking-wide mb-3">Intake Manager</div>
                 <p className="text-sm text-slate-600 text-left">
                   David built his reputation managing intake operations for a firm that signed 3,000+ clients annually. His bilingual team achieved industry-leading conversion rates through a combination of empathy, speed, and systematic follow-up. At LawBox, he leads our 24/7 intake team and ensures no lead ever goes cold.
@@ -894,9 +894,9 @@ export default function Home({ onNavigateContact }) {
               <div className="absolute inset-0 bg-burnt-600/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="relative">
                 <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden ring-4 ring-burnt-100">
-                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80" alt="Rachel Thompson" className="w-full h-full object-cover" />
+                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80" alt="Rachel" className="w-full h-full object-cover" />
                 </div>
-                <h4 className="text-xl font-bold mb-2 text-slate-900">Rachel Thompson</h4>
+                <h4 className="text-xl font-bold mb-2 text-slate-900">Rachel</h4>
                 <div className="text-sm font-semibold text-burnt-600 uppercase tracking-wide mb-3">Medical Records Director</div>
                 <p className="text-sm text-slate-600 text-left">
                   Rachel spent 10 years navigating the complex world of medical records retrieval, working with everyone from small clinics to major hospital systems. She knows every trick to expedite requests and has built relationships with providers nationwide. At LawBox, she oversees our records retrieval operations and ensures your cases are never delayed by missing documentation.
@@ -908,9 +908,9 @@ export default function Home({ onNavigateContact }) {
               <div className="absolute inset-0 bg-burnt-600/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="relative">
                 <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden ring-4 ring-burnt-100">
-                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="Antonio Silva" className="w-full h-full object-cover" />
+                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="Antonio" className="w-full h-full object-cover" />
                 </div>
-                <h4 className="text-xl font-bold mb-2 text-slate-900">Antonio Silva</h4>
+                <h4 className="text-xl font-bold mb-2 text-slate-900">Antonio</h4>
                 <div className="text-sm font-semibold text-burnt-600 uppercase tracking-wide mb-3">Demand Writing Lead</div>
                 <p className="text-sm text-slate-600 text-left">
                   Antonio is a former insurance adjuster turned plaintiff advocate. After 6 years on the defense side, he knows exactly what adjusters look for in a demand package—and what makes them reach for their checkbook. At LawBox, he leads our demand writing team and trains our AI systems on the psychology of settlement negotiation.

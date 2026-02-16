@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from './components/ui/Button';
 import { Card } from './components/ui/Card';
+import Logo from './components/Logo';
 
 const CheckCircle2 = ({ className }) => (
   <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -77,10 +78,9 @@ export default function Contact({ onNavigateHome }) {
           <div className="flex items-center justify-between h-20">
             <button 
               onClick={onNavigateHome}
-              className="text-4xl md:text-5xl font-bold transition-colors" 
-              style={{ fontFamily: 'Aref Ruqaa, serif', color: '#0A1628' }}
+              className="focus:outline-none"
             >
-              LawBox
+              <Logo variant="default" size="large" className="h-12 md:h-16 w-auto" />
             </button>
             
             <Button onClick={onNavigateHome} variant="outline" className="font-semibold" style={{ borderColor: '#0A1628', color: '#0A1628' }}>
@@ -137,7 +137,7 @@ export default function Contact({ onNavigateHome }) {
                     </div>
                     <div>
                       <h3 className="font-bold mb-1" style={{ color: '#0A1628' }}>Phone</h3>
-                      <p style={{ color: '#2B3544' }}>(555) 123-4567</p>
+                      <p style={{ color: '#2B3544' }}>(516) 967-3886</p>
                       <p className="text-sm mt-1" style={{ color: '#64748B' }}>Mon-Fri 9am-6pm EST</p>
                     </div>
                   </div>
@@ -150,7 +150,7 @@ export default function Contact({ onNavigateHome }) {
                     </div>
                     <div>
                       <h3 className="font-bold mb-1" style={{ color: '#0A1628' }}>Email</h3>
-                      <p style={{ color: '#2B3544' }}>hello@lawbox.com</p>
+                      <p style={{ color: '#2B3544' }}>rzade@simpleciti.com</p>
                       <p className="text-sm mt-1" style={{ color: '#64748B' }}>We'll respond within 24 hours</p>
                     </div>
                   </div>
@@ -258,7 +258,7 @@ export default function Contact({ onNavigateHome }) {
                         style={{ borderColor: '#E5E7EB' }}
                         onFocus={(e) => e.target.style.borderColor = '#C9A961'}
                         onBlur={(e) => e.target.style.borderColor = '#E5E7EB'}
-                        placeholder="(555) 123-4567"
+                        placeholder="(516) 967-3886"
                       />
                     </div>
 
