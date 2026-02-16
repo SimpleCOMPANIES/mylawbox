@@ -21,7 +21,7 @@ const Logo = ({
 
   return (
     <img
-      src="/images/LawBOXLogo.svg"
+      src="/images/LawboxLogo.svg"
       alt="LawBOX - Lawfirm in a box"
       className={`w-auto ${sizeClass} pt-6 md:pt-0 ${className}`}
       style={filterStyle}
