@@ -71,16 +71,16 @@ export default function Contact({ onNavigateHome }) {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 border-b" style={{ backgroundColor: 'rgb(10, 22, 40)', borderColor: 'rgba(201, 169, 97, 0.3)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <button 
               onClick={onNavigateHome}
-              className="focus:outline-none"
+              className="focus:outline-none flex items-center"
             >
-              <Logo variant="inverse" size="medium" className="h-10 md:h-12 w-auto" />
+              <Logo variant="inverse" size="small" className="h-10 md:h-11 w-auto" />
             </button>
             
             <Button onClick={onNavigateHome} variant="outline" className="font-semibold" style={{ borderColor: '#C9A961', color: '#C9A961' }}>

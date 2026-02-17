@@ -23,7 +23,7 @@ const Logo = ({
     <img
       src="/images/LawboxLogo.svg"
       alt="LawBOX - Lawfirm in a box"
-      className={`w-auto ${sizeClass} pt-6 md:pt-0 ${className}`}
+      className={`w-auto ${sizeClass} ${className}`}
       style={filterStyle}
     />
   );

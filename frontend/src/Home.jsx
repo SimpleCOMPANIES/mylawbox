@@ -66,7 +66,7 @@ export default function Home({ onNavigateContact }) {
   const [trustRef, trustVisible] = useScrollReveal();
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       <style>{`
         @keyframes fadeInDown {
           from {
@@ -129,7 +129,7 @@ export default function Home({ onNavigateContact }) {
         <nav className="relative z-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16 md:h-20">
-              <Logo variant="inverse" size="large" className="h-12 md:h-16 w-auto" />
+              <Logo variant="inverse" size="small" className="h-10 md:h-11 w-auto" />
               
               <div className="hidden md:flex items-center gap-8">
                 <a href="#how-it-works" className="text-sm font-semibold transition-colors" style={{ color: 'rgba(255, 255, 255, 0.85)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.85)'}>How it Works</a>
@@ -144,7 +144,7 @@ export default function Home({ onNavigateContact }) {
                   </button>
                   
                   {servicesDropdownOpen && (
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 pt-2 w-[720px]">
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 pt-2 w-[720px] max-w-[calc(100vw-2rem)]">
                       <div className="rounded-lg shadow-2xl" style={{ backgroundColor: '#0A1628', border: '1px solid rgba(201, 169, 97, 0.2)' }}>
                         <div className="grid grid-cols-3 gap-6 p-8">
                         {/* Fractional Services */}
