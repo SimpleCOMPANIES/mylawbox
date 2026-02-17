@@ -66,7 +66,7 @@ export default function Home({ onNavigateContact }) {
   const [trustRef, trustVisible] = useScrollReveal();
 
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
+    <main className="min-h-screen bg-white overflow-x-hidden">
       <style>{`
         @keyframes fadeInDown {
           from {
@@ -1054,6 +1054,6 @@ export default function Home({ onNavigateContact }) {
           </div>
         </div>
       </footer>
-    </div>
+    </main>
   );
 }

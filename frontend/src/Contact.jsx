@@ -71,7 +71,7 @@ export default function Contact({ onNavigateHome }) {
   };
 
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
+    <main className="min-h-screen bg-white overflow-x-hidden">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 border-b" style={{ backgroundColor: 'rgb(10, 22, 40)', borderColor: 'rgba(201, 169, 97, 0.3)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -90,7 +90,7 @@ export default function Contact({ onNavigateHome }) {
         </div>
       </nav>
 
-      {/* Contact Form Section */}
+      {/* Contact Form Section  */}
       <section className="pt-32 pb-24 md:pt-40" style={{ background: 'linear-gradient(to bottom, #FFFFFF, #FAFAF8)' }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12">
@@ -328,6 +328,6 @@ export default function Contact({ onNavigateHome }) {
           </div>
         </div>
       </footer>
-    </div>
+    </main>
   );
 }
