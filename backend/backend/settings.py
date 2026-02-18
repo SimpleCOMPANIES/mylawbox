@@ -140,8 +140,10 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
-load_dotenv()
+# Load environment variables from .env file in backend directory
+# BASE_DIR is already defined at the top as backend/
+env_path = BASE_DIR / '.env'
+load_dotenv(dotenv_path=env_path)
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.office365.com'  # Office 365 SMTP server
@@ -150,7 +152,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = os.getenv('EMAIL_HOST_USER')
-EMAIL_RECIPIENT = os.getenv('EMAIL_RECIPIENT')
+EMAIL_RECIPIENT = os.getenv('EMAIL_RECIPIENT', 'rzade@simpleciti.com')  # Default fallback
 # CORS settings
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
