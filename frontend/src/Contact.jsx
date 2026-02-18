@@ -42,7 +42,10 @@ export default function Contact({ onNavigateHome }) {
     e.preventDefault();
     
     try {
-      const response = await fetch('http://localhost:8000/api/contact/', {
+      // Use the same domain for API (works on PythonAnywhere)
+      const backendUrl = window.location.origin;
+      
+      const response = await fetch(`${backendUrl}/api/contact/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -55,11 +58,11 @@ export default function Contact({ onNavigateHome }) {
       } else {
         const error = await response.json();
         console.error('Form submission failed:', error);
-        alert('Failed to submit form. Please try again.');
+        alert('Failed to submit form. Please try again or contact us at rzade@simpleciti.com');
       }
     } catch (error) {
       console.error('Error submitting form:', error);
-      alert('Failed to submit form. Please try again.');
+      alert('Failed to submit form. Please try again or contact us directly at rzade@simpleciti.com');
     }
   };
 
