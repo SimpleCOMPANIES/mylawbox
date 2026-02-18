@@ -75,25 +75,52 @@ def contact_form(request):
 
         # Send email
         try:
-            result = send_mail(
-                subject=subject,
-                message=email_body,
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=[settings.EMAIL_RECIPIENT],
+            from django.core.mail import get_connection
+            from django.core.mail import EmailMessage
+            
+            # Create connection to test settings
+            connection = get_connection(
+                backend='django.core.mail.backends.smtp.EmailBackend',
+                host=settings.EMAIL_HOST,
+                port=settings.EMAIL_PORT,
+                username=settings.EMAIL_HOST_USER,
+                password=settings.EMAIL_HOST_PASSWORD,
+                use_tls=settings.EMAIL_USE_TLS,
                 fail_silently=False,
             )
             
-            logger.info(f"Email send result: {result} (1=success, 0=failure)")
+            logger.info("Opening SMTP connection...")
+            connection.open()
+            
+            logger.info("SMTP connection opened successfully")
+            
+            # Create and send email
+            email_message = EmailMessage(
+                subject=subject,
+                body=email_body,
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                to=[settings.EMAIL_RECIPIENT],
+                connection=connection,
+            )
+            
+            logger.info(f"Sending email to {settings.EMAIL_RECIPIENT}...")
+            result = email_message.send(fail_silently=False)
+            
+            connection.close()
+            logger.info(f"Email send result: {result}")
             
             if result == 0:
                 logger.error("send_mail returned 0 - email was not sent")
                 return Response(
-                    {'error': 'Email failed to send'},
+                    {'error': 'Email failed to send - SMTP returned 0'},
                     status=status.HTTP_500_INTERNAL_SERVER_ERROR
                 )
             
         except Exception as email_error:
             logger.error(f"Exception during send_mail: {str(email_error)}")
+            logger.error(f"Error type: {type(email_error).__name__}")
+            import traceback
+            logger.error(traceback.format_exc())
             raise
 
         return Response({
