@@ -55,21 +55,33 @@ def contact_form(request):
         This email was sent from the LawBox contact form.
         """
 
+        # Debug logging
+        print(f"Attempting to send email from {settings.DEFAULT_FROM_EMAIL} to {settings.EMAIL_RECIPIENT}")
+        print(f"Email Host: {settings.EMAIL_HOST}")
+        print(f"Email Port: {settings.EMAIL_PORT}")
+        print(f"Email User: {settings.EMAIL_HOST_USER}")
+
         # Send email
-        send_mail(
+        result = send_mail(
             subject=subject,
             message=email_body,
             from_email=settings.DEFAULT_FROM_EMAIL,
             recipient_list=[settings.EMAIL_RECIPIENT],
             fail_silently=False,
         )
+        
+        print(f"Email send result: {result}")
 
         return Response({
             'message': 'Contact form submitted successfully',
-            'status': 'success'
+            'status': 'success',
+            'email_sent': result == 1
         })
 
     except Exception as e:
+        print(f"Error sending email: {str(e)}")
+        import traceback
+        traceback.print_exc()
         return Response(
             {'error': f'Failed to send email: {str(e)}'},
             status=status.HTTP_500_INTERNAL_SERVER_ERROR
