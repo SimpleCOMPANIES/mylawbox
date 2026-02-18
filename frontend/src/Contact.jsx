@@ -73,6 +73,28 @@ export default function Contact({ onNavigateHome }) {
     });
   };
 
+  const formatPhoneNumber = (value) => {
+    // Remove all non-digits
+    const phoneNumber = value.replace(/\D/g, '');
+    
+    // Format as (XXX) XXX-XXXX
+    if (phoneNumber.length <= 3) {
+      return phoneNumber;
+    } else if (phoneNumber.length <= 6) {
+      return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`;
+    } else {
+      return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 10)}`;
+    }
+  };
+
+  const handlePhoneChange = (e) => {
+    const formatted = formatPhoneNumber(e.target.value);
+    setFormData({
+      ...formData,
+      phone: formatted
+    });
+  };
+
   return (
     <main className="min-h-screen bg-white overflow-x-hidden">
       {/* Navigation */}
@@ -233,12 +255,13 @@ export default function Contact({ onNavigateHome }) {
                         name="phone"
                         required
                         value={formData.phone}
-                        onChange={handleChange}
+                        onChange={handlePhoneChange}
                         className="w-full px-4 py-3 border-2 rounded-lg outline-none transition-all"
                         style={{ borderColor: '#E5E7EB' }}
                         onFocus={(e) => e.target.style.borderColor = '#C9A961'}
                         onBlur={(e) => e.target.style.borderColor = '#E5E7EB'}
                         placeholder="(516) 967-3886"
+                        maxLength="14"
                       />
                     </div>
 
