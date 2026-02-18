@@ -21,6 +21,9 @@ def contact_form(request):
     """
     Handle contact form submissions and send email notifications.
     """
+    import logging
+    logger = logging.getLogger(__name__)
+    
     try:
         # Extract form data
         firm_name = request.data.get('firmName', '')
@@ -30,8 +33,11 @@ def contact_form(request):
         case_volume = request.data.get('caseVolume', '')
         message = request.data.get('message', '')
 
+        logger.info(f"Contact form submission received from {email}")
+
         # Validate required fields
         if not all([firm_name, contact_name, email, phone]):
+            logger.error("Missing required fields")
             return Response(
                 {'error': 'Missing required fields'},
                 status=status.HTTP_400_BAD_REQUEST
@@ -56,32 +62,50 @@ def contact_form(request):
         """
 
         # Debug logging
-        print(f"Attempting to send email from {settings.DEFAULT_FROM_EMAIL} to {settings.EMAIL_RECIPIENT}")
-        print(f"Email Host: {settings.EMAIL_HOST}")
-        print(f"Email Port: {settings.EMAIL_PORT}")
-        print(f"Email User: {settings.EMAIL_HOST_USER}")
+        logger.info(f"Attempting to send email from {settings.DEFAULT_FROM_EMAIL} to {settings.EMAIL_RECIPIENT}")
+        logger.info(f"Email settings - Host: {settings.EMAIL_HOST}, Port: {settings.EMAIL_PORT}, TLS: {settings.EMAIL_USE_TLS}")
+        
+        # Check if email settings are configured
+        if not settings.EMAIL_HOST_USER or not settings.EMAIL_HOST_PASSWORD:
+            logger.error("Email credentials not configured")
+            return Response(
+                {'error': 'Email not configured on server'},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
 
         # Send email
-        result = send_mail(
-            subject=subject,
-            message=email_body,
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            recipient_list=[settings.EMAIL_RECIPIENT],
-            fail_silently=False,
-        )
-        
-        print(f"Email send result: {result}")
+        try:
+            result = send_mail(
+                subject=subject,
+                message=email_body,
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[settings.EMAIL_RECIPIENT],
+                fail_silently=False,
+            )
+            
+            logger.info(f"Email send result: {result} (1=success, 0=failure)")
+            
+            if result == 0:
+                logger.error("send_mail returned 0 - email was not sent")
+                return Response(
+                    {'error': 'Email failed to send'},
+                    status=status.HTTP_500_INTERNAL_SERVER_ERROR
+                )
+            
+        except Exception as email_error:
+            logger.error(f"Exception during send_mail: {str(email_error)}")
+            raise
 
         return Response({
             'message': 'Contact form submitted successfully',
             'status': 'success',
-            'email_sent': result == 1
+            'email_sent': True
         })
 
     except Exception as e:
-        print(f"Error sending email: {str(e)}")
+        logger.error(f"Error in contact_form: {str(e)}")
         import traceback
-        traceback.print_exc()
+        logger.error(traceback.format_exc())
         return Response(
             {'error': f'Failed to send email: {str(e)}'},
             status=status.HTTP_500_INTERNAL_SERVER_ERROR
