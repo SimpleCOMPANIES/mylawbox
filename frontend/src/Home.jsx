@@ -157,7 +157,7 @@ export default function Home({ onNavigateContact }) {
                             <li><a href="#services" className="text-xs block py-1 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.7)'}>Chief Marketing Officer</a></li>
                             <li><a href="#services" className="text-xs block py-1 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.7)'}>Chief AI Officer</a></li>
                             <li><a href="#services" className="text-xs block py-1 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.7)'}>Tax Strategist</a></li>
-                            <li><a href="#services" className="text-xs block py-1 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.7)'}>Human Resources</a></li>
+                            <li><a href="#services" className="text-xs block py-1 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.7)'}>Payroll & HR</a></li>
                           </ul>
                         </div>
                         
@@ -752,7 +752,7 @@ export default function Home({ onNavigateContact }) {
                 <li className="leading-relaxed">Chief Marketing Officer</li>
                 <li className="leading-relaxed">Chief AI Officer</li>
                 <li className="leading-relaxed">Tax Strategist</li>
-                <li className="leading-relaxed">Human Resources</li>
+                <li className="leading-relaxed">Payroll & HR</li>
               </ul>
             </div>
 
@@ -823,7 +823,8 @@ export default function Home({ onNavigateContact }) {
         </div>
       </section>
 
-      {/* Team Section - Matching Finch */}
+      {/* COMMENTED OUT — Team Section (6 members) & Security/Trust Section below. Re-enable by removing these comment markers.
+      Team Section - Matching Finch
       <section ref={teamRef} className={`py-24 ${teamVisible ? 'animate-fade-in-down' : 'opacity-0'}`} style={{ background: 'linear-gradient(to bottom, #FAFAF8, #FFFFFF)' }} id="team">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -921,7 +922,8 @@ export default function Home({ onNavigateContact }) {
         </div>
       </section>
 
-      {/* Trust Section - Matching Finch */}
+      {/* COMMENTED OUT — Security & Transparency Section. Re-enable by removing these comment markers.
+      Trust Section - Matching Finch
       <section ref={trustRef} className={`py-24 bg-white ${trustVisible ? 'animate-fade-in-down' : 'opacity-0'}`}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -930,40 +932,14 @@ export default function Home({ onNavigateContact }) {
               The control, compliance, and peace of mind you need to scale confidently
             </p>
           </div>
-          
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="p-8">
-              <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{ backgroundColor: 'rgba(201, 169, 97, 0.15)' }}>
-                <CheckCircle2 className="w-6 h-6" style={{ color: '#C9A961' }} />
-              </div>
-              <h4 className="text-xl font-bold mb-3" style={{ color: '#0A1628' }}>Enterprise-grade security</h4>
-              <p style={{ color: '#64748B' }}>
-                SOC 2 Type II certified with comprehensive data protection. All client information handled with bank-level security controls.
-              </p>
-            </Card>
-            
-            <Card className="p-8">
-              <div className="w-12 h-12 bg-burnt-100 rounded-lg flex items-center justify-center mb-4">
-                <CheckCircle2 className="w-6 h-6 text-burnt-600" />
-              </div>
-              <h4 className="text-xl font-bold mb-3 text-slate-900">Your brand, amplified</h4>
-              <p className="text-slate-600">
-                LawBOX staff operate as extensions of your firm using your email addresses. Full visibility into every client interaction.
-              </p>
-            </Card>
-            
-            <Card className="p-8">
-              <div className="w-12 h-12 bg-burnt-100 rounded-lg flex items-center justify-center mb-4">
-                <CheckCircle2 className="w-6 h-6 text-burnt-600" />
-              </div>
-              <h4 className="text-xl font-bold mb-3 text-slate-900">Trained on excellence</h4>
-              <p className="text-slate-600">
-                Every team member trained on PI workflows, ethical standards, and confidentiality requirements. Your professional obligations are ours.
-              </p>
-            </Card>
+            Card: Enterprise-grade security - SOC 2 Type II certified...
+            Card: Your brand, amplified - LawBOX staff operate as extensions...
+            Card: Trained on excellence - Every team member trained on PI workflows...
           </div>
         </div>
       </section>
+      END COMMENTED OUT SECTIONS */}
 
       {/* Final CTA - Matching Finch */}
       <section className="py-32 relative overflow-hidden">
