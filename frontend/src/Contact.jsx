@@ -56,9 +56,10 @@ export default function Contact({ onNavigateHome }) {
       if (response.ok) {
         setSubmitted(true);
       } else {
-        const error = await response.json();
-        console.error('Form submission failed:', error);
-        alert('Failed to submit form. Please try again or contact us at rzade@simpleciti.com');
+        const errorData = await response.json().catch(() => ({}));
+        console.error('Form submission failed:', errorData);
+        const errorMessage = errorData.error || 'Failed to submit form. Please try again or contact us at rzade@simpleciti.com';
+        alert(errorMessage);
       }
     } catch (error) {
       console.error('Error submitting form:', error);

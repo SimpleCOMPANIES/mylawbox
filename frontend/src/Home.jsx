@@ -791,7 +791,6 @@ export default function Home({ onNavigateContact }) {
         </div>
       </section>
 
-      {/* Integration Section - Matching Finch */}
       <section ref={integrationRef} className={`py-24 ${integrationVisible ? 'animate-fade-in-down' : 'opacity-0'}`} style={{ background: 'linear-gradient(to bottom, #FFFFFF, #FAFAF8)' }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6" style={{ color: '#0A1628' }}>Seamless integration with <span style={{ color: '#C9A961' }}>your case management system</span></h2>
@@ -823,7 +822,6 @@ export default function Home({ onNavigateContact }) {
         </div>
       </section>
 
-      {/* Team Section - Matching Finch */}
       <section ref={teamRef} className={`py-24 ${teamVisible ? 'animate-fade-in-down' : 'opacity-0'}`} style={{ background: 'linear-gradient(to bottom, #FAFAF8, #FFFFFF)' }} id="team">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -921,7 +919,6 @@ export default function Home({ onNavigateContact }) {
         </div>
       </section>
 
-      {/* Trust Section - Matching Finch */}
       <section ref={trustRef} className={`py-24 bg-white ${trustVisible ? 'animate-fade-in-down' : 'opacity-0'}`}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -965,7 +962,6 @@ export default function Home({ onNavigateContact }) {
         </div>
       </section>
 
-      {/* Final CTA - Matching Finch */}
       <section className="py-32 relative overflow-hidden">
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=2000&q=80" alt="Modern office" className="w-full h-full object-cover" />

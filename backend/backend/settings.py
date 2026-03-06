@@ -146,13 +146,13 @@ env_path = BASE_DIR / '.env'
 load_dotenv(dotenv_path=env_path)
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.office365.com'  # Office 365 SMTP server
+EMAIL_HOST = 'smtp.gmail.com'  # Gmail SMTP server
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = os.getenv('EMAIL_HOST_USER')
-EMAIL_RECIPIENT = os.getenv('EMAIL_RECIPIENT', 'rzade@simpleciti.com')  # Default fallback
+EMAIL_RECIPIENT = os.getenv('EMAIL_RECIPIENT', 'info@getlawbox.com')  # Default fallback
 # CORS settings
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
