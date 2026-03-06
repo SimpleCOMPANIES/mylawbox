@@ -52,7 +52,7 @@ const CheckCircle2 = ({ className }) => (
   </svg>
 );
 
-export default function Home({ onNavigateContact }) {
+export default function Home({ onNavigateContact, onNavigate }) {
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [socialProofRef, socialProofVisible] = useScrollReveal();
@@ -114,16 +114,7 @@ export default function Home({ onNavigateContact }) {
         }
       `}</style>
       {/* Hero Section - Nav + Hero share one background container */}
-      <section className="relative pb-16 sm:pb-20 md:pb-28 overflow-hidden texture-overlay">
-        {/* Real photography background - covers nav + hero */}
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=2400&q=80" 
-            alt="Legal documents and workspace" 
-            className="w-full h-full object-cover opacity-15"
-          />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom right, #0A1628, #1A2740, #0A1628)' }} />
-        </div>
+      <section className="relative pb-16 sm:pb-20 md:pb-28 overflow-hidden" style={{ background: 'linear-gradient(to bottom right, #0A1628, #1A2740, #0A1628)' }}>
 
         {/* Navigation - inside hero for seamless background */}
         <nav className="relative z-50">
@@ -151,13 +142,28 @@ export default function Home({ onNavigateContact }) {
                         <div>
                           <h3 className="text-sm font-bold mb-4 pb-2 border-b" style={{ color: '#C9A961', borderColor: 'rgba(201, 169, 97, 0.3)' }}>Fractional Services</h3>
                           <ul className="space-y-2">
-                            <li><a href="#services" className="text-xs block py-1 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.7)'}>Chief Information Officer</a></li>
-                            <li><a href="#services" className="text-xs block py-1 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.7)'}>Chief Operating Officer</a></li>
-                            <li><a href="#services" className="text-xs block py-1 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.7)'}>Chief Financial Officer</a></li>
-                            <li><a href="#services" className="text-xs block py-1 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.7)'}>Chief Marketing Officer</a></li>
-                            <li><a href="#services" className="text-xs block py-1 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.7)'}>Chief AI Officer</a></li>
-                            <li><a href="#services" className="text-xs block py-1 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.7)'}>Tax Strategist</a></li>
-                            <li><a href="#services" className="text-xs block py-1 transition-colors" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.7)'}>Human Resources</a></li>
+                            {[
+                              { label: 'Chief Operating Officer', id: 'fractional-coo' },
+                              { label: 'Chief Financial Officer', id: 'fractional-cfo' },
+                              { label: 'Bookkeeping & IOLTA', id: 'bookkeeping' },
+                              { label: 'HR & Payroll', id: 'hr-payroll' },
+                              { label: 'Chief Information Officer', id: 'fractional-cio' },
+                              { label: 'Chief Marketing Officer', id: 'fractional-cmo' },
+                              { label: 'Chief AI Officer', id: 'fractional-caio' },
+                              { label: 'Tax Strategy', id: 'tax-strategy' },
+                            ].map(({ label, id }) => (
+                              <li key={id}>
+                                <button
+                                  onClick={() => { onNavigate(id); setServicesDropdownOpen(false); }}
+                                  className="text-xs block py-1 transition-colors text-left w-full"
+                                  style={{ color: 'rgba(255, 255, 255, 0.7)', background: 'none', border: 'none', cursor: 'pointer' }}
+                                  onMouseEnter={(e) => (e.target.style.color = '#C9A961')}
+                                  onMouseLeave={(e) => (e.target.style.color = 'rgba(255, 255, 255, 0.7)')}
+                                >
+                                  {label}
+                                </button>
+                              </li>
+                            ))}
                           </ul>
                         </div>
                         
@@ -224,9 +230,26 @@ export default function Home({ onNavigateContact }) {
                     <div>
                       <h4 className="text-xs font-bold mb-1" style={{ color: '#C9A961' }}>Fractional Services</h4>
                       <ul className="space-y-1">
-                        <li><a href="#services" className="block py-0.5 text-xs" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onClick={() => setMobileMenuOpen(false)}>CIO • COO • CFO</a></li>
-                        <li><a href="#services" className="block py-0.5 text-xs" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onClick={() => setMobileMenuOpen(false)}>CMO • CAI Officer</a></li>
-                        <li><a href="#services" className="block py-0.5 text-xs" style={{ color: 'rgba(255, 255, 255, 0.7)' }} onClick={() => setMobileMenuOpen(false)}>Tax Strategist • HR</a></li>
+                        {[
+                          { label: 'Chief Operating Officer', id: 'fractional-coo' },
+                          { label: 'Chief Financial Officer', id: 'fractional-cfo' },
+                          { label: 'Bookkeeping & IOLTA', id: 'bookkeeping' },
+                          { label: 'HR & Payroll', id: 'hr-payroll' },
+                          { label: 'Chief Information Officer', id: 'fractional-cio' },
+                          { label: 'Chief Marketing Officer', id: 'fractional-cmo' },
+                          { label: 'Chief AI Officer', id: 'fractional-caio' },
+                          { label: 'Tax Strategy', id: 'tax-strategy' },
+                        ].map(({ label, id }) => (
+                          <li key={id}>
+                            <button
+                              onClick={() => { onNavigate(id); setMobileMenuOpen(false); }}
+                              className="block py-0.5 text-xs text-left w-full"
+                              style={{ color: 'rgba(255, 255, 255, 0.7)', background: 'none', border: 'none', cursor: 'pointer' }}
+                            >
+                              {label}
+                            </button>
+                          </li>
+                        ))}
                       </ul>
                     </div>
                     
@@ -745,14 +768,28 @@ export default function Home({ onNavigateContact }) {
             {/* Fractional Services */}
             <div className="bg-white rounded-lg p-8 border" style={{ borderColor: '#E5E7EB' }}>
               <h3 className="text-xl font-bold mb-6 pb-3" style={{ color: '#0A1628', borderBottom: '2px solid #C9A961' }}>Fractional Services</h3>
-              <ul className="space-y-3" style={{ color: '#2B3544' }}>
-                <li className="leading-relaxed">Chief Information Officer</li>
-                <li className="leading-relaxed">Chief Operating Officer</li>
-                <li className="leading-relaxed">Chief Financial Officer</li>
-                <li className="leading-relaxed">Chief Marketing Officer</li>
-                <li className="leading-relaxed">Chief AI Officer</li>
-                <li className="leading-relaxed">Tax Strategist</li>
-                <li className="leading-relaxed">Human Resources</li>
+              <ul className="space-y-3">
+                {[
+                  { label: 'Chief Information Officer', id: 'fractional-cio' },
+                  { label: 'Chief Operating Officer', id: 'fractional-coo' },
+                  { label: 'Chief Financial Officer', id: 'fractional-cfo' },
+                  { label: 'Chief Marketing Officer', id: 'fractional-cmo' },
+                  { label: 'Chief AI Officer', id: 'fractional-caio' },
+                  { label: 'Tax Strategist', id: 'tax-strategy' },
+                  { label: 'Payroll & HR', id: 'hr-payroll' },
+                ].map(({ label, id }) => (
+                  <li key={id}>
+                    <button
+                      onClick={() => onNavigate(id)}
+                      className="leading-relaxed text-left w-full transition-colors"
+                      style={{ color: '#2B3544', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+                      onMouseEnter={(e) => (e.currentTarget.style.color = '#C9A961')}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = '#2B3544')}
+                    >
+                      {label}
+                    </button>
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -822,6 +859,11 @@ export default function Home({ onNavigateContact }) {
         </div>
       </section>
 
+<<<<<<< HEAD
+=======
+      {/* COMMENTED OUT — Team Section (6 members) & Security/Trust Section below. Re-enable by removing these comment markers.
+      Team Section - Matching Finch
+>>>>>>> 8f3b01e669ae3149dd88abf4141a8c9d5f3d9de9
       <section ref={teamRef} className={`py-24 ${teamVisible ? 'animate-fade-in-down' : 'opacity-0'}`} style={{ background: 'linear-gradient(to bottom, #FAFAF8, #FFFFFF)' }} id="team">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -919,6 +961,11 @@ export default function Home({ onNavigateContact }) {
         </div>
       </section>
 
+<<<<<<< HEAD
+=======
+      {/* COMMENTED OUT — Security & Transparency Section. Re-enable by removing these comment markers.
+      Trust Section - Matching Finch
+>>>>>>> 8f3b01e669ae3149dd88abf4141a8c9d5f3d9de9
       <section ref={trustRef} className={`py-24 bg-white ${trustVisible ? 'animate-fade-in-down' : 'opacity-0'}`}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -927,40 +974,14 @@ export default function Home({ onNavigateContact }) {
               The control, compliance, and peace of mind you need to scale confidently
             </p>
           </div>
-          
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="p-8">
-              <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{ backgroundColor: 'rgba(201, 169, 97, 0.15)' }}>
-                <CheckCircle2 className="w-6 h-6" style={{ color: '#C9A961' }} />
-              </div>
-              <h4 className="text-xl font-bold mb-3" style={{ color: '#0A1628' }}>Enterprise-grade security</h4>
-              <p style={{ color: '#64748B' }}>
-                SOC 2 Type II certified with comprehensive data protection. All client information handled with bank-level security controls.
-              </p>
-            </Card>
-            
-            <Card className="p-8">
-              <div className="w-12 h-12 bg-burnt-100 rounded-lg flex items-center justify-center mb-4">
-                <CheckCircle2 className="w-6 h-6 text-burnt-600" />
-              </div>
-              <h4 className="text-xl font-bold mb-3 text-slate-900">Your brand, amplified</h4>
-              <p className="text-slate-600">
-                LawBOX staff operate as extensions of your firm using your email addresses. Full visibility into every client interaction.
-              </p>
-            </Card>
-            
-            <Card className="p-8">
-              <div className="w-12 h-12 bg-burnt-100 rounded-lg flex items-center justify-center mb-4">
-                <CheckCircle2 className="w-6 h-6 text-burnt-600" />
-              </div>
-              <h4 className="text-xl font-bold mb-3 text-slate-900">Trained on excellence</h4>
-              <p className="text-slate-600">
-                Every team member trained on PI workflows, ethical standards, and confidentiality requirements. Your professional obligations are ours.
-              </p>
-            </Card>
+            Card: Enterprise-grade security - SOC 2 Type II certified...
+            Card: Your brand, amplified - LawBOX staff operate as extensions...
+            Card: Trained on excellence - Every team member trained on PI workflows...
           </div>
         </div>
       </section>
+      END COMMENTED OUT SECTIONS */}
 
       <section className="py-32 relative overflow-hidden">
         <div className="absolute inset-0">
