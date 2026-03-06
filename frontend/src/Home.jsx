@@ -859,11 +859,6 @@ export default function Home({ onNavigateContact, onNavigate }) {
         </div>
       </section>
 
-<<<<<<< HEAD
-=======
-      {/* COMMENTED OUT — Team Section (6 members) & Security/Trust Section below. Re-enable by removing these comment markers.
-      Team Section - Matching Finch
->>>>>>> 8f3b01e669ae3149dd88abf4141a8c9d5f3d9de9
       <section ref={teamRef} className={`py-24 ${teamVisible ? 'animate-fade-in-down' : 'opacity-0'}`} style={{ background: 'linear-gradient(to bottom, #FAFAF8, #FFFFFF)' }} id="team">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -961,11 +956,6 @@ export default function Home({ onNavigateContact, onNavigate }) {
         </div>
       </section>
 
-<<<<<<< HEAD
-=======
-      {/* COMMENTED OUT — Security & Transparency Section. Re-enable by removing these comment markers.
-      Trust Section - Matching Finch
->>>>>>> 8f3b01e669ae3149dd88abf4141a8c9d5f3d9de9
       <section ref={trustRef} className={`py-24 bg-white ${trustVisible ? 'animate-fade-in-down' : 'opacity-0'}`}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -975,13 +965,21 @@ export default function Home({ onNavigateContact, onNavigate }) {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            Card: Enterprise-grade security - SOC 2 Type II certified...
-            Card: Your brand, amplified - LawBOX staff operate as extensions...
-            Card: Trained on excellence - Every team member trained on PI workflows...
+            <Card>
+              <h3 className="text-lg font-semibold mb-2">Enterprise-grade security</h3>
+              <p className="text-sm text-slate-600">SOC 2 Type II certified...</p>
+            </Card>
+            <Card>
+              <h3 className="text-lg font-semibold mb-2">Your brand, amplified</h3>
+              <p className="text-sm text-slate-600">LawBOX staff operate as extensions...</p>
+            </Card>
+            <Card>
+              <h3 className="text-lg font-semibold mb-2">Trained on excellence</h3>
+              <p className="text-sm text-slate-600">Every team member trained on PI workflows...</p>
+            </Card>
           </div>
         </div>
       </section>
-      END COMMENTED OUT SECTIONS */}
 
       <section className="py-32 relative overflow-hidden">
         <div className="absolute inset-0">

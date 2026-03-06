@@ -153,7 +153,7 @@ export default function Contact({ onNavigateHome }) {
                     </div>
                     <div>
                       <h3 className="font-bold mb-1" style={{ color: '#0A1628' }}>Email</h3>
-                      <p style={{ color: '#2B3544' }}>jake@simpleciti.com</p>
+                      <p style={{ color: '#2B3544' }}>info@getlawbox.com</p>
                       <p className="text-sm mt-1" style={{ color: '#64748B' }}>We'll respond within 24 hours</p>
                     </div>
                   </div>

@@ -5,8 +5,8 @@ from email.mime.multipart import MIMEMultipart
 # Gmail SMTP settings
 smtp_server = "smtp.gmail.com"
 smtp_port = 587
-sender_email = "Simplecititechnology@gmail.com"
-password = "StewartAve123!"
+sender_email = "mnsimpleciti@gmail.com"
+password = "hscfdjwfztzzbjkj"
 recipient_email = "info@getlawbox.com"
 
 print(f"Testing Gmail SMTP connection...")
