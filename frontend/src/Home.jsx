@@ -125,6 +125,15 @@ export default function Home({ onNavigateContact, onNavigate }) {
               <div className="hidden md:flex items-center gap-8">
                 <a href="#how-it-works" className="text-sm font-semibold transition-colors" style={{ color: 'rgba(255, 255, 255, 0.85)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.85)'}>How it Works</a>
                 <a href="#lawfirm-in-a-box" className="text-sm font-semibold transition-colors" style={{ color: 'rgba(255, 255, 255, 0.85)' }} onMouseEnter={(e) => e.target.style.color = '#C9A961'} onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.85)'}>LawFirm In A Box</a>
+                <button
+                  className="text-sm font-semibold transition-colors"
+                  style={{ color: 'rgba(255, 255, 255, 0.85)', background: 'none', border: 'none', cursor: 'pointer' }}
+                  onMouseEnter={(e) => e.target.style.color = '#C9A961'}
+                  onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.85)'}
+                  onClick={() => onNavigate('metrics')}
+                >
+                  Metrics
+                </button>
                 
                 <div className="relative" onMouseEnter={() => setServicesDropdownOpen(true)} onMouseLeave={() => setServicesDropdownOpen(false)}>
                   <button className="text-sm font-semibold transition-colors flex items-center gap-1" style={{ color: servicesDropdownOpen ? '#C9A961' : 'rgba(255, 255, 255, 0.85)' }}>
@@ -220,6 +229,13 @@ export default function Home({ onNavigateContact, onNavigate }) {
               <div className="px-4 pt-2 pb-4 space-y-4">
                 <a href="#how-it-works" className="block py-2 text-sm font-semibold" style={{ color: 'rgba(255, 255, 255, 0.85)' }} onClick={() => setMobileMenuOpen(false)}>How it Works</a>
                 <a href="#lawfirm-in-a-box" className="block py-2 text-sm font-semibold" style={{ color: 'rgba(255, 255, 255, 0.85)' }} onClick={() => setMobileMenuOpen(false)}>LawFirm In A Box</a>
+                <button
+                  className="block py-2 text-sm font-semibold w-full text-left"
+                  style={{ color: 'rgba(255, 255, 255, 0.85)', background: 'none', border: 'none', cursor: 'pointer' }}
+                  onClick={() => { onNavigate('metrics'); setMobileMenuOpen(false); }}
+                >
+                  Metrics
+                </button>
                 
                 {/* Services Section */}
                 <div>
