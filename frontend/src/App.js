@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // Original MyLawBox app saved in MyLawBox.backup.jsx - do not delete!
-// import MyLawBox from './MyLawBox';
+// import MyLawBox from './MyLawBox'
 import Home from './Home';
 import Contact from './Contact';
 import ServicePage from './ServicePage';
