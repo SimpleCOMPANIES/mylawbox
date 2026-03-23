@@ -28,6 +28,10 @@ const Mail = ({ className }) => (
 );
 
 export default function Contact({ onNavigateHome }) {
+  const phoneDisplay = '(516) 967-3886';
+  const phoneHref = 'tel:+15169673886';
+  const emailAddress = 'info@getlawbox.com';
+
   const [formData, setFormData] = useState({
     firmName: '',
     contactName: '',
@@ -96,6 +100,25 @@ export default function Contact({ onNavigateHome }) {
     });
   };
 
+  const handleBookDemoClick = () => {
+    const formContainer = document.getElementById('contact-schedule-form');
+
+    if (!formContainer) {
+      return;
+    }
+
+    const headerOffset = window.innerWidth < 768 ? 104 : 92;
+    const targetTop = formContainer.getBoundingClientRect().top + window.scrollY - headerOffset;
+
+    window.scrollTo({ top: Math.max(targetTop, 0), behavior: 'smooth' });
+
+    // Focus the first field after scrolling for a smoother booking flow.
+    const firstInput = formContainer.querySelector('input, select, textarea');
+    if (firstInput instanceof HTMLElement) {
+      setTimeout(() => firstInput.focus(), 350);
+    }
+  };
+
   return (
     <main className="min-h-screen bg-white overflow-x-hidden">
       {/* Navigation */}
@@ -135,12 +158,24 @@ export default function Contact({ onNavigateHome }) {
               <div className="space-y-6">
                 <Card className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(201, 169, 97, 0.15)' }}>
+                    <a
+                      href={phoneHref}
+                      className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 transition-opacity hover:opacity-80"
+                      style={{ backgroundColor: 'rgba(201, 169, 97, 0.15)' }}
+                      aria-label="Call LawBox at (516) 967-3886"
+                    >
                       <Phone className="w-6 h-6" style={{ color: '#C9A961' }} />
-                    </div>
+                    </a>
                     <div>
                       <h3 className="font-bold mb-1" style={{ color: '#0A1628' }}>Phone</h3>
-                      <p style={{ color: '#2B3544' }}>(516) 967-3886</p>
+                      <a
+                        href={phoneHref}
+                        className="transition-colors hover:underline"
+                        style={{ color: '#2B3544' }}
+                        aria-label="Call LawBox at (516) 967-3886"
+                      >
+                        {phoneDisplay}
+                      </a>
                       <p className="text-sm mt-1" style={{ color: '#64748B' }}>Mon-Fri 9am-6pm EST</p>
                     </div>
                   </div>
@@ -148,34 +183,53 @@ export default function Contact({ onNavigateHome }) {
 
                 <Card className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(201, 169, 97, 0.15)' }}>
+                    <a
+                      href={`mailto:${emailAddress}?subject=LawBox%20Consultation%20Request`}
+                      className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 transition-opacity hover:opacity-80"
+                      style={{ backgroundColor: 'rgba(201, 169, 97, 0.15)' }}
+                      aria-label="Email LawBox"
+                    >
                       <Mail className="w-6 h-6" style={{ color: '#C9A961' }} />
-                    </div>
+                    </a>
                     <div>
                       <h3 className="font-bold mb-1" style={{ color: '#0A1628' }}>Email</h3>
-                      <p style={{ color: '#2B3544' }}>info@getlawbox.com</p>
+                      <a
+                        href={`mailto:${emailAddress}?subject=LawBox%20Consultation%20Request`}
+                        className="transition-colors hover:underline"
+                        style={{ color: '#2B3544' }}
+                        aria-label="Email LawBox"
+                      >
+                        {emailAddress}
+                      </a>
                       <p className="text-sm mt-1" style={{ color: '#64748B' }}>We'll respond within 24 hours</p>
                     </div>
                   </div>
                 </Card>
 
                 <Card className="p-6">
-                  <div className="flex items-start gap-4">
+                  <button
+                    type="button"
+                    onClick={handleBookDemoClick}
+                    className="w-full flex items-start gap-4 text-left"
+                    aria-label="Book a 30-minute LawBox demo"
+                  >
                     <div className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(201, 169, 97, 0.15)' }}>
                       <Calendar className="w-6 h-6" style={{ color: '#C9A961' }} />
                     </div>
                     <div>
                       <h3 className="font-bold mb-1" style={{ color: '#0A1628' }}>Book a Demo</h3>
-                      <p style={{ color: '#2B3544' }}>30-minute consultation</p>
+                      <span className="transition-colors hover:underline" style={{ color: '#2B3544' }}>
+                        30-minute consultation
+                      </span>
                       <p className="text-sm mt-1" style={{ color: '#64748B' }}>See LawBox in action</p>
                     </div>
-                  </div>
+                  </button>
                 </Card>
               </div>
             </div>
 
             {/* Right Column - Form */}
-            <div>
+            <div id="contact-schedule-form">
               {submitted ? (
                 <Card className="p-8 text-center" style={{ background: 'linear-gradient(to bottom right, #FAFAF8, #FFFFFF)' }}>
                   <div className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center" style={{ backgroundColor: 'rgba(34, 197, 94, 0.15)' }}>
