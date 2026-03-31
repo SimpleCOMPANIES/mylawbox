@@ -249,9 +249,9 @@ export default function MyLawBox() {
     
     setTimeout(() => {
       const responses = [
-        `Based on cases like yours, you could get somewhere between $${(caseInfo.estimatedSettlement * 0.85).toLocaleString()} and $${(caseInfo.estimatedSettlement * 1.15).toLocaleString()}. If you upload photos of the damage to your car, that usually helps get more.`,
+        `Based on cases like yours, you could get somewhere between $${(caseInfo.estimatedSettlement * 0.85).toLocaleString()} and $${(caseInfo.estimatedSettlement * 1.15).toLocaleString()}. That usually helps get more.`,
         `You're doing great! Most people take 12-18 months with a regular lawyer, but you're on track to be done in about 3 months because you're helping with the paperwork.`,
-        `The most important thing you can do right now is take photos of any damage to your car. Cases with good photos usually get 30-40% more money.`,
+        `The most important thing you can do right now is stay consistent with your case tasks. Cases with strong documentation usually get 30-40% more money.`,
         `I see you've been to the doctor ${caseInfo.treatments.length} times so far. Keep going to all your appointments and save all your receipts — each visit helps show how serious your injuries are.`,
       ];
       setAiChat(prev => [...prev, { role: 'ai', content: responses[Math.floor(Math.random() * responses.length)] }]);
