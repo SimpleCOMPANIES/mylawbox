@@ -325,10 +325,6 @@ export default function Home({ onNavigateContact, onNavigate }) {
               <span className="w-2 h-2 rounded-full animate-pulse flex-shrink-0" style={{ backgroundColor: 'white' }}></span>
               Trusted by top personal injury firms nationwide
             </div>
-            <h2 className="font-serif text-5xl md:text-6xl font-bold" style={{ color: '#0A1628' }}>
-              <span className="hidden sm:inline">Human Centric + AI = More Cases, Less Overhead</span>
-              <span className="sm:hidden">Human Centric<br />+<br />AI<br />=<br /> More Cases, Less Overhead</span>
-            </h2>
           </div>
           
           <div className="max-w-4xl mx-auto space-y-12">
@@ -896,11 +892,7 @@ export default function Home({ onNavigateContact, onNavigate }) {
               The control, compliance, and peace of mind you need to scale confidently
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card>
-              <h3 className="text-lg font-semibold mb-2">Enterprise-grade security</h3>
-              <p className="text-sm text-slate-600">SOC 2 Type II certified...</p>
-            </Card>
+          <div className="grid md:grid-cols-2 gap-8">
             <Card>
               <h3 className="text-lg font-semibold mb-2">Your brand, amplified</h3>
               <p className="text-sm text-slate-600">LawBOX staff operate as extensions...</p>
