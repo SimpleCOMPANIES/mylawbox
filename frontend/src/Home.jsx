@@ -369,7 +369,7 @@ export default function Home({ onNavigateContact, onNavigate }) {
         {/* Mobile hero */}
         <div className="relative md:hidden z-10 overflow-hidden" style={{ height: 'calc(100dvh - 38px)', minHeight: '0', backgroundColor: '#F5F5F5' }}>
           <img
-            src="/images/hero-office.jpg%20(1)%20(2).png"
+            src="/images/mobile.png"
             alt=""
             className="w-full h-full block"
             fetchpriority="high"
@@ -381,7 +381,7 @@ export default function Home({ onNavigateContact, onNavigate }) {
           />
           <div
             className="absolute z-20 flex flex-col items-start"
-            style={{ left: '52%', top: '62%', transform: 'translate(-50%, -50%)' }}
+            style={{ left: '52%', bottom: '18px', transform: 'translateX(-50%)' }}
           >
             <div className="flex flex-col items-start">
               <span className="font-serif font-bold leading-none" style={{ color: '#000000', fontSize: '2.2rem', letterSpacing: '-0.03em' }}>
@@ -451,7 +451,7 @@ export default function Home({ onNavigateContact, onNavigate }) {
         </div>
 
         <div className="md:hidden z-20 flex items-center justify-center px-2" style={{ backgroundColor: '#9E9E9E', height: '44px' }}>
-          <p className="font-serif font-bold text-center" style={{ color: '#000000', fontSize: '0.7rem', lineHeight: 1.2 }}>
+          <p className="font-serif font-bold text-center whitespace-nowrap" style={{ color: '#000000', fontSize: '0.55rem', lineHeight: 1.2 }}>
             AI Powered Pre-Lit Platform &nbsp;&middot;&nbsp; Scale Your Practice &nbsp;&middot;&nbsp; Reduce Overhead &nbsp;&middot;&nbsp; Reduce Time On Desk
           </p>
         </div>
